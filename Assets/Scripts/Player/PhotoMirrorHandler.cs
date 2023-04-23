@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,33 +10,39 @@ public class PhotoMirrorHandler : MonoBehaviour
 
     private static PhotoMirrorHandler instance;
     private Camera cameraRef;
+    private string photosFolderPath = "Photos/";
+    private string[] filePaths;
     private void Awake()
     {
         instance = this;
         cameraRef = gameObject.GetComponent<Camera>();
+        photosFolderPath = Application.streamingAssetsPath + "/Photos/";
+
     }
 
     IEnumerator WaitAndScreenshot()
     {
         yield return new WaitForEndOfFrame();
-        Debug.Log("bonj33");
         RenderTexture renderTex = cameraRef.targetTexture;
         RenderTexture.active = renderTex;
-        Debug.Log("bonj");
 
         Texture2D resultTex = new Texture2D(renderTex.width, renderTex.height, TextureFormat.ARGB32, false);
         Rect rect = new Rect(0, 0, renderTex.width, renderTex.height);
         resultTex.ReadPixels(rect, 0, 0);
 
         byte[] byteArray = resultTex.EncodeToPNG();
-        System.IO.File.WriteAllBytes(Application.dataPath + "/Resources/Photos/" + "mirrorImage.png", byteArray);
+        File.WriteAllBytes(photosFolderPath + "mirrorImage.png", byteArray);
 
-        Debug.Log("eeee");
         RenderTexture.ReleaseTemporary(renderTex);
         cameraRef.targetTexture = null;
 
-        yield return new WaitForSeconds(1);
-        Texture2D newTex = Resources.Load<Texture2D>("Photos/mirrorImage");
+        yield return new WaitForSeconds(0.01f);
+
+        filePaths = Directory.GetFiles(photosFolderPath, "mirrorImage.png");
+        byte[] pngBytes = File.ReadAllBytes(filePaths[0]);
+        Texture2D newTex = new Texture2D(2, 2);
+        newTex.LoadImage(pngBytes);
+
         Sprite newSprite = Sprite.Create(newTex, new Rect(0.0f, 0.0f, newTex.width, newTex.height), new Vector2(0.5f, 0.5f), 20);
         mirrorImage.sprite = newSprite;
     }
@@ -43,7 +50,6 @@ public class PhotoMirrorHandler : MonoBehaviour
     public void TakeScreenshot(int width, int height)
     {
         cameraRef.targetTexture = RenderTexture.GetTemporary(width, height, 16);
-        Debug.Log("bonj2");
         StartCoroutine(WaitAndScreenshot());
     }
 
@@ -51,7 +57,6 @@ public class PhotoMirrorHandler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("bonj1");
             TakeScreenshot(500, 500);
         }
     }
