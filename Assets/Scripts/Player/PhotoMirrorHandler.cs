@@ -12,7 +12,7 @@ public class PhotoMirrorHandler : MonoBehaviour
     private Camera cameraRef;
     private string photosFolderPath = "Photos/";
     private string[] filePaths;
-    private bool canTakePhoto = true;
+    
     private void Awake()
     {
         instance = this;
@@ -48,27 +48,13 @@ public class PhotoMirrorHandler : MonoBehaviour
         mirrorImage.sprite = newSprite;
         
         StartCoroutine(FadeIn());
-        modelRef.TakePhoto();
+        modelRef.ScreenFade();
     }
 
     public void TakeScreenshot(int width, int height)
     {
-        if (!canTakePhoto)
-        {
-            return;
-        }
-
-        canTakePhoto = false;
         cameraRef.targetTexture = RenderTexture.GetTemporary(width, height, 16);
         StartCoroutine(WaitAndScreenshot());
-    }
-
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeScreenshot(500, 500);
-        }
     }
 
     IEnumerator FadeIn()
@@ -80,6 +66,6 @@ public class PhotoMirrorHandler : MonoBehaviour
             mirrorImage.color = c;
             yield return new WaitForSeconds(.05f);
         }
-        canTakePhoto = true;
+        modelRef.canTakePhoto = true;
     }
 }
