@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PhotoMirrorHandler : MonoBehaviour
 {
     [SerializeField] private Image mirrorImage;
-
+    [SerializeField] private ModelTakePhoto modelRef;
     private static PhotoMirrorHandler instance;
     private Camera cameraRef;
     private string photosFolderPath = "Photos/";
@@ -46,7 +46,9 @@ public class PhotoMirrorHandler : MonoBehaviour
 
         Sprite newSprite = Sprite.Create(newTex, new Rect(0.0f, 0.0f, newTex.width, newTex.height), new Vector2(0.5f, 0.5f), 20);
         mirrorImage.sprite = newSprite;
+        
         StartCoroutine(FadeIn());
+        modelRef.TakePhoto();
     }
 
     public void TakeScreenshot(int width, int height)
@@ -72,9 +74,9 @@ public class PhotoMirrorHandler : MonoBehaviour
     IEnumerator FadeIn()
     {
         Color c = mirrorImage.color;
-        for (float alpha = 0f; alpha <= 1f; alpha += 0.05f)
+        for (float alpha = 0f; alpha <= 100f; alpha += 5f)
         {
-            c.a = alpha;
+            c.a = alpha/100;
             mirrorImage.color = c;
             yield return new WaitForSeconds(.05f);
         }
