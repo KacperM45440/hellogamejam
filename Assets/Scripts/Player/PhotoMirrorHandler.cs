@@ -46,7 +46,7 @@ public class PhotoMirrorHandler : MonoBehaviour
 
         Sprite newSprite = Sprite.Create(newTex, new Rect(0.0f, 0.0f, newTex.width, newTex.height), new Vector2(0.5f, 0.5f), 20);
         mirrorImage.sprite = newSprite;
-        
+
         StartCoroutine(FadeIn());
         modelRef.ScreenFade();
     }
