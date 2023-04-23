@@ -11,7 +11,6 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController controller;
     private Vector3 movement = Vector3.zero;
 
-
     void Awake()
     {
         controller = GetComponent<CharacterController>();
