@@ -18644,6 +18644,33 @@ LightingSettings:
   m_PVRFilteringAtrousPositionSigmaIndirect: 2
   m_PVRFilteringAtrousPositionSigmaAO: 1
   m_PVRTiledBaking: 0
+--- !u!1 &851595803 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 882962738431023394, guid: 804134e3057f42844afa3b7c88f2d350,
+    type: 3}
+  m_PrefabInstance: {fileID: 1336424131}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &851595808
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851595803}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e76139567ca0e48438ecbd88b3342677, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &961739749
 GameObject:
   m_ObjectHideFlags: 0
@@ -18818,6 +18845,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 882962738431023398, guid: 804134e3057f42844afa3b7c88f2d350,
+        type: 3}
+      propertyPath: handlerRef
+      value: 
+      objectReference: {fileID: 1626933925}
     - target: {fileID: 882962738682171952, guid: 804134e3057f42844afa3b7c88f2d350,
         type: 3}
       propertyPath: m_Name
@@ -18895,6 +18927,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 804134e3057f42844afa3b7c88f2d350, type: 3}
+--- !u!114 &1626933925 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 882962738358337600, guid: 804134e3057f42844afa3b7c88f2d350,
+    type: 3}
+  m_PrefabInstance: {fileID: 1336424131}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b4a0dbb83ecfb64d8898454d3a61881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1647641040
 GameObject:
   m_ObjectHideFlags: 0
@@ -18999,7 +19043,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh29058
+  m_Name: pb_Mesh60846
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
