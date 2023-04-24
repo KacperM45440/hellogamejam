@@ -8,9 +8,10 @@ public class PlayerEquipment : MonoBehaviour
 {
     private static PlayerEquipment _instance;
     public static PlayerEquipment Instance { get { return _instance; } }
-    public List<Tuple<string, Sprite>> heldObjects = new();
-    [SerializeField] private GameObject slot1;
-    [SerializeField] private GameObject slot2;
+    public List<string> heldObjectNames;
+    public List<Sprite> heldObjectSprites;
+    public GameObject slot0;
+    public GameObject slot1;
 
     private void Awake()
     {
@@ -22,13 +23,11 @@ public class PlayerEquipment : MonoBehaviour
         {
             _instance = this;
         }
-
     }
-
 
     public void ShowItems()
     {
-        Debug.Log("Moje itemki to:" + heldObjects[0]);
-        slot1.GetComponent<Image>().sprite = heldObjects[0].Item2;
+        slot0.GetComponent<Image>().sprite = heldObjectSprites[0];
+        slot1.GetComponent<Image>().sprite = heldObjectSprites[1];
     }    
 }
