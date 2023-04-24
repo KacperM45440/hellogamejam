@@ -610,7 +610,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh45956
+  m_Name: pb_Mesh43848
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -944,7 +944,7 @@ GameObject:
   - component: {fileID: 1409548251}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1763,6 +1763,26 @@ PrefabInstance:
       propertyPath: detectRef
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 882962738358337615, guid: 804134e3057f42844afa3b7c88f2d350,
+        type: 3}
+      propertyPath: m_Name
+      value: MirrorCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 882962738360620902, guid: 804134e3057f42844afa3b7c88f2d350,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 882962738431023395, guid: 804134e3057f42844afa3b7c88f2d350,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 882962738431023395, guid: 804134e3057f42844afa3b7c88f2d350,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3
+      objectReference: {fileID: 0}
     - target: {fileID: 882962738682171952, guid: 804134e3057f42844afa3b7c88f2d350,
         type: 3}
       propertyPath: m_Name
@@ -1776,17 +1796,17 @@ PrefabInstance:
     - target: {fileID: 882962738682171953, guid: 804134e3057f42844afa3b7c88f2d350,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.5610313
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 882962738682171953, guid: 804134e3057f42844afa3b7c88f2d350,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.85757005
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 882962738682171953, guid: 804134e3057f42844afa3b7c88f2d350,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.0126128
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 882962738682171953, guid: 804134e3057f42844afa3b7c88f2d350,
         type: 3}
@@ -1842,6 +1862,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 17.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 882962739644901086, guid: 804134e3057f42844afa3b7c88f2d350,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 882962739644901086, guid: 804134e3057f42844afa3b7c88f2d350,
+        type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 882962739644901086, guid: 804134e3057f42844afa3b7c88f2d350,
+        type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 882962739644901086, guid: 804134e3057f42844afa3b7c88f2d350,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 882962739644901086, guid: 804134e3057f42844afa3b7c88f2d350,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 600
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 804134e3057f42844afa3b7c88f2d350, type: 3}

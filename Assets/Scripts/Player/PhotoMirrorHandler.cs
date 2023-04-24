@@ -18,9 +18,7 @@ public class PhotoMirrorHandler : MonoBehaviour
         instance = this;
         cameraRef = gameObject.GetComponent<Camera>();
         photosFolderPath = Application.streamingAssetsPath + "/Photos/";
-
     }
-
     IEnumerator WaitAndScreenshot()
     {
         yield return new WaitForEndOfFrame();

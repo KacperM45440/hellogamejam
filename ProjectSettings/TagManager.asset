@@ -7,6 +7,7 @@ TagManager:
   - PlayerMirrorCamera
   - Interactable
   - InteractZone
+  - Wall
   layers:
   - Default
   - TransparentFX

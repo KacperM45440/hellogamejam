@@ -19,9 +19,21 @@ public class DetectObjects : MonoBehaviour
     {
         Bounds bounds = objectCollider.bounds;
         cameraFrustumPlanes = GeometryUtility.CalculateFrustumPlanes(detectingCamera);
-        if(GeometryUtility.TestPlanesAABB(cameraFrustumPlanes, bounds))
+        Debug.DrawRay(transform.position, (detectingCamera.transform.position - transform.position));
+
+        if (GeometryUtility.TestPlanesAABB(cameraFrustumPlanes, bounds))
         {
-            rendererRef.sharedMaterial.color = Color.green;
+            if (Physics.Raycast(transform.position, (detectingCamera.transform.position - transform.position), out RaycastHit hitInfo))
+            {
+                if (hitInfo.collider.CompareTag("Wall"))
+                {
+                    rendererRef.sharedMaterial.color = Color.red;
+                }
+                else
+                {
+                    rendererRef.sharedMaterial.color = Color.green;
+                }    
+            }
         }
         else
         {
