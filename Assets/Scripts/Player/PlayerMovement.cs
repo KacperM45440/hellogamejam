@@ -11,14 +11,20 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController controller;
     private Vector3 movement = Vector3.zero;
 
+    [SerializeField] private Animator playerBodyAnim;
+
     void Awake()
     {
         controller = GetComponent<CharacterController>();
+    }
+    void Start()
+    {
     }
 
     void Update()
     {
         Movement();
+        AnimationSystem();
     }
 
     void Movement() {
@@ -26,12 +32,20 @@ public class PlayerMovement : MonoBehaviour
         movement.x = Input.GetAxis("Horizontal");
         movement.z = Input.GetAxis("Vertical");
         Vector3 direction = Quaternion.AngleAxis(angleToWorld, Vector3.up) * Vector3.ClampMagnitude(movement, 1f);
+       
 
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Quaternion rotation = Quaternion.LookRotation(new Vector3(mousePosition.x, transform.position.y, mousePosition.z) - transform.position, Vector3.up);
         transform.rotation = Quaternion.Lerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
         controller.Move(direction * speed * Time.deltaTime);
 
+    }
+
+    void AnimationSystem() {
+        Vector3 direction = Quaternion.AngleAxis(transform.localEulerAngles.y, Vector3.up) * Vector3.ClampMagnitude(Vector3.Scale(movement, new Vector3(-1, 1f, 1f)), 2f);
+
+        playerBodyAnim.SetFloat("Z", Mathf.Lerp(playerBodyAnim.GetFloat("Z"), direction.z, Time.deltaTime * 10f));
+        playerBodyAnim.SetFloat("X", Mathf.Lerp(playerBodyAnim.GetFloat("X"), direction.x, Time.deltaTime * 10f));
     }
 
 }
