@@ -32,7 +32,7 @@ public class InteractablePickup : InteractableObject
             PlayerEquipment.Instance.heldObjectSprites.Add(pickupSprite);
         }
 
-        PlayerEquipment.Instance.ShowItems();
+        PlayerEquipment.Instance.ShowItems(emptySlotIndex);
         Destroy(gameObject);
     }
 }

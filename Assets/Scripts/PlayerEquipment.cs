@@ -13,6 +13,8 @@ public class PlayerEquipment : MonoBehaviour
     public GameObject slot0;
     public GameObject slot1;
     public GameObject slot2;
+
+    public List<GameObject> slots = new();
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -23,12 +25,21 @@ public class PlayerEquipment : MonoBehaviour
         {
             _instance = this;
         }
+
+        slots.Add(slot0);
+        slots.Add(slot1);
+        slots.Add(slot2);
     }
 
-    public void ShowItems()
+    public void ShowItems(int slotIndex)
     {
-        slot0.GetComponent<Image>().sprite = heldObjectSprites[0];
-        slot1.GetComponent<Image>().sprite = heldObjectSprites[1];
-        slot2.GetComponent<Image>().sprite = heldObjectSprites[2];
-    }    
-}
+        slots[slotIndex].GetComponent<Image>().sprite = heldObjectSprites[slotIndex];
+        
+        Color c = slots[slotIndex].GetComponent<Image>().color;
+        c.a = 1;
+        slots[slotIndex].GetComponent<Image>().color = c;
+    //slot0.GetComponent<Image>().sprite = heldObjectSprites[0];
+    //slot1.GetComponent<Image>().sprite = heldObjectSprites[1];
+    //slot2.GetComponent<Image>().sprite = heldObjectSprites[2];
+    }
+}    
