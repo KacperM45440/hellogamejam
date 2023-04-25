@@ -29,6 +29,7 @@ public class ModelTakePhoto : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             canTakePhoto = false;
+            ScreenFade();
             animatorRef.SetTrigger("TakePhoto");
         }
     }
@@ -38,18 +39,20 @@ public class ModelTakePhoto : MonoBehaviour
     }
     public void ScreenFade()
     {
+        playerMovement.DoAction("TakePhoto", 1.5f);
         StartCoroutine(FadeScreen());
     }
 
     IEnumerator FadeScreen()
     {
+        yield return new WaitForSeconds(0.5f);
         playerMovement.freezeMovement = true;
         Color c = m.color;
         for (float alpha = 100f; alpha >= 0f; alpha -= 5f)
         {
             c.a = alpha / 100;
             m.color = c;
-            yield return new WaitForSeconds(.02f);
+            yield return new WaitForSeconds(0.02f);
         }
         playerMovement.freezeMovement = false;
 

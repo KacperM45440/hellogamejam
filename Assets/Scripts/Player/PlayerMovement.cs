@@ -42,7 +42,6 @@ public class PlayerMovement : MonoBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Quaternion rotation = Quaternion.LookRotation(new Vector3(mousePosition.x, transform.position.y, mousePosition.z) - transform.position, Vector3.up);
         transform.rotation = Quaternion.Lerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
-   
     
         controller.Move(direction * speed * Time.deltaTime);
 
@@ -55,4 +54,14 @@ public class PlayerMovement : MonoBehaviour
         playerBodyAnim.SetFloat("X", Mathf.Lerp(playerBodyAnim.GetFloat("X"), direction.x, Time.deltaTime * 10f));
     }
 
+    public void DoAction(string actionName, float durration) {
+        StartCoroutine(DoActionEnum(actionName, durration));
+    }
+
+    private IEnumerator DoActionEnum(string actionName, float durration) {
+        freezeMovement = true;
+        playerBodyAnim.SetTrigger(actionName);
+        yield return new WaitForSeconds(durration);
+        freezeMovement = false;
+    }
 }

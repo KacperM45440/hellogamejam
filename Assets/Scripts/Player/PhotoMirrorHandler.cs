@@ -46,7 +46,7 @@ public class PhotoMirrorHandler : MonoBehaviour
         mirrorImage.sprite = newSprite;
 
         StartCoroutine(FadeIn());
-        modelRef.ScreenFade();
+        //modelRef.ScreenFade();
     }
 
     public void TakeScreenshot(int width, int height)
