@@ -52,6 +52,7 @@ public class PhotoMirrorHandler : MonoBehaviour
     public void TakeScreenshot(int width, int height)
     {
         cameraRef.targetTexture = RenderTexture.GetTemporary(width, height, 16);
+        cameraRef.targetTexture.filterMode = FilterMode.Point;
         StartCoroutine(WaitAndScreenshot());
     }
 

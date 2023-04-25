@@ -29,7 +29,7 @@ public class ModelTakePhoto : MonoBehaviour
     }
     public void TakePhoto()
     {
-        handlerRef.TakeScreenshot(500, 500);
+        handlerRef.TakeScreenshot(340, 216);
     }
     public void ScreenFade()
     {
