@@ -43,7 +43,7 @@ public class ModelTakePhoto : MonoBehaviour
 
     IEnumerator FadeScreen()
     {
-        playerMovement.freezMovement = true;
+        playerMovement.freezeMovement = true;
         Color c = m.color;
         for (float alpha = 100f; alpha >= 0f; alpha -= 5f)
         {
@@ -51,7 +51,7 @@ public class ModelTakePhoto : MonoBehaviour
             m.color = c;
             yield return new WaitForSeconds(.02f);
         }
-        playerMovement.freezMovement = false;
+        playerMovement.freezeMovement = false;
 
     }
 }
