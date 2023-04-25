@@ -54,6 +54,17 @@ public class PlayerMovement : MonoBehaviour
         playerBodyAnim.SetFloat("X", Mathf.Lerp(playerBodyAnim.GetFloat("X"), direction.x, Time.deltaTime * 10f));
     }
 
+    void GravitySystem()
+    {
+        if (controller.isGrounded)
+        {
+            movement.y = -0.1f;
+        }
+        else {
+            movement.y += Physics.gravity.y * Time.deltaTime;
+        }
+    }
+
     public void DoAction(string actionName, float durration) {
         StartCoroutine(DoActionEnum(actionName, durration));
     }

@@ -10,6 +10,8 @@ public class ModelTakePhoto : MonoBehaviour
     private Animator animatorRef;
     Material m;
     private PlayerMovement playerMovement;
+    [SerializeField] private Light spotLight;
+    [SerializeField] private bool useSpotLight = false;
 
     public bool canTakePhoto = true;
     private void Start()
@@ -17,6 +19,9 @@ public class ModelTakePhoto : MonoBehaviour
         animatorRef = GetComponent<Animator>();
         m = cubeToFade.GetComponent<MeshRenderer>().material;
         playerMovement = FindObjectOfType<PlayerMovement>();
+        spotLight.gameObject.SetActive(useSpotLight);
+        spotLight.intensity = 0f;
+
 
     }
     public void Update()
@@ -48,13 +53,15 @@ public class ModelTakePhoto : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         playerMovement.freezeMovement = true;
         Color c = m.color;
+        spotLight.intensity = 20;
         for (float alpha = 100f; alpha >= 0f; alpha -= 5f)
         {
             c.a = alpha / 100;
+            spotLight.intensity = alpha / 100;
             m.color = c;
             yield return new WaitForSeconds(0.02f);
         }
         playerMovement.freezeMovement = false;
-
+        spotLight.intensity = 0f;
     }
 }
