@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ModelTakePhoto : MonoBehaviour
 {
-    [SerializeField] private Image imageToFade;
+    [SerializeField] private GameObject cubeToFade;
     [SerializeField] private PhotoMirrorHandler handlerRef;
     private Animator animatorRef;
 
@@ -38,11 +38,12 @@ public class ModelTakePhoto : MonoBehaviour
 
     IEnumerator FadeScreen()
     {
-        Color c = imageToFade.color;
+        Material m = cubeToFade.GetComponent<Renderer>().material;
+        Color c = m.color;
         for (float alpha = 100f; alpha >= 0f; alpha -= 5f)
         {
             c.a = alpha / 100;
-            imageToFade.color = c;
+            m.color = c;
             yield return new WaitForSeconds(.05f);
         }
     }

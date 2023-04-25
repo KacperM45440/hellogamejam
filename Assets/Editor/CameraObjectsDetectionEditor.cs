@@ -23,5 +23,4 @@ public class CameraObjectsDetectionEditor :Editor
             Handles.DrawLine(detection.transform.position, visibleTarget.position);
         }
     }
-
 }
