@@ -7,6 +7,12 @@ public class InteractableObject : MonoBehaviour
     public string interactableName;
     public bool canBeInteractedWith = true;
     private bool playerInRange = false;
+    private PlayerMovement playerMovement;
+
+    private void Awake()
+    {
+        playerMovement = FindAnyObjectByType<PlayerMovement>();
+    }
 
     public virtual void Interact()
     {
@@ -37,6 +43,7 @@ public class InteractableObject : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
+                playerMovement.DoAction("GetItem", 1.5f);
                 Interact();
                 Debug.Log("I interacted with " + interactableName);
             }

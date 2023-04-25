@@ -22,17 +22,10 @@ public class Mirror : MonoBehaviour
             cam.projectionMatrix = playerCamera.projectionMatrix;
             Vector3 realativePos = transform.InverseTransformPoint(playerCamera.transform.position);
             cam.transform.position = transform.TransformPoint(Vector3.Scale(realativePos, new Vector3(1, 1, -1)));
-
-            //cam.transform.LookAt(Vector3.Scale(realativePos, new Vector3(-1, 1, 1)));
-
             Vector3 relativeRot = transform.InverseTransformDirection(playerCamera.transform.forward);
-            relativeRot = Vector3.Scale(relativeRot, new Vector3(1, 1, -1));
-
-            cam.transform.forward = transform.TransformDirection(relativeRot);
-            //cam.transform.forward = relativeRot;
-            //Vector3 cameraPortalOffset = new Vector3(0f, 0f, playerCamera.transform.eulerAngles.z);
-            //cam.transform.localEulerAngles = cameraPortalOffset;
-
+            cam.transform.rotation =  Quaternion.Inverse(playerCamera.transform.rotation);
+            cam.transform.localEulerAngles = new Vector3(cam.transform.localEulerAngles.x, cam.transform.localEulerAngles.y + 180f, cam.transform.localEulerAngles.z);
+            //cam.nearClipPlane = Vector3.Distance(cam.transform.position, transform.position);
         }
     }
 

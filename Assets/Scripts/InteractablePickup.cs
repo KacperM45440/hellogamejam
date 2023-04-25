@@ -7,27 +7,35 @@ using UnityEngine;
 public class InteractablePickup : InteractableObject
 {
     public Sprite pickupSprite;
+    private int maxInventorySlots = 3;
+
     public override void Interact()
     {
-        //forgive me father for i have sinned
-
-        if (!PlayerEquipment.Instance.heldObjectNames[1].Equals(null) && !PlayerEquipment.Instance.heldObjectNames[1].Equals("") && !PlayerEquipment.Instance.heldObjectNames[0].Equals(""))
+        if (PlayerEquipment.Instance.heldObjectNames.Count.Equals(maxInventorySlots) && PlayerEquipment.Instance.heldObjectNames.All(name => !name.Equals("") && PlayerEquipment.Instance.heldObjectNames.All(name => !name.Equals(null))))
         {
             Debug.Log("We're full, boss");
             return;
         }
-        if (!PlayerEquipment.Instance.heldObjectNames.ElementAt(0).Equals(null) && !PlayerEquipment.Instance.heldObjectNames[0].Equals(""))
+
+        int emptySlotIndex = PlayerEquipment.Instance.heldObjectNames.FindIndex(name => name.Equals(""));
+
+        Debug.Log(emptySlotIndex);
+
+        if (emptySlotIndex != -1)
         {
-            PlayerEquipment.Instance.heldObjectNames[1] = interactableName;
-            PlayerEquipment.Instance.heldObjectSprites[1] = pickupSprite;
+            PlayerEquipment.Instance.heldObjectNames[emptySlotIndex] = interactableName;
+            PlayerEquipment.Instance.heldObjectSprites[emptySlotIndex] = pickupSprite;
         }
         else
         {
-            PlayerEquipment.Instance.heldObjectNames[0] = interactableName;
-            PlayerEquipment.Instance.heldObjectSprites[0] = pickupSprite;
+            PlayerEquipment.Instance.heldObjectNames.Add(interactableName);
+            PlayerEquipment.Instance.heldObjectSprites.Add(pickupSprite);
         }
 
-        PlayerEquipment.Instance.ShowItems();
+        PlayerEquipment.Instance.ShowItems(emptySlotIndex);
         Destroy(gameObject);
     }
 }
+
+
+

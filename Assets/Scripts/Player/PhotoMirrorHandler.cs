@@ -46,12 +46,13 @@ public class PhotoMirrorHandler : MonoBehaviour
         mirrorImage.sprite = newSprite;
 
         StartCoroutine(FadeIn());
-        modelRef.ScreenFade();
+        //modelRef.ScreenFade();
     }
 
     public void TakeScreenshot(int width, int height)
     {
         cameraRef.targetTexture = RenderTexture.GetTemporary(width, height, 16);
+        cameraRef.targetTexture.filterMode = FilterMode.Point;
         StartCoroutine(WaitAndScreenshot());
     }
 

@@ -8,21 +8,21 @@ using UnityEngine.UI;
 public class InteractableDestination : InteractableObject
 {
     public string requiredItemName;
+    private int maxInventorySlots = 3;
     public override void Interact()
     {
-        if (PlayerEquipment.Instance.heldObjectNames[0].Equals(requiredItemName))
+        for (int i = 0; i < maxInventorySlots; i++)
         {
-            Debug.Log("Biore itemek 0");
-            PlayerEquipment.Instance.heldObjectNames[0] = "";
-            PlayerEquipment.Instance.heldObjectSprites[0] = null;
-            PlayerEquipment.Instance.slot0.GetComponent<Image>().sprite = null;
-        }
-        if (PlayerEquipment.Instance.heldObjectNames[1].Equals(requiredItemName))
-        {
-            Debug.Log("Biore itemek 1");
-            PlayerEquipment.Instance.heldObjectNames[1] = "";
-            PlayerEquipment.Instance.heldObjectSprites[1] = null;
-            PlayerEquipment.Instance.slot1.GetComponent<Image>().sprite = null;
+            if (PlayerEquipment.Instance.heldObjectNames[i].Equals(requiredItemName))
+            {
+                PlayerEquipment.Instance.heldObjectNames[i] = "";
+                PlayerEquipment.Instance.heldObjectSprites[i] = null;
+                PlayerEquipment.Instance.slots[i].GetComponent<Image>().sprite = null;
+
+                Color c = PlayerEquipment.Instance.slots[i].GetComponent<Image>().color;
+                c.a = 0;
+                PlayerEquipment.Instance.slots[i].GetComponent<Image>().color = c;
+            }
         }
     }
 }
