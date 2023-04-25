@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask backgroundMask;
 
     [SerializeField] private Animator playerBodyAnim;
+    [HideInInspector] public bool freezMovement = false;
 
     void Awake()
     {
@@ -24,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (freezMovement) { return; }
         Movement();
         AnimationSystem();
     }

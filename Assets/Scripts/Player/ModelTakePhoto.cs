@@ -8,11 +8,16 @@ public class ModelTakePhoto : MonoBehaviour
     [SerializeField] private GameObject cubeToFade;
     [SerializeField] private PhotoMirrorHandler handlerRef;
     private Animator animatorRef;
+    Material m;
+    private PlayerMovement playerMovement;
 
     public bool canTakePhoto = true;
     private void Start()
     {
         animatorRef = GetComponent<Animator>();
+        m = cubeToFade.GetComponent<MeshRenderer>().material;
+        playerMovement = FindObjectOfType<PlayerMovement>();
+
     }
     public void Update()
     {
@@ -38,13 +43,15 @@ public class ModelTakePhoto : MonoBehaviour
 
     IEnumerator FadeScreen()
     {
-        Material m = cubeToFade.GetComponent<Renderer>().material;
+        playerMovement.freezMovement = true;
         Color c = m.color;
         for (float alpha = 100f; alpha >= 0f; alpha -= 5f)
         {
             c.a = alpha / 100;
             m.color = c;
-            yield return new WaitForSeconds(.05f);
+            yield return new WaitForSeconds(.02f);
         }
+        playerMovement.freezMovement = false;
+
     }
 }
