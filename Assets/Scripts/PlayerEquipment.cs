@@ -12,7 +12,7 @@ public class PlayerEquipment : MonoBehaviour
     public List<Sprite> heldObjectSprites;
     public GameObject slot0;
     public GameObject slot1;
-
+    public GameObject slot2;
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -29,5 +29,6 @@ public class PlayerEquipment : MonoBehaviour
     {
         slot0.GetComponent<Image>().sprite = heldObjectSprites[0];
         slot1.GetComponent<Image>().sprite = heldObjectSprites[1];
+        slot2.GetComponent<Image>().sprite = heldObjectSprites[2];
     }    
 }
