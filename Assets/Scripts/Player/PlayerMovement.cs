@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float rotationSpeed = 5f;
     private CharacterController controller;
     private Vector3 movement = Vector3.zero;
-    public LayerMask backgroundMask;
 
     [SerializeField] private Animator playerBodyAnim;
     [HideInInspector] public bool freezeMovement = false;
@@ -18,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     void Awake()
     {
         controller = GetComponent<CharacterController>();
+        DontDestroyOnLoad(transform.parent.gameObject);
     }
 
     void Update()

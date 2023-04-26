@@ -8,6 +8,8 @@ TagManager:
   - Interactable
   - InteractZone
   - Wall
+  - NextLevel
+  - CameraSystem
   layers:
   - Default
   - TransparentFX
