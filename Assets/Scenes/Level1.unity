@@ -18933,6 +18933,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableName: Lever
   canBeInteractedWith: 1
+  pickupAudio: {fileID: 0}
   myLeverId: 3
   turnedOn: 0
 --- !u!95 &523248413
@@ -19093,6 +19094,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableName: Lever
   canBeInteractedWith: 1
+  pickupAudio: {fileID: 0}
   myLeverId: 1
   turnedOn: 0
 --- !u!95 &638270162
@@ -19497,6 +19499,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableName: Lever
   canBeInteractedWith: 1
+  pickupAudio: {fileID: 0}
   myLeverId: 2
   turnedOn: 0
 --- !u!95 &1022522610
@@ -20545,6 +20548,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableName: Lever
   canBeInteractedWith: 1
+  pickupAudio: {fileID: 0}
   myLeverId: 4
   turnedOn: 0
 --- !u!95 &1697976435
@@ -20987,7 +20991,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh71110
+  m_Name: pb_Mesh88342
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
