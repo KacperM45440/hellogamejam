@@ -4,51 +4,58 @@ using UnityEngine;
 
 public class InteractableLever : InteractableObject
 {
-    private MeshRenderer rendererRef; //zamiast tego syfu z materia³ami testowymi zrobiæ animator który porusza dŸwigni¹
-    public Material materialOn; //do usuniêcia
-    public Material materialOff; //do usuniêcia
     public int myLeverId;
 
     [HideInInspector] public bool turnedOn = false;
 
-    private bool automaticReset = false;
+    private Animator animatorRef;
+    private bool animationPlaying = false;
 
     private void Start()
     {
-        rendererRef = GetComponent<MeshRenderer>(); //do usuniêcia
+        animatorRef = GetComponent<Animator>();
     }
 
     public override void Interact()// powinien byæ nieinteractable dopóki trwa animacja, chyba ¿e wywo³ane przez "ResetItself()", wtedy ma czekaæ a¿ animacja siê skoñczy i od razu interaktowaæ znowu
     {
-        if (turnedOn)
+        Debug.Log("is On: " + turnedOn + " is playing: " + animationPlaying);
+        if (!animationPlaying)
         {
-            rendererRef.material = materialOff; //do usuniêcia
-            turnedOn = false;
-        }
-        else
-        {
-            rendererRef.material = materialOn; //do usuniêcia
-            turnedOn = true;
-        }
-        if (!automaticReset)
-        {
+            if (turnedOn)
+            {
+                animatorRef.SetTrigger("Move");
+            }
+            else
+            {
+                animatorRef.SetTrigger("Move");
+            }
+            animationPlaying = true;
             LeverCounter.instance.PullLever(myLeverId);
         }
-        else
-        {
-            automaticReset = false;
-        }
+    }
 
-
-        Debug.Log(turnedOn + " for lever " + myLeverId);
+    public void AnimationFinish()
+    {
+        animationPlaying = false;
+        turnedOn = !animatorRef.GetBool("TurnedOn");
+        animatorRef.SetBool("TurnedOn", turnedOn);
     }
 
     public void ResetItself()
     {
+        StartCoroutine(WaitAndReset());
+    }
+
+    IEnumerator WaitAndReset()
+    {
+        yield return new WaitWhile(() => animationPlaying);
+
+        Debug.Log("my id " + myLeverId + "am turned " + turnedOn);
         if (turnedOn)
         {
-            automaticReset = true;
-            Interact();
+            animationPlaying = true;
+            turnedOn = false;
+            animatorRef.SetTrigger("Move");
         }
     }
 }

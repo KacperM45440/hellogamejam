@@ -23,7 +23,7 @@ public class InteractableObject : MonoBehaviour
     {
         if (collision.CompareTag("InteractZone") && canBeInteractedWith)
         {
-            Debug.Log("found sth interactable");
+            //Debug.Log("found sth interactable");
             playerInRange = true;
         }
     }
@@ -32,7 +32,7 @@ public class InteractableObject : MonoBehaviour
     {
         if (collision.CompareTag("InteractZone"))
         {
-            Debug.Log("left Interactable Range");
+            //Debug.Log("left Interactable Range");
             playerInRange = false;
         }
     }
@@ -45,7 +45,7 @@ public class InteractableObject : MonoBehaviour
             {
                 playerMovement.DoAction("GetItem", 1.5f);
                 Interact();
-                Debug.Log("I interacted with " + interactableName);
+                //Debug.Log("I interacted with " + interactableName);
             }
         }
     }
