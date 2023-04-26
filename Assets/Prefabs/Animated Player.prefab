@@ -4986,6 +4986,7 @@ GameObject:
   - component: {fileID: 289581876761912344}
   - component: {fileID: 289581876761912345}
   - component: {fileID: 882962739431788992}
+  - component: {fileID: 955260212}
   m_Layer: 6
   m_Name: MirrorCamera
   m_TagString: PlayerMirrorCamera
@@ -5040,7 +5041,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 183
+    m_Bits: 1719
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 8ef63f8144f8761439e7bea3d0f09d4c, type: 2}
   m_TargetDisplay: 0
@@ -5100,7 +5101,7 @@ MonoBehaviour:
   mirrorImage: {fileID: 289581876027708531}
   modelRef: {fileID: 289581876583012541}
   detectionRef: {fileID: 289581876761912345}
-  ghostRef: {fileID: 0}
+  ghostRef: {fileID: 955260212}
 --- !u!114 &289581876761912345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5117,7 +5118,7 @@ MonoBehaviour:
   viewAngle: 41
   targetMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 640
   obstacleMask:
     serializedVersion: 2
     m_Bits: 1
@@ -5130,6 +5131,19 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 289581876761912343}
   m_Enabled: 1
+--- !u!114 &955260212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289581876761912343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61acefe279f3b4640b778a3df5436bc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionRef: {fileID: 289581876761912345}
 --- !u!1 &289581876782827245
 GameObject:
   m_ObjectHideFlags: 0
@@ -9860,7 +9874,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1527
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 60b315874a2b4ae49b3fdeb637f82fd9, type: 2}
   m_TargetDisplay: 0
