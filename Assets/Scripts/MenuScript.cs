@@ -5,15 +5,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour
-
 {
-    [SerializeField] GameObject BackGround;
 
 
-    public void About()
+
+    public void ExitGame()
     {
-        BackGround.transform.position = new Vector2(42f, 360f);
+        SceneManager.LoadScene(-1);
     }
-
-
-}
+} 
