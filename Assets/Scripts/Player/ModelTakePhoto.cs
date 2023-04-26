@@ -24,7 +24,6 @@ public class ModelTakePhoto : MonoBehaviour
         spotLight.gameObject.SetActive(useSpotLight);
         spotLight.intensity = 0f;
         audioSource = GetComponent<AudioSource>();
-
     }
     public void Update()
     {
@@ -55,9 +54,11 @@ public class ModelTakePhoto : MonoBehaviour
         audioSource.clip = takePhotoClip;
         audioSource.Play();
         yield return new WaitForSeconds(0.5f);
+
         playerMovement.freezeMovement = true;
         Color c = m.color;
         spotLight.intensity = 20;
+
         for (float alpha = 100f; alpha >= 0f; alpha -= 5f)
         {
             c.a = alpha / 100;
@@ -65,6 +66,7 @@ public class ModelTakePhoto : MonoBehaviour
             m.color = c;
             yield return new WaitForSeconds(0.02f);
         }
+
         playerMovement.freezeMovement = false;
         spotLight.intensity = 0f;
     }

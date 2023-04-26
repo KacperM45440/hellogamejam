@@ -8,6 +8,8 @@ public class PhotoMirrorHandler : MonoBehaviour
 {
     [SerializeField] private Image mirrorImage;
     [SerializeField] private ModelTakePhoto modelRef;
+    [SerializeField] private CameraObjectsDetection detectionRef;
+    [SerializeField] private GhostScript ghostRef;
     private static PhotoMirrorHandler instance;
     private Camera cameraRef;
     private string photosFolderPath = "Photos/";
@@ -54,6 +56,11 @@ public class PhotoMirrorHandler : MonoBehaviour
         cameraRef.targetTexture = RenderTexture.GetTemporary(width, height, 16);
         cameraRef.targetTexture.filterMode = FilterMode.Point;
         StartCoroutine(WaitAndScreenshot());
+        if (detectionRef.FindVisibleTargets())
+        {
+            //bravo six, going dark
+            ghostRef.RevealGhost();
+        }
     }
 
     IEnumerator FadeIn()

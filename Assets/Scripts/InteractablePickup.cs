@@ -13,7 +13,6 @@ public class InteractablePickup : InteractableObject
     {
         if (PlayerEquipment.Instance.heldObjectNames.Count.Equals(maxInventorySlots) && PlayerEquipment.Instance.heldObjectNames.All(name => !name.Equals("") && PlayerEquipment.Instance.heldObjectNames.All(name => !name.Equals(null))))
         {
-            Debug.Log("We're full, boss");
             return;
         }
 

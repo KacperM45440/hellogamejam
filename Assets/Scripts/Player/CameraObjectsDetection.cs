@@ -14,13 +14,13 @@ public class CameraObjectsDetection : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine("FindTargetsWithDelay", 0.1f);
+        //StartCoroutine("FindTargetsWithDelay", 0.1f);
     }
 
     private void OnEnable()
     {
-        StopAllCoroutines();
-        StartCoroutine("FindTargetsWithDelay", 0.1f);
+        //StopAllCoroutines();
+        //StartCoroutine("FindTargetsWithDelay", 0.1f);
     }
 
     void Update()
@@ -28,16 +28,16 @@ public class CameraObjectsDetection : MonoBehaviour
 
     }
 
-    IEnumerator FindTargetsWithDelay(float delay)
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(delay);
-            FindVisibleTargets();
-        }
-    }
+    //IEnumerator FindTargetsWithDelay(float delay)
+    //{
+    //    while (true)
+    //    {
+    //        yield return new WaitForSeconds(delay);
+    //        FindVisibleTargets();
+    //    }
+    //}
 
-    void FindVisibleTargets()
+    public bool FindVisibleTargets()
     {
         visibleTargets.Clear();
         Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
@@ -56,6 +56,13 @@ public class CameraObjectsDetection : MonoBehaviour
                 }
             }
         }
+
+        if (visibleTargets.Count.Equals(0))
+        {
+            return false;
+        }
+
+        return true;
     }
 
 

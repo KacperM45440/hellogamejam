@@ -38,8 +38,5 @@ public class PlayerEquipment : MonoBehaviour
         Color c = slots[slotIndex].GetComponent<Image>().color;
         c.a = 1;
         slots[slotIndex].GetComponent<Image>().color = c;
-    //slot0.GetComponent<Image>().sprite = heldObjectSprites[0];
-    //slot1.GetComponent<Image>().sprite = heldObjectSprites[1];
-    //slot2.GetComponent<Image>().sprite = heldObjectSprites[2];
     }
 }    

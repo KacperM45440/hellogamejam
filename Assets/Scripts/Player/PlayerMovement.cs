@@ -66,7 +66,8 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void DoAction(string actionName, float durration) {
+    public void DoAction(string actionName, float durration) 
+    {
         StartCoroutine(DoActionEnum(actionName, durration));
     }
 
