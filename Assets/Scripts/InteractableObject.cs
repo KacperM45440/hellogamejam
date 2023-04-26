@@ -8,10 +8,13 @@ public class InteractableObject : MonoBehaviour
     public bool canBeInteractedWith = true;
     private bool playerInRange = false;
     private PlayerMovement playerMovement;
+    [SerializeField] private AudioClip pickupAudio;
+    private AudioSource audioSource;
 
     private void Awake()
     {
         playerMovement = FindAnyObjectByType<PlayerMovement>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public virtual void Interact()
@@ -44,6 +47,8 @@ public class InteractableObject : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 playerMovement.DoAction("GetItem", 1.5f);
+                audioSource.clip = pickupAudio;
+                audioSource.Play();
                 Interact();
                 //Debug.Log("I interacted with " + interactableName);
             }

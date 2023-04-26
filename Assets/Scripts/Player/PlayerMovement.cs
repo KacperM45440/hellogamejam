@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
             movement = Vector3.zero;
         }
         AnimationSystem();
+        GravitySystem();
     }
 
     void Movement() {

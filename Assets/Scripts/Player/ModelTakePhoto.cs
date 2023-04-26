@@ -12,6 +12,8 @@ public class ModelTakePhoto : MonoBehaviour
     private PlayerMovement playerMovement;
     [SerializeField] private Light spotLight;
     [SerializeField] private bool useSpotLight = false;
+    [SerializeField] private AudioClip takePhotoClip;
+    private AudioSource audioSource;
 
     public bool canTakePhoto = true;
     private void Start()
@@ -21,7 +23,7 @@ public class ModelTakePhoto : MonoBehaviour
         playerMovement = FindObjectOfType<PlayerMovement>();
         spotLight.gameObject.SetActive(useSpotLight);
         spotLight.intensity = 0f;
-
+        audioSource = GetComponent<AudioSource>();
 
     }
     public void Update()
@@ -50,6 +52,8 @@ public class ModelTakePhoto : MonoBehaviour
 
     IEnumerator FadeScreen()
     {
+        audioSource.clip = takePhotoClip;
+        audioSource.Play();
         yield return new WaitForSeconds(0.5f);
         playerMovement.freezeMovement = true;
         Color c = m.color;
