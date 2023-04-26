@@ -21,6 +21,22 @@ public class PhotoMirrorHandler : MonoBehaviour
         instance = this;
         cameraRef = gameObject.GetComponent<Camera>();
         photosFolderPath = Application.streamingAssetsPath + "/Photos/";
+
+        try
+        {
+            filePaths = Directory.GetFiles(photosFolderPath, "defaultImage.png");
+            byte[] pngBytes = File.ReadAllBytes(filePaths[0]);
+            Texture2D newTex = new Texture2D(2, 2);
+            newTex.LoadImage(pngBytes);
+
+            Sprite newSprite = Sprite.Create(newTex, new Rect(0.0f, 0.0f, newTex.width, newTex.height), new Vector2(0.5f, 0.5f), 20);
+            mirrorImage.sprite = newSprite;
+        }
+        catch (System.Exception)
+        {
+
+            throw;
+        }
     }
     IEnumerator WaitAndScreenshot()
     {

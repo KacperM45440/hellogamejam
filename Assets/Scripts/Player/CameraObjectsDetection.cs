@@ -54,6 +54,9 @@ public class CameraObjectsDetection : MonoBehaviour
                 if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
                 {
                     visibleTargets.Add(target);
+                    if (target.TryGetComponent<MirrorCameraInteractableObject>(out MirrorCameraInteractableObject interactableObject)) {
+                        interactableObject.DoEvent(1.5f);
+                    }
                 }
             }
         }
