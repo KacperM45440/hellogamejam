@@ -53,8 +53,10 @@ public class CameraObjectsDetection : MonoBehaviour
                 Debug.Log(target.name);
                 if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
                 {
+                    OutlineGenerator.Instance.GenerateOutline(target.gameObject);
                     visibleTargets.Add(target);
-                    if (target.TryGetComponent<MirrorCameraInteractableObject>(out MirrorCameraInteractableObject interactableObject)) {
+                    if (target.TryGetComponent<MirrorCameraInteractableObject>(out MirrorCameraInteractableObject interactableObject)) 
+                    {
                         interactableObject.DoEvent(1.5f);
                     }
                 }
