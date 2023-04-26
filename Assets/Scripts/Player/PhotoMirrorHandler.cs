@@ -14,7 +14,8 @@ public class PhotoMirrorHandler : MonoBehaviour
     private Camera cameraRef;
     private string photosFolderPath = "Photos/";
     private string[] filePaths;
-    
+
+    public Transform cogs;
     private void Awake()
     {
         instance = this;
@@ -55,6 +56,11 @@ public class PhotoMirrorHandler : MonoBehaviour
     {
         cameraRef.targetTexture = RenderTexture.GetTemporary(width, height, 16);
         cameraRef.targetTexture.filterMode = FilterMode.Point;
+        
+        foreach (Transform child in cogs)
+        {
+            StartCoroutine(SpinCogs(child));
+        }
         StartCoroutine(WaitAndScreenshot());
         if (detectionRef.FindVisibleTargets())
         {
@@ -63,6 +69,14 @@ public class PhotoMirrorHandler : MonoBehaviour
         }
     }
 
+    IEnumerator SpinCogs(Transform cog)
+    {
+        for (float speed = 300f; speed >= 100f; speed -= 5f)
+        {
+            cog.gameObject.GetComponent<Animator>().speed = speed / 100;
+            yield return new WaitForSeconds(.05f);
+        }
+    }
     IEnumerator FadeIn()
     {
         Color c = mirrorImage.color;
