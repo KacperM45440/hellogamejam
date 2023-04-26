@@ -457,6 +457,104 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5882353}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!1 &956716375
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 956716376}
+  - component: {fileID: 956716378}
+  - component: {fileID: 956716377}
+  - component: {fileID: 956716379}
+  m_Layer: 0
+  m_Name: LazyCog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &956716376
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 956716375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 289581875966071090}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 150, y: 140}
+  m_SizeDelta: {x: 90, y: 90}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &956716378
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 956716375}
+  m_CullTransparentMesh: 1
+--- !u!114 &956716377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 956716375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -47547749, guid: c06252d539cf56040adddca09c406c1e, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!95 &956716379
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 956716375}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee5b53bde47b62344bbef895ae695b5d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1303014157
 GameObject:
   m_ObjectHideFlags: 0
@@ -2196,6 +2294,7 @@ RectTransform:
   - {fileID: 8286751743294317140}
   - {fileID: 8286751743832740567}
   - {fileID: 8286751744202265860}
+  - {fileID: 956716376}
   m_Father: {fileID: 289581877579290491}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5074,6 +5173,7 @@ GameObject:
   - component: {fileID: 289581876761912345}
   - component: {fileID: 882962739431788992}
   - component: {fileID: 955260212}
+  - component: {fileID: 3876563439713962086}
   m_Layer: 6
   m_Name: MirrorCamera
   m_TagString: PlayerMirrorCamera
@@ -5153,8 +5253,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RenderShadows: 1
-  m_RequiresDepthTextureOption: 2
-  m_RequiresOpaqueTextureOption: 2
+  m_RequiresDepthTextureOption: 0
+  m_RequiresOpaqueTextureOption: 0
   m_CameraType: 0
   m_Cameras: []
   m_RendererIndex: -1
@@ -5188,7 +5288,8 @@ MonoBehaviour:
   mirrorImage: {fileID: 289581876027708531}
   modelRef: {fileID: 289581876583012541}
   detectionRef: {fileID: 289581876761912345}
-  ghostRef: {fileID: 0}
+  ghostRef: {fileID: 3876563439713962086}
+  cogs: {fileID: 8286751744202265860}
 --- !u!114 &289581876761912345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5219,6 +5320,19 @@ AudioListener:
   m_GameObject: {fileID: 289581876761912343}
   m_Enabled: 1
 --- !u!114 &955260212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289581876761912343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61acefe279f3b4640b778a3df5436bc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionRef: {fileID: 289581876761912345}
+--- !u!114 &3876563439713962086
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9537,16 +9651,16 @@ RectTransform:
   m_GameObject: {fileID: 8286751743832740566}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0}
-  m_LocalScale: {x: 0.48, y: 0.48, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.48, y: 0.48, z: 0.48}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 289581875966071090}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -126.1, y: 56.00002}
-  m_SizeDelta: {x: 1320, y: 745}
+  m_AnchoredPosition: {x: -141, y: 55}
+  m_SizeDelta: {x: 1257, y: 745}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8286751743832740553
 CanvasRenderer:
@@ -9576,7 +9690,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1638209444, guid: b38698f22d6eaa640a897decbd698082, type: 3}
+  m_Sprite: {fileID: -1824930584, guid: c06252d539cf56040adddca09c406c1e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9901,8 +10015,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RenderShadows: 1
-  m_RequiresDepthTextureOption: 2
-  m_RequiresOpaqueTextureOption: 2
+  m_RequiresDepthTextureOption: 0
+  m_RequiresOpaqueTextureOption: 0
   m_CameraType: 0
   m_Cameras: []
   m_RendererIndex: -1
