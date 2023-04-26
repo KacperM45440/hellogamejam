@@ -18,8 +18,8 @@ TagManager:
   - Player
   - TargetItem
   - Background
-  - 
-  - 
+  - GhostHidden
+  - GhostVisible
   - 
   - 
   - 
