@@ -6,7 +6,7 @@ public class GhostScript : MonoBehaviour
 {
     [SerializeField] private CameraObjectsDetection detectionRef;
     public void RevealGhost()
-    {
+    {/*
         for (int i=0; i < detectionRef.visibleTargets.Count; i++)
         {
             if (detectionRef.visibleTargets[i].gameObject.layer.Equals(LayerMask.NameToLayer("GhostHidden")))
@@ -17,6 +17,6 @@ public class GhostScript : MonoBehaviour
                     child.gameObject.layer = LayerMask.NameToLayer("GhostVisible"); 
                 }
             }
-        } 
+        }*/
     }
 }
