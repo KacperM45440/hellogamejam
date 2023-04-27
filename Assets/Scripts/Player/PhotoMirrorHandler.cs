@@ -20,6 +20,7 @@ public class PhotoMirrorHandler : MonoBehaviour
         instance = this;
         cameraRef = gameObject.GetComponent<Camera>();
         photosFolderPath = Application.streamingAssetsPath + "/Photos/";
+        mirrorImage.gameObject.SetActive(false);
 
         try
         {
@@ -77,6 +78,8 @@ public class PhotoMirrorHandler : MonoBehaviour
             //bravo six, going dark
             ghostRef.RevealGhost();
         }
+        mirrorImage.gameObject.SetActive(true);
+
     }
 
     IEnumerator FadeIn()

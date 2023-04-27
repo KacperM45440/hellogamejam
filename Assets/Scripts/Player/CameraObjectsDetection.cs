@@ -34,7 +34,7 @@ public class CameraObjectsDetection : MonoBehaviour
                     {
                         interactableObject.DoEvent(1.5f);
                     }
-                    else if(target.TryGetComponent<InteractablePickup>(out InteractablePickup interactable))
+                    else
                     {
                         OutlineGenerator.Instance.GenerateOutline(target.gameObject);
                     }
