@@ -47,3 +47,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Menu
+    uniqueID: 3463231259
+    locked: 0
+  - name: About
+    uniqueID: 1926744783
+    locked: 0
+  - name: BeforePlay
+    uniqueID: 3844734081
+    locked: 0
