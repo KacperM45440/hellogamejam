@@ -4208,6 +4208,7 @@ GameObject:
   - component: {fileID: 641959458}
   - component: {fileID: 1380811980}
   - component: {fileID: 1816410503}
+  - component: {fileID: 1985556258}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -4440,6 +4441,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayFade: {fileID: 118476424}
+--- !u!114 &1985556258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289581876583012539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdf4eee79c2ff6e478d6c94b16f81ea1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &289581876583993110
 GameObject:
   m_ObjectHideFlags: 0
@@ -5229,7 +5242,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1719
+    m_Bits: 695
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 8ef63f8144f8761439e7bea3d0f09d4c, type: 2}
   m_TargetDisplay: 0

@@ -7,6 +7,7 @@ public class OutlineGenerator : MonoBehaviour
     private static OutlineGenerator _instance;
     public static OutlineGenerator Instance { get { return _instance; } }
     public Material transparentMat;
+    private bool hasOutline;
 
     private void Awake()
     {
@@ -21,15 +22,29 @@ public class OutlineGenerator : MonoBehaviour
     }
     public void GenerateOutline(GameObject copyReference)
     {
-        GameObject clone = Instantiate(copyReference, copyReference.transform);
-        clone.transform.localPosition = new Vector3(0, 0, 0);
-        clone.GetComponent<Renderer>().material = transparentMat;
-        clone.layer = LayerMask.NameToLayer("OutlineLayer");
-        Destroy(clone.GetComponent<Rigidbody>());
-        Destroy(clone.GetComponent<Collider>());
+        for (int i=0; i < copyReference.transform.childCount; i++)
+        {
+            if (copyReference.transform.GetChild(i).name.Equals("OUTLINECLONE"))
+            {
+                hasOutline = true;
+            }
+        }
 
-        Outline cloneScript = clone.AddComponent<Outline>();
-        cloneScript.OutlineWidth = 20f;
-        cloneScript.OutlineColor = Color.red;
+        if (!hasOutline)
+        {
+            GameObject clone = Instantiate(copyReference, copyReference.transform);
+            clone.name = "OUTLINECLONE";
+            clone.transform.localPosition = new Vector3(0, 0, 0);
+            clone.GetComponent<Renderer>().material = transparentMat;
+            clone.layer = LayerMask.NameToLayer("OutlineLayer");
+            Destroy(clone.GetComponent<Rigidbody>());
+            Destroy(clone.GetComponent<Collider>());
+
+            Outline cloneScript = clone.AddComponent<Outline>();
+            cloneScript.OutlineColor = Color.yellow;
+            clone.AddComponent<OutlineKeeper>();
+
+            hasOutline = false;
+        }
     }
 }

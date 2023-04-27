@@ -100,6 +100,8 @@ public class Outline : MonoBehaviour {
   }
 
   void OnEnable() {
+
+
     foreach (var renderer in renderers) {
 
       // Append outline shaders
@@ -130,11 +132,10 @@ public class Outline : MonoBehaviour {
   }
 
   void Update() {
-    if (needsUpdate) {
+        if (needsUpdate) {
       needsUpdate = false;
-
       UpdateMaterialProperties();
-    }
+    }  
   }
 
   void OnDisable() {
