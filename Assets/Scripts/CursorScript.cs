@@ -8,15 +8,12 @@ public class CursorScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public Texture2D cursorArrow;
     void Start()
     {
-        Cursor.SetCursor(cursorArrow, Vector2.zero, CursorMode.ForceSoftware);
+        // Cursor.SetCursor(cursorArrow, Vector2.zero, CursorMode.ForceSoftware);
+        Cursor.visible = false;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (eventData.pointerCurrentRaycast.gameObject != null)
-        {
-            //Debug.Log("Mouse Over: " + eventData.pointerCurrentRaycast.gameObject.name);
-        }
         Cursor.visible = false;
     }
 
