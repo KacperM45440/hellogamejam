@@ -5585,7 +5585,7 @@ GameObject:
   - component: {fileID: 289581876761912344}
   - component: {fileID: 289581876761912345}
   - component: {fileID: 882962739431788992}
-  - component: {fileID: 3876563439713962086}
+  - component: {fileID: 955260212}
   m_Layer: 6
   m_Name: MirrorCamera
   m_TagString: PlayerMirrorCamera
@@ -5700,7 +5700,7 @@ MonoBehaviour:
   mirrorImage: {fileID: 289581876027708531}
   modelRef: {fileID: 289581876583012541}
   detectionRef: {fileID: 289581876761912345}
-  ghostRef: {fileID: 3876563439713962086}
+  ghostRef: {fileID: 955260212}
   cogs: {fileID: 8286751744202265860}
 --- !u!114 &289581876761912345
 MonoBehaviour:
@@ -5731,7 +5731,7 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 289581876761912343}
   m_Enabled: 1
---- !u!114 &3876563439713962086
+--- !u!114 &955260212
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
