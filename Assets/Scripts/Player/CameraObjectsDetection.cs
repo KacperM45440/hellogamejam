@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,7 +27,6 @@ public class CameraObjectsDetection : MonoBehaviour
             if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2f)
             {
                 float dstToTarget = Vector3.Distance(transform.position, target.position);
-                Debug.Log(target.name);
                 if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
                 {
                     visibleTargets.Add(target);
@@ -36,7 +36,14 @@ public class CameraObjectsDetection : MonoBehaviour
                     }
                     else
                     {
-                        OutlineGenerator.Instance.GenerateOutline(target.gameObject);
+                        try
+                        {
+                            OutlineGenerator.Instance.GenerateOutline(target.gameObject);
+                        }
+                        catch (Exception ex)
+                        {
+                            Debug.Log("bug");
+                        }
                     }
                     
                 }
