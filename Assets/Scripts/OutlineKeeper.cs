@@ -13,12 +13,17 @@ public class OutlineKeeper : MonoBehaviour
     }
     void Update()
     {
+        TrackDistance();
+        Rotate();
+    }
+    private void TrackDistance()
+    {
         float currentDistance = Mathf.Abs(Vector3.Distance(PlayerReference.Instance.transform.position, transform.position));
         float distanceInverted = (1 / currentDistance) * 25;
         float distanceSmoothed = Mathf.Round(distanceInverted * 10.0f) * 0.1f;
-        
 
-        if (distanceSmoothed >= 20f)
+
+        if (distanceSmoothed >= 15f)
         {
             distanceSmoothed = 20f;
         }
@@ -30,5 +35,9 @@ public class OutlineKeeper : MonoBehaviour
 
         outlineRef.OutlineWidth = distanceSmoothed;
         Debug.Log(distanceSmoothed);
+    }
+    private void Rotate()
+    {
+        transform.Rotate(0, 120 * Time.deltaTime, 0);
     }
 }
