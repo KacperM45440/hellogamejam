@@ -15,7 +15,7 @@ public class CursorScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         if (eventData.pointerCurrentRaycast.gameObject != null)
         {
-            Debug.Log("Mouse Over: " + eventData.pointerCurrentRaycast.gameObject.name);
+            //Debug.Log("Mouse Over: " + eventData.pointerCurrentRaycast.gameObject.name);
         }
         Cursor.visible = false;
     }
