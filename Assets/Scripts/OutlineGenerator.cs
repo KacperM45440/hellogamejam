@@ -43,8 +43,8 @@ public class OutlineGenerator : MonoBehaviour
             Outline cloneScript = clone.AddComponent<Outline>();
             cloneScript.OutlineColor = Color.yellow;
             clone.AddComponent<OutlineKeeper>();
-
-            hasOutline = false;
         }
+
+        hasOutline = false;
     }
 }
