@@ -34,7 +34,7 @@ public class OutlineKeeper : MonoBehaviour
         }
 
         outlineRef.OutlineWidth = distanceSmoothed;
-        Debug.Log(distanceSmoothed);
+       // Debug.Log(distanceSmoothed);
     }
     private void Rotate()
     {

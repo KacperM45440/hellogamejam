@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Animator playerBodyAnim;
     [HideInInspector] public bool freezeMovement = false;
+    [SerializeField] private Transform gameCursor;
 
     void Awake()
     {
@@ -32,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
         }
         AnimationSystem();
         GravitySystem();
+        GameCursorSystem();
     }
 
     void Movement() {
@@ -43,7 +45,6 @@ public class PlayerMovement : MonoBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Quaternion rotation = Quaternion.LookRotation(new Vector3(mousePosition.x, transform.position.y, mousePosition.z) - transform.position, Vector3.up);
         transform.rotation = Quaternion.Lerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
-    
         controller.Move(direction * speed * Time.deltaTime);
 
     }
@@ -53,6 +54,12 @@ public class PlayerMovement : MonoBehaviour
 
         playerBodyAnim.SetFloat("Z", Mathf.Lerp(playerBodyAnim.GetFloat("Z"), direction.z, Time.deltaTime * 10f));
         playerBodyAnim.SetFloat("X", Mathf.Lerp(playerBodyAnim.GetFloat("X"), direction.x, Time.deltaTime * 10f));
+    }
+
+    void GameCursorSystem() {
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        gameCursor.forward = (new Vector3(mousePosition.x, transform.position.y, mousePosition.z) - transform.position).normalized;
+        gameCursor.position = new Vector3(mousePosition.x, transform.position.y + 8f, mousePosition.z);
     }
 
     void GravitySystem()

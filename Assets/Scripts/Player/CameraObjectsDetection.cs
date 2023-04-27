@@ -12,30 +12,6 @@ public class CameraObjectsDetection : MonoBehaviour
     public LayerMask obstacleMask;
     public List<Transform> visibleTargets = new List<Transform>();
 
-    void Start()
-    {
-        //StartCoroutine("FindTargetsWithDelay", 0.1f);
-    }
-
-    private void OnEnable()
-    {
-        //StopAllCoroutines();
-        //StartCoroutine("FindTargetsWithDelay", 0.1f);
-    }
-
-    void Update()
-    {
-
-    }
-
-    //IEnumerator FindTargetsWithDelay(float delay)
-    //{
-    //    while (true)
-    //    {
-    //        yield return new WaitForSeconds(delay);
-    //        FindVisibleTargets();
-    //    }
-    //}
 
     public bool FindVisibleTargets()
     {
@@ -53,12 +29,16 @@ public class CameraObjectsDetection : MonoBehaviour
                 Debug.Log(target.name);
                 if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
                 {
-                    OutlineGenerator.Instance.GenerateOutline(target.gameObject);
                     visibleTargets.Add(target);
-                    if (target.TryGetComponent<MirrorCameraInteractableObject>(out MirrorCameraInteractableObject interactableObject)) 
+                    if (target.TryGetComponent<MirrorCameraInteractableObject>(out MirrorCameraInteractableObject interactableObject))
                     {
                         interactableObject.DoEvent(1.5f);
                     }
+                    else if(target.TryGetComponent<InteractablePickup>(out InteractablePickup interactable))
+                    {
+                        OutlineGenerator.Instance.GenerateOutline(target.gameObject);
+                    }
+                    
                 }
             }
         }
