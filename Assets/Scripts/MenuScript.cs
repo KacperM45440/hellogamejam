@@ -6,15 +6,22 @@ using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour
 {
+    [SerializeField] private Animator caseAnimatorRef;
     public GameObject AboutUI;
     public GameObject BeforePlayUI;
 
+
     private void Awake()
     {
-        if (!PlayerReference.Instance.Equals(null))
+        try
         {
             Destroy(PlayerReference.Instance.transform.parent.gameObject);
-        }    
+            caseAnimatorRef.SetTrigger("MenuAnimClose");
+        }
+        catch
+        {
+            Debug.Log("nie ma go");
+        }
     }
 
     public void GoPlay()
