@@ -14,6 +14,8 @@ public class MenuScript : MonoBehaviour
     {
         AboutUI.SetActive(false);
         BeforePlayUI.SetActive(true);
+        
+        StartCoroutine(WaitStart());
     }
 
     public void GoAbout()
@@ -24,5 +26,11 @@ public class MenuScript : MonoBehaviour
     public void ExitGame()
     {
         SceneManager.LoadScene(-1);
+    }
+
+    IEnumerator WaitStart()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(1);
     }
 } 
