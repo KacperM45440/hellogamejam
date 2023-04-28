@@ -14,7 +14,7 @@ public class OutlineKeeper : MonoBehaviour
     void Update()
     {
         TrackDistance();
-        Rotate();
+        //Rotate();
     }
     private void TrackDistance()
     {
@@ -23,17 +23,17 @@ public class OutlineKeeper : MonoBehaviour
         float distanceSmoothed = Mathf.Round(distanceInverted * 10.0f) * 0.1f;
 
 
-        if (distanceSmoothed >= 15f)
+        if (distanceSmoothed >= 30f)
         {
-            distanceSmoothed = 20f;
+            distanceSmoothed = 7f;
         }
 
-        if (distanceSmoothed <= 4f)
+        if (distanceSmoothed <= 12f)
         {
             distanceSmoothed = 0f;
         }
 
-        outlineRef.OutlineWidth = distanceSmoothed;
+        outlineRef.OutlineWidth = distanceSmoothed / 3;
        // Debug.Log(distanceSmoothed);
     }
     private void Rotate()
