@@ -8,12 +8,14 @@ public class InteractableLever : InteractableObject
 
     [HideInInspector] public bool turnedOn = false;
 
+    private AudioSource audioRef;
     private Animator animatorRef;
     private bool animationPlaying = false;
 
     private void Start()
     {
         animatorRef = GetComponent<Animator>();
+        audioRef = GetComponent<AudioSource>();
     }
 
     public override void Interact()// powinien byæ nieinteractable dopóki trwa animacja, chyba ¿e wywo³ane przez "ResetItself()", wtedy ma czekaæ a¿ animacja siê skoñczy i od razu interaktowaæ znowu
@@ -56,6 +58,8 @@ public class InteractableLever : InteractableObject
             animationPlaying = true;
             turnedOn = false;
             animatorRef.SetTrigger("Move");
+            yield return new WaitForSeconds(1.6f);
+            audioRef.Play();
         }
     }
 }
