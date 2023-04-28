@@ -9,6 +9,13 @@ public class MenuScript : MonoBehaviour
     public GameObject AboutUI;
     public GameObject BeforePlayUI;
 
+    private void Awake()
+    {
+        if (!PlayerReference.Instance.Equals(null))
+        {
+            Destroy(PlayerReference.Instance.transform.parent.gameObject);
+        }    
+    }
 
     public void GoPlay()
     {

@@ -443,6 +443,12 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.0849805, y: 0.15783364, z: 0}
     m_Extent: {x: 0.011082053, y: 0.011882603, z: 0.052549798}
   m_DirtyAABB: 0
+--- !u!1 &71667048 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5952854831690993881, guid: 1eea8e15eee69b447974e3da02cfd1c1,
+    type: 3}
+  m_PrefabInstance: {fileID: 7769396261610142351}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &81465640
 GameObject:
   m_ObjectHideFlags: 0
@@ -12064,6 +12070,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5952854831690993881, guid: 1eea8e15eee69b447974e3da02cfd1c1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7675487590090141882, guid: 1eea8e15eee69b447974e3da02cfd1c1,
+        type: 3}
+      propertyPath: overlayRef
+      value: 
+      objectReference: {fileID: 71667048}
     - target: {fileID: 8286751743294317140, guid: 1eea8e15eee69b447974e3da02cfd1c1,
         type: 3}
       propertyPath: m_LocalScale.x
