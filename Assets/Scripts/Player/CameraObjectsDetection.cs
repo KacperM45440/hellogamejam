@@ -27,6 +27,7 @@ public class CameraObjectsDetection : MonoBehaviour
             if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2f)
             {
                 float dstToTarget = Vector3.Distance(transform.position, target.position);
+                
                 if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
                 {
                     visibleTargets.Add(target);
@@ -34,18 +35,7 @@ public class CameraObjectsDetection : MonoBehaviour
                     {
                         interactableObject.DoEvent(1.5f);
                     }
-                    else
-                    {
-                        try
-                        {
-                            OutlineGenerator.Instance.GenerateOutline(target.gameObject);
-                        }
-                        catch (Exception ex)
-                        {
-                            Debug.Log("bug");
-                        }
-                    }
-                    
+                    OutlineGenerator.Instance.GenerateOutline(target.gameObject);
                 }
             }
         }

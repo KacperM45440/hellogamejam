@@ -35,7 +35,8 @@ public class OutlineGenerator : MonoBehaviour
             GameObject clone = Instantiate(copyReference, copyReference.transform);
             clone.name = "OUTLINECLONE";
             clone.transform.localPosition = new Vector3(0, 0, 0);
-            clone.transform.localScale = new Vector3(1, 1, 1); 
+            clone.transform.localScale = new Vector3(1, 1, 1);
+            clone.transform.rotation = copyReference.transform.rotation;
             clone.GetComponent<Renderer>().material = transparentMat;
             clone.layer = LayerMask.NameToLayer("OutlineLayer");
             Destroy(clone.GetComponent<Rigidbody>());
