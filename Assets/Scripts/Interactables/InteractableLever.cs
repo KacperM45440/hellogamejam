@@ -55,6 +55,7 @@ public class InteractableLever : InteractableObject
         Debug.Log("my id " + myLeverId + "am turned " + turnedOn);
         if (turnedOn)
         {
+            yield return new WaitForSeconds(Random.Range(0.1f, 0.7f));
             animationPlaying = true;
             turnedOn = false;
             animatorRef.SetTrigger("Move");
