@@ -6,29 +6,38 @@ using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour
 {
-
     public GameObject AboutUI;
-     public GameObject ExitUI;
+    public GameObject BeforePlayUI;
+
+    private void Awake()
+    {
+        if (!PlayerReference.Instance.Equals(null))
+        {
+            Destroy(PlayerReference.Instance.transform.parent.gameObject);
+        }    
+    }
 
     public void GoPlay()
     {
-        ExitUI.SetActive(false);
         AboutUI.SetActive(false);
-    }   
+        BeforePlayUI.SetActive(true);
+        
+        StartCoroutine(WaitStart());
+    }
 
     public void GoAbout()
     {
-        ExitUI.SetActive(false);
+        BeforePlayUI.SetActive(false);
         AboutUI.SetActive(true);
-    }
-
-    public void SureExit()
-    {   
-        AboutUI.SetActive(false);
-        ExitUI.SetActive(true);
     }
     public void ExitGame()
     {
-        Application.Quit();
+        SceneManager.LoadScene(-1);
+    }
+
+    IEnumerator WaitStart()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(1);
     }
 } 
