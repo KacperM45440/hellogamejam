@@ -83,7 +83,6 @@ public class PhotoMirrorHandler : MonoBehaviour
             //bravo six, going dark
             ghostRef.RevealGhost();
         }
-        mirrorImage.gameObject.SetActive(true);
 
     }
 
@@ -98,6 +97,7 @@ public class PhotoMirrorHandler : MonoBehaviour
 
     IEnumerator FadeIn()
     {
+        mirrorImage.gameObject.SetActive(true);
         Color c = mirrorImage.color;
         for (float alpha = 0f; alpha <= 100f; alpha += 5f)
         {
