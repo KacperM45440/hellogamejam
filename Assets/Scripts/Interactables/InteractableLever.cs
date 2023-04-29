@@ -55,11 +55,11 @@ public class InteractableLever : InteractableObject
         Debug.Log("my id " + myLeverId + "am turned " + turnedOn);
         if (turnedOn)
         {
-            yield return new WaitForSeconds(Random.Range(0.1f, 0.7f));
+            yield return new WaitForSeconds(Random.Range(0.0f, 0.2f));
             animationPlaying = true;
             turnedOn = false;
             animatorRef.SetTrigger("Move");
-            yield return new WaitForSeconds(1.6f);
+            yield return new WaitForSeconds(1.5f);
             audioRef.Play();
         }
     }
