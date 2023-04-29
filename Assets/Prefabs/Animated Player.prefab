@@ -4608,6 +4608,7 @@ GameObject:
   - component: {fileID: 1380811980}
   - component: {fileID: 1816410503}
   - component: {fileID: 1985556258}
+  - component: {fileID: 6314020603612586711}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -4853,6 +4854,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdf4eee79c2ff6e478d6c94b16f81ea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6314020603612586711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289581876583012539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fdbc53f3030e054ead158bea890a36d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transparentMat: {fileID: 2100000, guid: eac259c14e871f34fafae3a35e1bd220, type: 2}
 --- !u!1 &289581876583993110
 GameObject:
   m_ObjectHideFlags: 0
@@ -5723,7 +5737,7 @@ MonoBehaviour:
     m_Bits: 640
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 0
   visibleTargets: []
 --- !u!81 &882962739431788992
 AudioListener:
