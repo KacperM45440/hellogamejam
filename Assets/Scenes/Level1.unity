@@ -1692,8 +1692,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af13be19111b143499c3a0e148e04045, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1059691448}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: StandUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   newxLevelPlayerPosition: {x: 0.8799996, y: 1.58, z: 5.06}
-  newxLevelPlayerRotation: {x: 0, y: 0, z: 0}
 --- !u!4 &326599915 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3aa1d69b22c17614f805ee3a23dcd924,
@@ -6234,6 +6248,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1eea8e15eee69b447974e3da02cfd1c1, type: 3}
+--- !u!114 &1059691448 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 289581876583012513, guid: 1eea8e15eee69b447974e3da02cfd1c1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1059691447}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcd729770d4a06149b4cedf79d56b940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1061585169
 PrefabInstance:
   m_ObjectHideFlags: 0
