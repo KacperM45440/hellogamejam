@@ -13,7 +13,7 @@ public class CameraShake : MonoBehaviour
 
         while (elapsed < duration)
         {
-            float scale = (duration / ((elapsed == 0) ? 1 : elapsed));
+            float scale = (duration / ((elapsed == 0) ? 0.1f : elapsed));
             float x = Random.Range(-1f, 1f) * magnitude * scale;
             float y = Random.Range(-1f, 1f) * magnitude * scale;
             float z = Random.Range(-1f, 1f) * magnitude * scale;

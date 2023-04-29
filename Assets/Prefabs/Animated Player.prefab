@@ -5820,7 +5820,7 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 1000
-  field of view: 85
+  field of view: 120
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -5835,7 +5835,7 @@ Camera:
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
+  m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!114 &289581876761912347
@@ -11367,7 +11367,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VisionConeMaterial: {fileID: 2100000, guid: 68e7216afa173ee42b642e98bf550171, type: 2}
   VisionRange: 100
-  VisionAngle: 41
+  VisionAngle: 69
   VisionObstructingLayer:
     serializedVersion: 2
     m_Bits: 129
@@ -11605,7 +11605,7 @@ Camera:
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
+  m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!114 &8286751744527889950
@@ -11676,8 +11676,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 156.49794, y: -62.989708}
-  m_SizeDelta: {x: 1025.4553, y: 575.6144}
+  m_AnchoredPosition: {x: 156.65974, y: -42.07732}
+  m_SizeDelta: {x: 1026.3894, y: 577.3212}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8286751744573581275
 CanvasRenderer:
