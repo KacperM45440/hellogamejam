@@ -39,4 +39,11 @@ public class PlayerEquipment : MonoBehaviour
         c.a = 1;
         slots[slotIndex].GetComponent<Image>().color = c;
     }
+
+    public bool isItemExist(string itemName) {
+        foreach (string name in heldObjectNames) {
+            if (name.Equals(heldObjectNames)) return true;
+        }
+        return false;
+    }
 }    
