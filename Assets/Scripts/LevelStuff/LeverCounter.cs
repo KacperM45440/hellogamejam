@@ -43,7 +43,7 @@ public class LeverCounter : MonoBehaviour
     private void CorrectCombination()
     {
         Debug.Log("you did a good job!");
-        StartCoroutine(shakeRef.Shake(2f, 6f));
+        StartCoroutine(shakeRef.Shake(2f, 3f));
         gateOpen.SetActive(true);
         gateClosed.SetActive(false);
         gateOpen.GetComponent<AudioSource>().Play();
