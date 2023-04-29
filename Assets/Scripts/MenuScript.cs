@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuScript : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class MenuScript : MonoBehaviour
     public GameObject AboutUI;
     public GameObject SureExitUI;
     public GameObject InsideGameUI;
+    public Button playButton;
+    public Button optionsButton;
+    public Button exitButton;
+    public Button backButton;
 
     private void Awake()
     {
@@ -26,6 +31,9 @@ public class MenuScript : MonoBehaviour
     //Dzia³a git
     public void GoPlay()
     {
+        playButton.interactable= false;
+        optionsButton.interactable = false;
+        exitButton.interactable = false;
         InsideGameUI.SetActive(true);
         AboutUI.SetActive(false);
         SureExitUI.SetActive(false);
@@ -35,18 +43,37 @@ public class MenuScript : MonoBehaviour
     //Dzia³a git
     public void GoAbout()
     {
+        playButton.interactable = false;
+        optionsButton.interactable = false;
+        exitButton.interactable = false;
         SureExitUI.SetActive(false);
         AboutUI.SetActive(true);
     }
 
     public void SureExit()
     {
+        playButton.interactable = false;
+        optionsButton.interactable = false;
+        exitButton.interactable = false;
         SureExitUI.SetActive(true);
         AboutUI.SetActive(false);
         InsideGameUI.SetActive(false);
     }
+
+    public void BackButton()
+    {
+        backButton.interactable = true;
+        playButton.interactable = true;
+        optionsButton.interactable = true;
+        exitButton.interactable = true;
+
+    }
+
+    //tu jest git
     public void ExitGame()
     {
+        exitButton.interactable = false;
+        backButton.interactable = false;
         Application.Quit();
     }
 

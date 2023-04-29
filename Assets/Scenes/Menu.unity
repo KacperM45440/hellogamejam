@@ -1153,6 +1153,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 818237010}
+        m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
+        m_MethodName: BackButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &319453150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2159,7 +2171,6 @@ GameObject:
   - component: {fileID: 818237008}
   - component: {fileID: 818237007}
   - component: {fileID: 818237010}
-  - component: {fileID: 818237011}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -2233,19 +2244,10 @@ MonoBehaviour:
   AboutUI: {fileID: 244997882}
   SureExitUI: {fileID: 525286797}
   InsideGameUI: {fileID: 2965196786107701878}
---- !u!114 &818237011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 818237006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c0e0605bb6536b4eae810c517407b6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cursorArrow: {fileID: 2800000, guid: 65b9273db3857494e91778867e2e1c55, type: 3}
+  playButton: {fileID: 1641796952}
+  optionsButton: {fileID: 1933794554}
+  exitButton: {fileID: 285824233}
+  backButton: {fileID: 319453149}
 --- !u!1 &854169954
 GameObject:
   m_ObjectHideFlags: 0
@@ -2568,6 +2570,18 @@ MonoBehaviour:
       - m_Target: {fileID: 450222270}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 818237010}
+        m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
+        m_MethodName: BackButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
