@@ -729,7 +729,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -4756,7 +4756,7 @@ MonoBehaviour:
   handlerRef: {fileID: 289581876761912344}
   spotLight: {fileID: 231240870}
   useSpotLight: 1
-  takePhotoClip: {fileID: 8300000, guid: dee1c92d1a13f4459b070de962777e98, type: 3}
+  takePhotoClip: {fileID: 8300000, guid: 0c4e3bd795ec10b4082a6c8a611eba54, type: 3}
   canTakePhoto: 1
 --- !u!95 &289581876583012543
 Animator:
