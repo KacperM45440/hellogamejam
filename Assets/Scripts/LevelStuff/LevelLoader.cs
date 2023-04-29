@@ -9,8 +9,10 @@ public class LevelLoader : MonoBehaviour
     private PlayerMovement playerMovement;
     [SerializeField] private Image displayFade;
     private Transform cameraSystem;
+    private CharacterController controller;
     void Awake()
     {
+        controller = GetComponent<CharacterController>();
         playerMovement = GetComponent<PlayerMovement>();
         cameraSystem = GameObject.FindGameObjectWithTag("CameraSystem").transform;
     }
@@ -20,6 +22,14 @@ public class LevelLoader : MonoBehaviour
         
     }
 
+    void Start()
+    {
+        /*controller.enabled = false;
+        Transform start = GameObject.FindGameObjectWithTag("START").transform;
+        transform.position = start.position;
+        cameraSystem.position = transform.position;
+        controller.enabled = true;*/
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -46,7 +56,10 @@ public class LevelLoader : MonoBehaviour
         }
         elapsedTime = 0f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Debug.Log("NEW POS: " + newPos);
+        controller.enabled = false;
         transform.position = newPos;
+        controller.enabled = true;
         cameraSystem.position = transform.position;
         playerMovement.freezeMovement = false;
         while (elapsedTime < duration)

@@ -10,6 +10,7 @@ TagManager:
   - Wall
   - NextLevel
   - CameraSystem
+  - START
   layers:
   - Default
   - TransparentFX

@@ -28,6 +28,11 @@ public class MenuScript : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if (!Cursor.visible) { Cursor.visible = true; }
+    }
+
     //Dzia³a git
     public void GoPlay()
     {
