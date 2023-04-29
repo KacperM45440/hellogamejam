@@ -7,6 +7,7 @@ public class LeverCounter : MonoBehaviour
     public static LeverCounter instance;
     public List<InteractableLever> levers = new List<InteractableLever>();
 
+    [SerializeField] private CameraShake shakeRef;
     [SerializeField] private GameObject gateOpen;
     [SerializeField] private GameObject gateClosed;
     [SerializeField] private List<int> correctSequence = new List<int>();
@@ -42,6 +43,7 @@ public class LeverCounter : MonoBehaviour
     private void CorrectCombination()
     {
         Debug.Log("you did a good job!");
+        StartCoroutine(shakeRef.Shake(2f, 6f));
         gateOpen.SetActive(true);
         gateClosed.SetActive(false);
         gateOpen.GetComponent<AudioSource>().Play();
