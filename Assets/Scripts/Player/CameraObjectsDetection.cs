@@ -11,6 +11,7 @@ public class CameraObjectsDetection : MonoBehaviour
     public float viewAngle;
     public LayerMask targetMask;
     public LayerMask obstacleMask;
+    public GameObject birdRef;
     public List<Transform> visibleTargets = new List<Transform>();
 
 
@@ -35,6 +36,13 @@ public class CameraObjectsDetection : MonoBehaviour
                     {
                         interactableObject.DoEvent(1.5f);
                     }
+
+                    if (target.name.Equals("Birdcage"))
+                    {
+                        birdRef.GetComponent<BirdScript>().Chirp();
+                        break;
+                    }
+
                     OutlineGenerator.Instance.GenerateOutline(target.gameObject);
                 }
             }
