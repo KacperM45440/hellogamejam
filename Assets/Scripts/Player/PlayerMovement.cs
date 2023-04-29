@@ -22,6 +22,12 @@ public class PlayerMovement : MonoBehaviour
         DontDestroyOnLoad(transform.parent.gameObject);
     }
 
+    void Start()
+    {
+        PlayerReference.Instance.playerMovement = this;
+
+    }
+
     void Update()
     {
         if (!freezeMovement)
