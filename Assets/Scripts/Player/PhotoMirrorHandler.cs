@@ -18,6 +18,7 @@ public class PhotoMirrorHandler : MonoBehaviour
     private float cogsSpeedMax = 20;
     private float cogsCurrentSpeed = 1;
     private bool cogsSpeeding = false;
+    private bool isGhostLevel = false;
     public Transform cogs;
 
     private void Awake()
@@ -89,10 +90,10 @@ public class PhotoMirrorHandler : MonoBehaviour
             }
         }
         StartCoroutine(WaitAndScreenshot());
-        if (detectionRef.FindVisibleTargets())
+        if (detectionRef.FindVisibleTargets() && isGhostLevel)
         {
             //bravo six, going dark
-            ghostRef.RevealGhost();
+            //ghostRef.RevealGhost();
         }
 
     }
