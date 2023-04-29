@@ -42,7 +42,7 @@ public class MenuScript : MonoBehaviour
         InsideGameUI.SetActive(true);
         AboutUI.SetActive(false);
         SureExitUI.SetActive(false);
-        StartCoroutine(WaitStart());
+        //StartCoroutine(WaitStart());
     }
 
     //Dzia³a git
@@ -82,7 +82,7 @@ public class MenuScript : MonoBehaviour
         Application.Quit();
     }
 
-    IEnumerator WaitStart()
+    public IEnumerator WaitStart()
     {
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene(1);

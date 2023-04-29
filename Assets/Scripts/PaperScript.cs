@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PaperScript : MonoBehaviour
 {
+    [SerializeField] private ActionKeeper keeperRef;
     private Animator animatorRef;
     private int childCount;
     private void Start()
@@ -47,6 +48,11 @@ public class PaperScript : MonoBehaviour
             animatorRef = transform.GetChild(childCount).GetChild(0).gameObject.GetComponent<Animator>();
             childCount--;
             animatorRef.SetTrigger("Dismiss");
+
+            if (childCount.Equals(0))
+            {
+                keeperRef.Level1Delay();
+            }
         }
     }
 }
