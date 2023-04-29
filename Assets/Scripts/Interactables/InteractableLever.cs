@@ -35,8 +35,8 @@ public class InteractableLever : InteractableObject
             LeverCounter.instance.PullLever(myLeverId);
         }
 
-        OutlineGenerator.Instance.GenerateOutline(transform.GetChild(0).transform.gameObject);
-        OutlineGenerator.Instance.GenerateOutline(transform.GetChild(1).transform.gameObject);
+        OutlineGenerator.Instance.GenerateOutline(transform.GetChild(0).transform.gameObject, false);
+        OutlineGenerator.Instance.GenerateOutline(transform.GetChild(1).transform.gameObject, false);
     }
 
     public void AnimationFinish()

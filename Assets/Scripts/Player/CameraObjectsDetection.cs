@@ -14,7 +14,6 @@ public class CameraObjectsDetection : MonoBehaviour
     public GameObject birdRef;
     public List<Transform> visibleTargets = new List<Transform>();
 
-
     public bool FindVisibleTargets()
     {
         visibleTargets.Clear();
@@ -32,6 +31,7 @@ public class CameraObjectsDetection : MonoBehaviour
                 if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
                 {
                     visibleTargets.Add(target);
+
                     if (target.TryGetComponent<MirrorCameraInteractableObject>(out MirrorCameraInteractableObject interactableObject))
                     {
                         interactableObject.DoEvent(1.5f);
@@ -48,7 +48,7 @@ public class CameraObjectsDetection : MonoBehaviour
                         break;
                     }
 
-                    OutlineGenerator.Instance.GenerateOutline(target.gameObject);
+                    OutlineGenerator.Instance.GenerateOutline(target.gameObject, true);
                 }
             }
         }

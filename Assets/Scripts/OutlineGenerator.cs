@@ -8,6 +8,13 @@ public class OutlineGenerator : MonoBehaviour
     public static OutlineGenerator Instance { get { return _instance; } }
     public Material transparentMat;
     private bool hasOutline;
+    public AudioClip objectFound;
+    public AudioSource audioRef;
+
+    private void Start()
+    {
+        audioRef.clip = objectFound;
+    }
 
     private void Awake()
     {
@@ -20,7 +27,7 @@ public class OutlineGenerator : MonoBehaviour
             _instance = this;
         }
     }
-    public void GenerateOutline(GameObject copyReference)
+    public void GenerateOutline(GameObject copyReference, bool isAudible)
     {
         for (int i=0; i < copyReference.transform.childCount; i++)
         {
@@ -45,6 +52,11 @@ public class OutlineGenerator : MonoBehaviour
             Outline cloneScript = clone.AddComponent<Outline>();
             cloneScript.OutlineColor = Color.white;
             clone.AddComponent<OutlineKeeper>();
+
+            if (isAudible)
+            {
+                audioRef.Play();
+            }
         }
 
         hasOutline = false;
