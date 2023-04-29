@@ -43,6 +43,11 @@ public class CameraObjectsDetection : MonoBehaviour
                         break;
                     }
 
+                    if (target.gameObject.layer.Equals(LayerMask.NameToLayer("GhostHidden")))
+                    {
+                        break;
+                    }
+
                     OutlineGenerator.Instance.GenerateOutline(target.gameObject);
                 }
             }
