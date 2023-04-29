@@ -7,6 +7,8 @@ public class LeverCounter : MonoBehaviour
     public static LeverCounter instance;
     public List<InteractableLever> levers = new List<InteractableLever>();
 
+    [SerializeField] private GameObject gateOpen;
+    [SerializeField] private GameObject gateClosed;
     [SerializeField] private List<int> correctSequence = new List<int>();
 
     private int currentNumber = 0;
@@ -40,6 +42,9 @@ public class LeverCounter : MonoBehaviour
     private void CorrectCombination()
     {
         Debug.Log("you did a good job!");
+        gateOpen.SetActive(true);
+        gateClosed.SetActive(false);
+        gateOpen.GetComponent<AudioSource>().Play();
     }
 
     public void IncorrectCombination()
