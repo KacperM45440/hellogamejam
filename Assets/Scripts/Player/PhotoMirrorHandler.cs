@@ -14,6 +14,10 @@ public class PhotoMirrorHandler : MonoBehaviour
     private Camera cameraRef;
     private string photosFolderPath = "Photos/";
     private string[] filePaths;
+    private float cogSpeedupMultiplier = 3f;
+    private float cogsSpeedMax = 20;
+    private float cogsCurrentSpeed = 1;
+    private bool cogsSpeeding = false;
     public Transform cogs;
 
     private void Awake()
@@ -73,9 +77,16 @@ public class PhotoMirrorHandler : MonoBehaviour
     {
         cameraRef.targetTexture = RenderTexture.GetTemporary(width, height, 16);
         cameraRef.targetTexture.filterMode = FilterMode.Point;
-        foreach (Transform child in cogs)
+        if(cogsCurrentSpeed < cogsSpeedMax)
         {
-            StartCoroutine(SpinCogs(child));
+            cogsCurrentSpeed += 3 * cogSpeedupMultiplier;
+        }
+        if (!cogsSpeeding)
+        {
+            foreach (Transform child in cogs)
+            {
+                StartCoroutine(SpinCogs(child));
+            }
         }
         StartCoroutine(WaitAndScreenshot());
         if (detectionRef.FindVisibleTargets())
@@ -88,11 +99,14 @@ public class PhotoMirrorHandler : MonoBehaviour
 
     IEnumerator SpinCogs(Transform cog)
     {
-        for (float speed = 300f; speed >= 100f; speed -= 5f)
+        cogsSpeeding = true;
+        //for (float speed = 3f * cogSpeedupMultiplier; speed >= 1f; speed -= 0.05f)
+        for (; cogsCurrentSpeed >= 1f; cogsCurrentSpeed -= 0.04f)
         {
-            cog.gameObject.GetComponent<Animator>().speed = speed / 100;
+            cog.gameObject.GetComponent<Animator>().speed = cogsCurrentSpeed;
             yield return new WaitForSeconds(.05f);
         }
+        cogsSpeeding = false;
     }
 
     IEnumerator FadeIn()
