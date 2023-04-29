@@ -52,6 +52,7 @@ public class ModelTakePhoto : MonoBehaviour
     IEnumerator FadeScreen()
     {
         audioSource.clip = takePhotoClip;
+        audioSource.pitch = Random.Range(0.96f, 1.05f);
         audioSource.Play();
         yield return new WaitForSeconds(0.5f);
 
@@ -71,3 +72,4 @@ public class ModelTakePhoto : MonoBehaviour
         spotLight.intensity = 0f;
     }
 }
+
