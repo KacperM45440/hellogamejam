@@ -7,7 +7,8 @@ public class MenuScript : MonoBehaviour
 {
     [SerializeField] private Animator caseAnimatorRef;
     public GameObject AboutUI;
-    public GameObject BeforePlayUI;
+    public GameObject SureExitUI;
+    public GameObject InsideGameUI;
 
 
     private void Awake()
@@ -23,22 +24,31 @@ public class MenuScript : MonoBehaviour
         }
     }
 
+    //Dzia³a git
     public void GoPlay()
     {
+        InsideGameUI.SetActive(true);
         AboutUI.SetActive(false);
-        BeforePlayUI.SetActive(true);
-        
+        SureExitUI.SetActive(false);
         StartCoroutine(WaitStart());
     }
 
+    //Dzia³a git
     public void GoAbout()
     {
-        BeforePlayUI.SetActive(false);
+        SureExitUI.SetActive(false);
         AboutUI.SetActive(true);
+    }
+
+    public void SureExit()
+    {
+        SureExitUI.SetActive(true);
+        AboutUI.SetActive(false);
+        InsideGameUI.SetActive(false);
     }
     public void ExitGame()
     {
-        SceneManager.LoadScene(-1);
+        Application.Quit();
     }
 
     IEnumerator WaitStart()
