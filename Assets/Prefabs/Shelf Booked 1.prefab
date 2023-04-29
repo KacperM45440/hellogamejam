@@ -1190,7 +1190,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 876dac1d5688f0c4d9fbd6807851a80b,
         type: 3}
       propertyPath: m_Name
-      value: Shelf
+      value: Shelf Booked 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 876dac1d5688f0c4d9fbd6807851a80b, type: 3}
@@ -1200,22 +1200,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8737066003641896983}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &888243855
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8467087174162623814}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &888243854
 BoxCollider:
   m_ObjectHideFlags: 0
