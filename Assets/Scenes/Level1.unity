@@ -21999,6 +21999,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1618386125}
   - component: {fileID: 1618386124}
+  - component: {fileID: 1618386126}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -22023,6 +22024,7 @@ MonoBehaviour:
   - {fileID: 2111504209}
   - {fileID: 59578817}
   - {fileID: 596415065}
+  shakeRef: {fileID: 1618386126}
   gateOpen: {fileID: 1626853994}
   gateClosed: {fileID: 1791454948}
   correctSequence: 01000000020000000300000004000000
@@ -22041,6 +22043,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1618386126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618386123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e83ae6ac7b66d84e82067e957d7aa13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraRef: {fileID: 0}
 --- !u!1001 &1618426934
 PrefabInstance:
   m_ObjectHideFlags: 0
