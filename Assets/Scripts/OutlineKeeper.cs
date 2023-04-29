@@ -23,7 +23,7 @@ public class OutlineKeeper : MonoBehaviour
         float distanceSmoothed = Mathf.Round(distanceInverted * 10.0f) * 0.1f;
 
 
-        if (distanceSmoothed >= 30f)
+        if (distanceSmoothed >= 50f)
         {
             distanceSmoothed = 7f;
         }
