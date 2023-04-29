@@ -21,4 +21,9 @@ public class CursorScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         Cursor.visible = true;
     }
+
+    public void ShowCursor()
+    {
+        Cursor.visible = true;
+    }
 }

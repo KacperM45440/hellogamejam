@@ -10,7 +10,6 @@ public class MenuScript : MonoBehaviour
     public GameObject SureExitUI;
     public GameObject InsideGameUI;
 
-
     private void Awake()
     {
         try
