@@ -45,6 +45,7 @@ public class PauseScript : MonoBehaviour
         overlayRef.SetActive(false);
         movementRef.freezeMovement = false;
         photoRef.enabled = true;
+        Cursor.visible = false;
     }
 
     IEnumerator FadeScreens()
