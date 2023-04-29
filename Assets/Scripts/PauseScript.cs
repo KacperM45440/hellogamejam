@@ -27,7 +27,7 @@ public class PauseScript : MonoBehaviour
             }
 
             isPaused = true;
-            movementRef.enabled = false;
+            movementRef.freezeMovement = true;
             photoRef.enabled = false;
             overlayRef.SetActive(true);
         }
@@ -43,7 +43,7 @@ public class PauseScript : MonoBehaviour
     {
         isPaused = false;
         overlayRef.SetActive(false);
-        movementRef.enabled = true;
+        movementRef.freezeMovement = false;
         photoRef.enabled = true;
     }
 
