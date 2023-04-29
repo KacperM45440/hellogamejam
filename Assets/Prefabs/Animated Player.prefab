@@ -121,7 +121,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 10
+  m_Intensity: 50
   m_Range: 100
   m_SpotAngle: 132.51031
   m_InnerSpotAngle: 71.021286
@@ -160,7 +160,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -4693,8 +4693,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 289581876583012539}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.074, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.06, y: 1.58, z: -0.88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4924,6 +4924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdf4eee79c2ff6e478d6c94b16f81ea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerMovement: {fileID: 0}
 --- !u!114 &6314020603612586711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5827,7 +5828,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 695
+    m_Bits: 2743
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 8ef63f8144f8761439e7bea3d0f09d4c, type: 2}
   m_TargetDisplay: 0
@@ -10693,7 +10694,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d5d150c61a4f14847a353f75b4080ec9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 98ea2d473c99fed48a7e7de5eac09247, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

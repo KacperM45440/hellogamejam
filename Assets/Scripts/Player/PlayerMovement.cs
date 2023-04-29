@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -19,6 +20,12 @@ public class PlayerMovement : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         DontDestroyOnLoad(transform.parent.gameObject);
+    }
+
+    void Start()
+    {
+        PlayerReference.Instance.playerMovement = this;
+
     }
 
     void Update()
@@ -82,6 +89,18 @@ public class PlayerMovement : MonoBehaviour
         freezeMovement = true;
         playerBodyAnim.SetTrigger(actionName);
         yield return new WaitForSeconds(durration);
+        freezeMovement = false;
+    }
+
+    public void StandUp()
+    {
+        StartCoroutine(StandUpEnum());
+    }
+    IEnumerator StandUpEnum()
+    {
+        freezeMovement = true;
+        playerBodyAnim.Play("Up");
+        yield return new WaitForSeconds(2f);
         freezeMovement = false;
     }
 }

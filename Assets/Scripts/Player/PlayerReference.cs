@@ -6,6 +6,7 @@ public class PlayerReference : MonoBehaviour
 {
     private static PlayerReference _instance;
     public static PlayerReference Instance { get { return _instance; } }
+    public PlayerMovement playerMovement;
 
     private void Awake()
     {

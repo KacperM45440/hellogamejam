@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -35,12 +36,12 @@ public class LevelLoader : MonoBehaviour
     {
         if (other.tag == "NextLevel") {
             if (other.TryGetComponent<LevelLoaderInfo>(out LevelLoaderInfo info)) {
-                StartCoroutine(LoadLevel(info.newxLevelPlayerPosition));
+                StartCoroutine(LoadLevel(info.newxLevelPlayerPosition, info.loadEvent));
             }
         }
     }
     
-    IEnumerator LoadLevel(Vector3 newPos) {
+    IEnumerator LoadLevel(Vector3 newPos, UnityEvent e) {
 
         playerMovement.freezeMovement = true;
         Color color = displayFade.color;
@@ -62,6 +63,8 @@ public class LevelLoader : MonoBehaviour
         controller.enabled = true;
         cameraSystem.position = transform.position;
         playerMovement.freezeMovement = false;
+        e.Invoke();
+        
         while (elapsedTime < duration)
         {
             color.a = 1f - (elapsedTime / duration);
@@ -70,4 +73,5 @@ public class LevelLoader : MonoBehaviour
             yield return null;
         }
     }
+
 }
