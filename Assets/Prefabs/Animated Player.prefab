@@ -5738,6 +5738,7 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 0
+  birdRef: {fileID: 0}
   visibleTargets: []
 --- !u!81 &882962739431788992
 AudioListener:
