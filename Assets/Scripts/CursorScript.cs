@@ -8,7 +8,7 @@ public class CursorScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public Texture2D cursorArrow;
     void Start()
     {
-        // Cursor.SetCursor(cursorArrow, Vector2.zero, CursorMode.ForceSoftware);
+        //Cursor.SetCursor(cursorArrow, Vector2.zero, CursorMode.ForceSoftware);
         Cursor.visible = false;
     }
 
