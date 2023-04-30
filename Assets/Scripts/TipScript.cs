@@ -22,8 +22,6 @@ public class TipScript : MonoBehaviour
         allTips.Add(level2);
         allTips.Add(level3);
         allTips.Add(final);
-
-        whichScene = SceneManager.GetActiveScene().buildIndex;
     }
 
     private void Update()
@@ -32,6 +30,7 @@ public class TipScript : MonoBehaviour
     }
     public void LoadTip()
     {
-        tipTextRef.text = allTips[whichScene-1];
+        whichScene = SceneManager.GetActiveScene().buildIndex;
+        tipTextRef.text = "HINT: " + allTips[whichScene-1];
     }    
 }
