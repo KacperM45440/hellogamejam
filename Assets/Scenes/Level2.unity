@@ -235,7 +235,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a34f5db4676f4244fb689fb86017eb2d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.057
+      value: -0.062998936
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a34f5db4676f4244fb689fb86017eb2d,
         type: 3}
@@ -792,7 +792,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a34f5db4676f4244fb689fb86017eb2d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.09
+      value: -0.03
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a34f5db4676f4244fb689fb86017eb2d,
         type: 3}
@@ -36611,10 +36611,11 @@ MonoBehaviour:
   interactableName: Door
   canBeInteractedWith: 1
   pickupAudio: {fileID: 8300000, guid: 8484de1a5db0649af92c3696c88f6764, type: 3}
+  interactionCooldown: 1
   defaultAnimation: 0
   tryOpenClip: {fileID: 8300000, guid: d94a42b1f29cf461e9ba55484b382e7f, type: 3}
-  axeHitClip: {fileID: 8300000, guid: 15e84a8aadbced14aafc3d04dfba1834, type: 3}
-  destroyClip: {fileID: 8300000, guid: 1984b6d3c2008496d970d19f71cc95b8, type: 3}
+  axeHitClip: {fileID: 8300000, guid: 68a473f85a0e2d94da80e5906a807865, type: 3}
+  destroyClip: {fileID: 8300000, guid: 68a473f85a0e2d94da80e5906a807865, type: 3}
   planks:
   - {fileID: 570744448}
   - {fileID: 78176643}
@@ -36764,80 +36765,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 289581876219188634, guid: 1eea8e15eee69b447974e3da02cfd1c1,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 289581876219188634, guid: 1eea8e15eee69b447974e3da02cfd1c1,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 289581876219188634, guid: 1eea8e15eee69b447974e3da02cfd1c1,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 289581876219188634, guid: 1eea8e15eee69b447974e3da02cfd1c1,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 289581876381285967, guid: 1eea8e15eee69b447974e3da02cfd1c1,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 289581876381285967, guid: 1eea8e15eee69b447974e3da02cfd1c1,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 289581876381285967, guid: 1eea8e15eee69b447974e3da02cfd1c1,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 289581876381285967, guid: 1eea8e15eee69b447974e3da02cfd1c1,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 289581876761912349, guid: 1eea8e15eee69b447974e3da02cfd1c1,
-        type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 6839
-      objectReference: {fileID: 0}
-    - target: {fileID: 289581877463732536, guid: 1eea8e15eee69b447974e3da02cfd1c1,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 289581877463732536, guid: 1eea8e15eee69b447974e3da02cfd1c1,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 289581877463732536, guid: 1eea8e15eee69b447974e3da02cfd1c1,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 289581877463732536, guid: 1eea8e15eee69b447974e3da02cfd1c1,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 289581877579290488, guid: 1eea8e15eee69b447974e3da02cfd1c1,
         type: 3}
       propertyPath: m_Name
       value: Animated Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 289581877579290488, guid: 1eea8e15eee69b447974e3da02cfd1c1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 289581877579290491, guid: 1eea8e15eee69b447974e3da02cfd1c1,
         type: 3}
@@ -36893,16 +36824,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8286751744086852950, guid: 1eea8e15eee69b447974e3da02cfd1c1,
-        type: 3}
-      propertyPath: VisionRange
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 9169501605209306226, guid: 1eea8e15eee69b447974e3da02cfd1c1,
-        type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 5623
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1eea8e15eee69b447974e3da02cfd1c1, type: 3}
@@ -43195,7 +43116,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh157398
+  m_Name: pb_Mesh244894
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -44139,7 +44060,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a34f5db4676f4244fb689fb86017eb2d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.048
+      value: -0.07199893
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a34f5db4676f4244fb689fb86017eb2d,
         type: 3}

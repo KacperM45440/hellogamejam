@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InteractableDoor : InteractableObject
 {
@@ -20,7 +21,6 @@ public class InteractableDoor : InteractableObject
 
     public override void Interact() {
         bool isAxe = PlayerEquipment.Instance.isItemExist("Hoeaxe");
-        Debug.Log("JEB DRZWI: " + isAxe);
 
         if (!isAxe)
         {
@@ -31,15 +31,15 @@ public class InteractableDoor : InteractableObject
             PlayerReference.Instance.playerMovement.DoAction("Axe", 1f);
             if (hitToDestroyCount > 1)
             {
-               audioSource.clip = axeHitClip;
+                audioSource.clip = axeHitClip;
 
             }
             else {
-               audioSource.clip = destroyClip;
+                audioSource.clip = destroyClip;
             }
             Transform plank = planks[hitToDestroyCount - 1];
             Rigidbody rb = plank.gameObject.GetComponent<Rigidbody>();
-            rb.AddForce(Vector3.right * 10f, ForceMode.Impulse);
+            //rb.AddForce(Vector3.right * 10f, ForceMode.Impulse);
             plank.gameObject.layer = 12;
             //Destroy(plank.GetChild(0));
             rb.isKinematic = false;
@@ -50,7 +50,25 @@ public class InteractableDoor : InteractableObject
         }
         audioSource.Play();
         if (hitToDestroyCount <= 0) {
+            DropAxe();
             Destroy(gameObject, 1f);
+        }
+    }
+
+    void DropAxe()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            if (PlayerEquipment.Instance.heldObjectNames[i].Equals("Hoeaxe"))
+            {
+                PlayerEquipment.Instance.heldObjectNames[i] = "";
+                PlayerEquipment.Instance.heldObjectSprites[i] = null;
+                PlayerEquipment.Instance.slots[i].GetComponent<Image>().sprite = null;
+
+                Color c = PlayerEquipment.Instance.slots[i].GetComponent<Image>().color;
+                c.a = 0;
+                PlayerEquipment.Instance.slots[i].GetComponent<Image>().color = c;
+            }
         }
     }
 }
