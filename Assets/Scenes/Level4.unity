@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 1d251d26964066844a9c33898bba5d30,
+    type: 2}
   m_LightingSettings: {fileID: 837334667}
 --- !u!196 &4
 NavMeshSettings:
@@ -644,18 +645,18 @@ Transform:
   - {fileID: 898926143}
   - {fileID: 1688715411}
   - {fileID: 757599636}
-  - {fileID: 646942984}
   - {fileID: 1524780364}
+  - {fileID: 646942984}
   - {fileID: 766474329}
   - {fileID: 1312366399}
   - {fileID: 635205001}
   - {fileID: 402245711}
   - {fileID: 706155607}
   - {fileID: 2046433994}
-  - {fileID: 2029727526}
   - {fileID: 1035840535}
-  - {fileID: 4053124977305330354}
+  - {fileID: 2029727526}
   - {fileID: 529153006}
+  - {fileID: 4053124977305330354}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -36066,15 +36067,9 @@ MonoBehaviour:
   m_Mesh: {fileID: 1121579860}
   m_VersionIndex: 26167
   m_IsSelectable: 1
-  m_SelectedFaces: 00010000
-  m_SelectedEdges:
-  - a: 768
-    b: 769
-  - a: 769
-    b: 770
-  - a: 770
-    b: 768
-  m_SelectedVertices: 000300000103000002030000
+  m_SelectedFaces: 
+  m_SelectedEdges: []
+  m_SelectedVertices: 
 --- !u!4 &1826812608 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 671bc6701af9f1e498b95ac7af47f0c6,
