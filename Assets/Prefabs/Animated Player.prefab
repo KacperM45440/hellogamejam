@@ -10242,6 +10242,7 @@ GameObject:
   - component: {fileID: 3909840491924019937}
   - component: {fileID: 2072185692254205707}
   - component: {fileID: 6722846099408013170}
+  - component: {fileID: 8522080199763314218}
   m_Layer: 0
   m_Name: RolledupPaper
   m_TagString: Untagged
@@ -10308,6 +10309,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8522080199763314218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2431262201823529529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bf495fd32487f242b282f92512a3641, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allTips: []
+  whichScene: 0
+  tipTextRef: {fileID: 1841243204623367131}
 --- !u!1 &3004343847567694386
 GameObject:
   m_ObjectHideFlags: 0
@@ -10500,7 +10516,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6657446147883693296
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12302,9 +12318,9 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8451179788717119966}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.000014109248}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 289581875966071090}
