@@ -19,7 +19,7 @@ public class InteractablePickup : InteractableObject
 
         int emptySlotIndex = PlayerEquipment.Instance.heldObjectNames.FindIndex(name => name.Equals(""));
 
-        Debug.Log(emptySlotIndex);
+        //Debug.Log(emptySlotIndex);
 
         if (emptySlotIndex != -1)
         {

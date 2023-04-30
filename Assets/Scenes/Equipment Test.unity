@@ -4795,6 +4795,12 @@ Transform:
   m_Father: {fileID: 697156126}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1204670643 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4339285351454031536, guid: e69a6a7f68d092f48ab088b376e49ba3,
+    type: 3}
+  m_PrefabInstance: {fileID: 8818846641694621522}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1206189507
 GameObject:
   m_ObjectHideFlags: 0
@@ -9596,6 +9602,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4584849698808820059, guid: 205aaeb38403ce7429dabb94a25d51d0,
+        type: 3}
+      propertyPath: eventObject.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1204670643}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 205aaeb38403ce7429dabb94a25d51d0, type: 3}
 --- !u!1001 &8710453740592970077
@@ -9605,6 +9616,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7722720737927411418, guid: 357d45cb1187ae842b008a260ee56009,
+        type: 3}
+      propertyPath: eventObject.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1204670643}
     - target: {fileID: 8328684269616790558, guid: 357d45cb1187ae842b008a260ee56009,
         type: 3}
       propertyPath: m_Name
