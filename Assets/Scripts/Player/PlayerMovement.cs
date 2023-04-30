@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public Animator playerBodyAnim;
     [HideInInspector] public bool freezeMovement = false;
     [SerializeField] private Transform gameCursor;
+        
 
     void Awake()
     {
@@ -25,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         PlayerReference.Instance.playerMovement = this;
+        MovePlayerTo(3f, transform.position + transform.forward * 2f);
     }
 
     void Update()
@@ -56,8 +58,8 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void AnimationSystem() {
+        if (freezeMovement) { return; }
         Vector3 direction = Quaternion.AngleAxis(transform.localEulerAngles.y, Vector3.up) * Vector3.ClampMagnitude(Vector3.Scale(movement, new Vector3(-1, 1f, 1f)), 2f) * controller.velocity.normalized.magnitude;
-
         playerBodyAnim.SetFloat("Z", Mathf.Lerp(playerBodyAnim.GetFloat("Z"), direction.z, Time.deltaTime * 10f));
         playerBodyAnim.SetFloat("X", Mathf.Lerp(playerBodyAnim.GetFloat("X"), direction.x, Time.deltaTime * 10f));
     }
@@ -100,6 +102,24 @@ public class PlayerMovement : MonoBehaviour
         freezeMovement = true;
         playerBodyAnim.Play("Up");
         yield return new WaitForSeconds(2f);
+        freezeMovement = false;
+    }
+
+    public void MovePlayerTo(float duration, Vector3 targetPosition) {
+        StartCoroutine(MovePlayerToEnum(duration, targetPosition));
+    }
+
+    IEnumerator MovePlayerToEnum(float duration, Vector3 targetPosition) {
+        freezeMovement = true;
+        float elapsedTime = 0f;
+        Vector3 direction = targetPosition - transform.position;
+        while (elapsedTime < duration) {
+            controller.Move(speed * (Time.deltaTime / duration * direction));
+            playerBodyAnim.SetFloat("Z", Mathf.Lerp(playerBodyAnim.GetFloat("Z"), direction.z, Time.deltaTime * 10f));
+            playerBodyAnim.SetFloat("X", Mathf.Lerp(playerBodyAnim.GetFloat("X"), direction.x, Time.deltaTime * 10f));
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
         freezeMovement = false;
     }
 }
