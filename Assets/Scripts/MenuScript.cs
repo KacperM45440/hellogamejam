@@ -81,10 +81,4 @@ public class MenuScript : MonoBehaviour
         backButton.interactable = false;
         Application.Quit();
     }
-
-    public IEnumerator WaitStart()
-    {
-        yield return new WaitForSeconds(3.5f);
-        SceneManager.LoadScene(1);
-    }
 } 
