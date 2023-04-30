@@ -3127,8 +3127,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Micha\u0142 Grzeg\xF3rzek Kiaszewicz\nKacper Markiewicz\nDawid Szczepaniak\nKamila
-    Spycha\u0142a"
+  m_text: 'Michal Grzegorzek Kiaszewicz
+
+    Kacper Markiewicz
+
+    Dawid Szczepaniak
+
+    Kamila
+    Spychala'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bffae7b315efc48498eeffcc074ace84, type: 2}
   m_sharedMaterial: {fileID: 1510026417548479893, guid: bffae7b315efc48498eeffcc074ace84,
