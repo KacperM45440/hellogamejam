@@ -4,10 +4,23 @@ using UnityEngine;
 
 public class BirdScript : MonoBehaviour
 {
+    private static BirdScript _instance;
+    public static BirdScript Instance { get { return _instance; } }
     public AudioSource birdSource;
     public AudioClip chirp1;
     public AudioClip chirp2;
     public AudioClip chirp3;
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+    }
     public void Chirp()
     {
         int x = Random.Range(1, 4);

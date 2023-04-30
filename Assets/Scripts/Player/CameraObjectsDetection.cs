@@ -11,7 +11,6 @@ public class CameraObjectsDetection : MonoBehaviour
     public float viewAngle;
     public LayerMask targetMask;
     public LayerMask obstacleMask;
-    public GameObject birdRef;
     public List<Transform> visibleTargets = new List<Transform>();
 
     public bool FindVisibleTargets()
@@ -41,7 +40,7 @@ public class CameraObjectsDetection : MonoBehaviour
 
                     if (target.name.Equals("Birdcage"))
                     {
-                        birdRef.GetComponent<BirdScript>().Chirp();
+                        BirdScript.Instance.GetComponent<BirdScript>().Chirp();
                         break;
                     }
 
