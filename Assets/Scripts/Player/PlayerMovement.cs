@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public Animator playerBodyAnim;
     [HideInInspector] public bool freezeMovement = false;
     [SerializeField] private Transform gameCursor;
+    [SerializeField] private GameObject visiblePlayer;
+    [SerializeField] private GameObject skeletonPlayer;
         
 
     void Awake()
@@ -107,6 +109,13 @@ public class PlayerMovement : MonoBehaviour
         playerBodyAnim.Play("Up");
         yield return new WaitForSeconds(2f);
         freezeMovement = false;
+    }
+
+    public void TurnToSkeleton()
+    {
+        freezeMovement = true;
+        visiblePlayer.SetActive(false);
+        skeletonPlayer.SetActive(true); //zagraj dŸwiêk pierdolniêcia
     }
 
     public void MovePlayerTo(float duration, Vector3 targetPosition) {
