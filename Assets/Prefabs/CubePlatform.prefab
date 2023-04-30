@@ -214,13 +214,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableName: 
   canBeInteractedWith: 1
-  pickupAudio: {fileID: 8300000, guid: 9daa96a931d7bdb40bfa8be8d06cd131, type: 3}
+  pickupAudio: {fileID: 8300000, guid: 741d5d835393446e1b82dc5c5e27a8f3, type: 3}
   interactionCooldown: 1
   audioSource: {fileID: 0}
   defaultAnimation: 1
   platformId: 0
-  putCube: {fileID: 8300000, guid: 15e84a8aadbced14aafc3d04dfba1834, type: 3}
-  noCubeInInventory: {fileID: 8300000, guid: 9daa96a931d7bdb40bfa8be8d06cd131, type: 3}
+  putCube: {fileID: 8300000, guid: 457c2fe0857104ea7ba3ef6539337b9a, type: 3}
+  noCubeInInventory: {fileID: 8300000, guid: 6a2bf9abee513cb499fefb858f033627, type: 3}
   cubePrefab: {fileID: 8152584086397868979, guid: a2813ed081312c749b4c092ff84e6578,
     type: 3}
   cubeSpot: {x: 0, y: 0.43, z: 0}

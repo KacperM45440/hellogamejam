@@ -41,6 +41,7 @@ public class CubePuzzleController : MonoBehaviour
     {
         Debug.Log("good job");
         puzzleComplete = true;
+        //StartCoroutine(shakeRef.Shake(2f, 1.5f));
     }
 
     public void PlatformTurnOn(int platform)
