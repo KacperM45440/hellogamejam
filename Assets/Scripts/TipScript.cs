@@ -32,6 +32,6 @@ public class TipScript : MonoBehaviour
     }
     public void LoadTip()
     {
-        tipTextRef.text = allTips[whichScene];
+        tipTextRef.text = allTips[whichScene-1];
     }    
 }
