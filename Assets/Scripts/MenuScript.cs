@@ -84,7 +84,7 @@ public class MenuScript : MonoBehaviour
 
     public IEnumerator WaitStart()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(3.5f);
         SceneManager.LoadScene(1);
     }
 } 

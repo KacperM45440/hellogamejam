@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class InteractableDoor : InteractableObject
 {
-    private AudioSource audioSource;
+    private AudioSource audioSourceRef;
     [SerializeField] private AudioClip tryOpenClip;
     [SerializeField] private AudioClip axeHitClip;
     [SerializeField] private AudioClip destroyClip;
@@ -16,7 +16,7 @@ public class InteractableDoor : InteractableObject
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        audioSourceRef = GetComponent<AudioSource>();
     }
 
     public override void Interact() {
@@ -24,18 +24,18 @@ public class InteractableDoor : InteractableObject
 
         if (!isAxe)
         {
-            audioSource.clip = tryOpenClip;
+            audioSourceRef.clip = tryOpenClip;
             PlayerReference.Instance.playerMovement.DoAction("Open", 1f);
         }
         else {
             PlayerReference.Instance.playerMovement.DoAction("Axe", 1f);
             if (hitToDestroyCount > 1)
             {
-                audioSource.clip = axeHitClip;
+                audioSourceRef.clip = axeHitClip;
 
             }
             else {
-                audioSource.clip = destroyClip;
+                audioSourceRef.clip = destroyClip;
             }
             Transform plank = planks[hitToDestroyCount - 1];
             Rigidbody rb = plank.gameObject.GetComponent<Rigidbody>();
@@ -48,7 +48,7 @@ public class InteractableDoor : InteractableObject
 
             hitToDestroyCount--;
         }
-        audioSource.Play();
+        audioSourceRef.Play();
         if (hitToDestroyCount <= 0) {
             DropAxe();
             Destroy(gameObject, 1f);

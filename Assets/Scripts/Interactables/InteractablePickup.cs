@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class InteractablePickup : InteractableObject
 {
+    public AudioSource globalPickupAudioSource;
     public Sprite pickupSprite;
     private int maxInventorySlots = 3;
 
@@ -30,6 +31,8 @@ public class InteractablePickup : InteractableObject
             PlayerEquipment.Instance.heldObjectNames.Add(interactableName);
             PlayerEquipment.Instance.heldObjectSprites.Add(pickupSprite);
         }
+
+        globalPickupAudioSource.PlayOneShot(pickupAudio);
 
         PlayerEquipment.Instance.ShowItems(emptySlotIndex);
         Destroy(gameObject);

@@ -8,9 +8,9 @@ public class InteractableObject : MonoBehaviour
     public bool canBeInteractedWith = true;
     private bool playerInRange = false;
     private PlayerMovement playerMovement;
-    [SerializeField] private AudioClip pickupAudio;
+    public AudioClip pickupAudio;
     [SerializeField] private float interactionCooldown = 1;
-    private AudioSource audioSource;
+    public AudioSource audioSource;
     public bool defaultAnimation = true;
 
 

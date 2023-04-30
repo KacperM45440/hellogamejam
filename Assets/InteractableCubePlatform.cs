@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class InteractableCubePlatform : InteractableObject
 {
-    private AudioSource audioSource;
+    public int platformId;
+
+    private AudioSource audioSourceRef;
     [SerializeField] private AudioClip putCube;
     //[SerializeField] private AudioClip takeCube;
     [SerializeField] private AudioClip noCubeInInventory;
@@ -14,38 +16,61 @@ public class InteractableCubePlatform : InteractableObject
     [SerializeField] private Vector3 cubeSpot;
 
     public bool hasCube = false;
+    private bool startsWithCube = false;
+    private bool canBeInteracted = true;
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        audioSourceRef = GetComponent<AudioSource>();
+        if (hasCube)
+        {
+            CubePuzzleController.instance.PlatformTurnOn(platformId);
+            startsWithCube = true;
+        }
     }
 
     public override void Interact()
     {
+        if (startsWithCube || !canBeInteracted)
+        {
+            startsWithCube = false;
+            return;
+        }
         bool isCubeInInventory = PlayerEquipment.Instance.isItemExist("Cube");
         
         //powinno mieæ obwódkê tylko jak nie ma na tym skrzynki
         if(isCubeInInventory && !hasCube)
         {
-            audioSource.clip = putCube;
+            audioSourceRef.clip = putCube;
             PlayerReference.Instance.playerMovement.DoAction("GetItem", 1.5f);
             DropCube();
 
             GameObject newCube = Instantiate(cubePrefab, transform);
             newCube.transform.localPosition = cubeSpot;
+            newCube.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);
             InteractableCubePickup newCubeRef = newCube.GetComponent<InteractableCubePickup>();
             newCubeRef.parentPlatform = gameObject;
-            //newCubeRef.WaitUntilPickupable(1); //TO NIE DZIA£A A POWINNO NADAÆ COOLDOWN SKRZYNCE ABY NIE SPAMOWAÆ
+            newCubeRef.SpawnedAnimated();
             hasCube = true;
             //TUTAJ POWINNO RÓWNIE¯ NADAWAÆ KOSTCE NATYCHMIASTOWO OUTLINE
+            CubePuzzleController.instance.PlatformTurnOn(platformId);
         }
-        audioSource.Play();
+        audioSourceRef.Play();
+        StartCoroutine(WaitUntilInteractable());
+    }
+
+    IEnumerator WaitUntilInteractable()
+    {
+        canBeInteracted = false;
+        yield return new WaitForSeconds(1.5f);
+        canBeInteracted = true;
     }
 
     public void PickedUpCube()
     {
         hasCube = false;
         canBeInteractedWith = true;
+        CubePuzzleController.instance.PlatformTurnOff(platformId);
     }
 
     void DropCube()

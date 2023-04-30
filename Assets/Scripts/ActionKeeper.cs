@@ -15,7 +15,7 @@ public class ActionKeeper : MonoBehaviour
         StartCoroutine(menuRef.WaitStart());
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if(PlayerReference.Instance.name.Equals("Player") && !foundHim)
         {
