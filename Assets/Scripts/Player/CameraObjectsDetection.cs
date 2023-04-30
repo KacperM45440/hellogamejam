@@ -24,7 +24,9 @@ public class CameraObjectsDetection : MonoBehaviour
         {
             Transform target = targetsInViewRadius[i].transform;
             Vector3 dirToTarget = (target.position - transform.position).normalized;
-            if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2f)
+            Vector3 dirToTargetAngle = (new Vector3(target.position.x, transform.position.y, target.position.z) - transform.position).normalized;
+
+            if (Vector3.Angle(transform.forward, dirToTargetAngle) < viewAngle / 2f)
             {
                 float dstToTarget = Vector3.Distance(transform.position, target.position);
                 
