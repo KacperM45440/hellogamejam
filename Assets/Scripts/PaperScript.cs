@@ -8,6 +8,8 @@ public class PaperScript : MonoBehaviour
     private Animator animatorRef;
     private int childCount;
     private bool clickable = false;
+    [SerializeField] AudioSource paperSource;
+    [SerializeField] AudioClip paperSound;
     private void Start()
     {
         if (!transform.name.Equals("PaperHugeParent"))
@@ -49,12 +51,19 @@ public class PaperScript : MonoBehaviour
         {
             animatorRef = transform.GetChild(childCount).GetChild(0).gameObject.GetComponent<Animator>();
             childCount--;
+            paperSource = animatorRef.gameObject.GetComponent<AudioSource>();
+            paperSource.Play();
             animatorRef.SetTrigger("Dismiss");
-            if(childCount < 0)
+            if (childCount < 0)
             {
                 StartCoroutine(WaitLoadLevel());
             }
         }
+    }
+
+    public void HideMe()
+    {
+        gameObject.SetActive(false);
     }
 
     IEnumerator WaitStart()
