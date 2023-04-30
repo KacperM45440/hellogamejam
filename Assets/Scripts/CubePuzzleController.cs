@@ -7,6 +7,7 @@ public class CubePuzzleController : MonoBehaviour
 {
     public static CubePuzzleController instance;
     public AudioSource audioSource;
+    public AudioClip windSound;
     public Transform platformsRef;
 
     public List<int> enabledPlatforms = new List<int>();
@@ -42,12 +43,14 @@ public class CubePuzzleController : MonoBehaviour
             }
         }
     }
+
     [ContextMenu("TEST")]
     private void PuzzleCompleted()
     {
         Debug.Log("good job");
         puzzleComplete = true;
         gateTargetPos = newGatePos;
+        audioSource.PlayOneShot(windSound);
         //PlayerReference.Instance.playerMovement.TurnToSkeleton();
         //StartCoroutine(shakeRef.Shake(2f, 1.5f));
     }
@@ -96,6 +99,12 @@ public class CubePuzzleController : MonoBehaviour
         }
 
         return true;
+    }
+
+    public IEnumerator Completed()
+    {
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(PauseScript.Instance.FadeScreens());
     }
 
     public IEnumerator BackToMenu()
