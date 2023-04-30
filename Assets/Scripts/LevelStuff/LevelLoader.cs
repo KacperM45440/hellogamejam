@@ -61,8 +61,10 @@ public class LevelLoader : MonoBehaviour
         elapsedTime = 0f;
         if(SceneManager.GetActiveScene().buildIndex == 1)
         {
+            //playerMovement.movement = Vector3.zero;
+            //playerMovement.DoAction("GetItem", 7.5f);//TUTAJ WY£•CZY∆ DèWI K KROK”W
             audioSource.PlayOneShot(scream);
-            yield return new WaitForSeconds(7.5f);
+            yield return new WaitForSeconds(5.5f);
         }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         Debug.Log("NEW POS: " + newPos);
