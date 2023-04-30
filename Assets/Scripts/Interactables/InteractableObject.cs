@@ -43,7 +43,7 @@ public class InteractableObject : MonoBehaviour
         }
     }
 
-    private void Update()
+    public void Update()
     {
         if (canBeInteractedWith && playerInRange)
         {
