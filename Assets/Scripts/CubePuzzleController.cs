@@ -55,6 +55,7 @@ public class CubePuzzleController : MonoBehaviour
     public void EndGame() {
         PlayerReference.Instance.playerMovement.TurnToSkeleton();
         PlayerReference.Instance.playerMovement.enabled = false;
+        StartCoroutine(BackToMenu());
     }
 
     public void PlatformTurnOn(int platform)
@@ -95,5 +96,11 @@ public class CubePuzzleController : MonoBehaviour
         }
 
         return true;
+    }
+
+    public IEnumerator BackToMenu()
+    {
+        yield return new WaitForSeconds(1.5f);
+        StartCoroutine(PauseScript.Instance.FadeScreens());
     }
 }

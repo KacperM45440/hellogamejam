@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class PauseScript : MonoBehaviour
 {
+    private static PauseScript _instance;
+    public static PauseScript Instance { get { return _instance; } }
     [SerializeField] private PlayerMovement movementRef;
     [SerializeField] private ModelTakePhoto photoRef;
     public GameObject overlayRef;
@@ -13,7 +15,17 @@ public class PauseScript : MonoBehaviour
     public Image mirrorMask;
     private bool isPaused;
 
-
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+    }
     // Update is called once per frame
     void Update()
     {
@@ -48,7 +60,7 @@ public class PauseScript : MonoBehaviour
         Cursor.visible = false;
     }
 
-    IEnumerator FadeScreens()
+    public IEnumerator FadeScreens()
     {
         overlayRef.SetActive(false);
 
