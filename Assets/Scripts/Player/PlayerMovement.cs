@@ -9,10 +9,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float angleToWorld = -90f;
     [SerializeField] private float speed = 3f;
     [SerializeField] private float rotationSpeed = 5f;
-    private CharacterController controller;
-    private Vector3 movement = Vector3.zero;
+    public CharacterController controller;
+    public Vector3 movement = Vector3.zero;
 
-    [SerializeField] private Animator playerBodyAnim;
+    [SerializeField] public Animator playerBodyAnim;
     [HideInInspector] public bool freezeMovement = false;
     [SerializeField] private Transform gameCursor;
 
@@ -25,7 +25,6 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         PlayerReference.Instance.playerMovement = this;
-
     }
 
     void Update()
@@ -52,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Quaternion rotation = Quaternion.LookRotation(new Vector3(mousePosition.x, transform.position.y, mousePosition.z) - transform.position, Vector3.up);
         transform.rotation = Quaternion.Lerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
-        controller.Move(direction * speed * Time.deltaTime);
+        controller.Move(speed * Time.deltaTime * direction);
 
     }
 
