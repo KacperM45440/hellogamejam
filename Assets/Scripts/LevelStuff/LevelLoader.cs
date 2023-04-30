@@ -9,12 +9,15 @@ public class LevelLoader : MonoBehaviour
 {
     private PlayerMovement playerMovement;
     [SerializeField] private Image displayFade;
+    [SerializeField] private AudioClip scream;
     private Transform cameraSystem;
     private CharacterController controller;
+    private AudioSource audioSource;
     void Awake()
     {
         controller = GetComponent<CharacterController>();
         playerMovement = GetComponent<PlayerMovement>();
+        audioSource = GetComponent<AudioSource>();
         cameraSystem = GameObject.FindGameObjectWithTag("CameraSystem").transform;
     }
 
@@ -56,6 +59,11 @@ public class LevelLoader : MonoBehaviour
             yield return null;
         }
         elapsedTime = 0f;
+        if(SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            audioSource.PlayOneShot(scream);
+            yield return new WaitForSeconds(7.5f);
+        }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         Debug.Log("NEW POS: " + newPos);
         controller.enabled = false;
