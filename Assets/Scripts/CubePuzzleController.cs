@@ -9,7 +9,7 @@ public class CubePuzzleController : MonoBehaviour
     public AudioSource audioSource;
     public Transform platformsRef;
 
-    [HideInInspector] public List<int> enabledPlatforms = new List<int>();
+    public List<int> enabledPlatforms = new List<int>();
     public List<int> correctPlatforms = new List<int>();
 
     public bool puzzleComplete = false;
@@ -45,10 +45,13 @@ public class CubePuzzleController : MonoBehaviour
 
     public void PlatformTurnOn(int platform)
     {
-        enabledPlatforms.Add(platform);
-        if(IsSame(enabledPlatforms, correctPlatforms))
+        if (!enabledPlatforms.Contains(platform))
         {
-            PuzzleCompleted();
+            enabledPlatforms.Add(platform);
+            if (IsSame(enabledPlatforms, correctPlatforms))
+            {
+                PuzzleCompleted();
+            }
         }
     }
 
