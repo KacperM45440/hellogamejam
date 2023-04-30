@@ -31,7 +31,7 @@ public class CubePuzzleController : MonoBehaviour
         if (OutlineGenerator.Instance.name.Equals("Player") && !hasGenerated)
         {
             hasGenerated = true;
-            for (int i=0; i < platformsRef.childCount - 1; i++)
+            for (int i=0; i < platformsRef.childCount; i++)
             {
                 OutlineGenerator.Instance.GenerateOutline(platformsRef.GetChild(i).gameObject, false);
             }
