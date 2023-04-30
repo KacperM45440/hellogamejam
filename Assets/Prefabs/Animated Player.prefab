@@ -5831,7 +5831,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 6839
+    m_Bits: 15031
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 8ef63f8144f8761439e7bea3d0f09d4c, type: 2}
   m_TargetDisplay: 0
@@ -5909,7 +5909,7 @@ MonoBehaviour:
   viewAngle: 41
   targetMask:
     serializedVersion: 2
-    m_Bits: 640
+    m_Bits: 8832
   obstacleMask:
     serializedVersion: 2
     m_Bits: 1
@@ -12046,7 +12046,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 5623
+    m_Bits: 13815
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 60b315874a2b4ae49b3fdeb637f82fd9, type: 2}
   m_TargetDisplay: 0

@@ -7,12 +7,13 @@ public class MirrorCameraInteractableObject : MonoBehaviour
 {
 
     [SerializeField] private UnityEvent eventObject;
-
-    public void DoEvent(float time) {
-        Invoke("DoEvent", time);
-    }
+    [SerializeField] private float time;
 
     public void DoEvent() {
+        Invoke("StartEvent", time);
+    }
+
+    public void StartEvent() {
         eventObject.Invoke();
     }
 }

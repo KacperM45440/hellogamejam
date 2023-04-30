@@ -34,7 +34,7 @@ public class CameraObjectsDetection : MonoBehaviour
 
                     if (target.TryGetComponent<MirrorCameraInteractableObject>(out MirrorCameraInteractableObject interactableObject))
                     {
-                        interactableObject.DoEvent(1.5f);
+                        interactableObject.DoEvent();
                     }
 
                     if (target.name.Equals("Birdcage"))
