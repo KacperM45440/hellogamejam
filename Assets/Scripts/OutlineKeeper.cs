@@ -22,6 +22,7 @@ public class OutlineKeeper : MonoBehaviour
         float distanceInverted = (1 / currentDistance) * 25;
         float distanceSmoothed = Mathf.Round(distanceInverted * 10.0f) * 0.1f;
 
+        Debug.Log(distanceSmoothed);
 
         if (distanceSmoothed >= 50f)
         {
@@ -34,7 +35,6 @@ public class OutlineKeeper : MonoBehaviour
         }
 
         outlineRef.OutlineWidth = distanceSmoothed / 3;
-       // Debug.Log(distanceSmoothed);
     }
     private void Rotate()
     {

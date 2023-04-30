@@ -43,7 +43,7 @@ public class InteractableDoor : InteractableObject
         }
         if (hitToDestroyCount <= 0) {
             DropAxe();
-            Destroy(gameObject, 1f);
+            Destroy(gameObject, 1.8f);
         }
     }
 
