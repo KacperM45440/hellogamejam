@@ -9,7 +9,9 @@ public class InteractableObject : MonoBehaviour
     private bool playerInRange = false;
     private PlayerMovement playerMovement;
     [SerializeField] private AudioClip pickupAudio;
+    [SerializeField] private float interactionCooldown = 1;
     private AudioSource audioSource;
+    
 
     private void Awake()
     {
@@ -50,8 +52,19 @@ public class InteractableObject : MonoBehaviour
                 audioSource.clip = pickupAudio;
                 audioSource.Play();
                 Interact();
+                canBeInteractedWith = false;
+                if (interactionCooldown > 0)
+                {
+                    StartCoroutine(Cooldown());
+                }
                 //Debug.Log("I interacted with " + interactableName);
             }
         }
+    }
+
+    IEnumerator Cooldown()
+    {
+        yield return new WaitForSeconds(interactionCooldown);
+        canBeInteractedWith = true;
     }
 }

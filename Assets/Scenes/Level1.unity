@@ -249,6 +249,7 @@ MonoBehaviour:
   interactableName: lever
   canBeInteractedWith: 1
   pickupAudio: {fileID: 8300000, guid: 80b31befe7ecf41079c487ce93b99ef5, type: 3}
+  interactionCooldown: 2
   myLeverId: 3
   turnedOn: 0
 --- !u!65 &59578818
@@ -1844,6 +1845,7 @@ MonoBehaviour:
   interactableName: lever
   canBeInteractedWith: 1
   pickupAudio: {fileID: 8300000, guid: 80b31befe7ecf41079c487ce93b99ef5, type: 3}
+  interactionCooldown: 2
   myLeverId: 1
   turnedOn: 0
 --- !u!65 &364744730
@@ -2799,6 +2801,7 @@ MonoBehaviour:
   interactableName: lever
   canBeInteractedWith: 1
   pickupAudio: {fileID: 8300000, guid: 80b31befe7ecf41079c487ce93b99ef5, type: 3}
+  interactionCooldown: 2
   myLeverId: 4
   turnedOn: 0
 --- !u!65 &596415066
@@ -24269,6 +24272,7 @@ MonoBehaviour:
   interactableName: lever
   canBeInteractedWith: 1
   pickupAudio: {fileID: 8300000, guid: 80b31befe7ecf41079c487ce93b99ef5, type: 3}
+  interactionCooldown: 2
   myLeverId: 2
   turnedOn: 0
 --- !u!65 &2111504210
