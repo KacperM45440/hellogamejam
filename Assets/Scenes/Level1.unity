@@ -5021,6 +5021,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 917436269}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &924617439 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 289581876826807203, guid: 1eea8e15eee69b447974e3da02cfd1c1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1059691447}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &931499893 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6ccac70ece527b342b26b38a5914db64,
@@ -6238,6 +6244,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 289581876583012513, guid: 1eea8e15eee69b447974e3da02cfd1c1,
+        type: 3}
+      propertyPath: mirrorCamera
+      value: 
+      objectReference: {fileID: 924617439}
     - target: {fileID: 289581877463732536, guid: 1eea8e15eee69b447974e3da02cfd1c1,
         type: 3}
       propertyPath: m_AnchorMax.y
