@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PaperScript : MonoBehaviour
 {
-    //[SerializeField] private ActionKeeper keeperRef;
     private Animator animatorRef;
     private int childCount;
+    private bool clickable = false;
     private void Start()
     {
         if (!transform.name.Equals("PaperHugeParent"))
@@ -15,6 +16,7 @@ public class PaperScript : MonoBehaviour
         }
 
         childCount = transform.childCount - 1;
+        StartCoroutine(WaitStart());
     }
     private void Update()
     {
@@ -27,14 +29,14 @@ public class PaperScript : MonoBehaviour
 
     private void DismissPapers()
     {
-        if (!transform.name.Equals("PaperHugeParent"))
+        if (!transform.name.Equals("PaperHugeParent") || !clickable)
         {
             return;
         }
 
         if(transform.childCount.Equals(0))
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
             return;
         }
 
@@ -48,6 +50,22 @@ public class PaperScript : MonoBehaviour
             animatorRef = transform.GetChild(childCount).GetChild(0).gameObject.GetComponent<Animator>();
             childCount--;
             animatorRef.SetTrigger("Dismiss");
+            if(childCount < 0)
+            {
+                StartCoroutine(WaitLoadLevel());
+            }
         }
+    }
+
+    IEnumerator WaitStart()
+    {
+        yield return new WaitForSeconds(1.5f);
+        clickable = true;
+    }
+
+    IEnumerator WaitLoadLevel()
+    {
+        yield return new WaitForSeconds(2.8f);
+        SceneManager.LoadScene(1);
     }
 }
