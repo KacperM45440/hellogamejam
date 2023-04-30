@@ -84,10 +84,10 @@ public class PlayerMovement : MonoBehaviour
         StartCoroutine(DoActionEnum(actionName, durration));
     }
 
-    private IEnumerator DoActionEnum(string actionName, float durration) {
+    private IEnumerator DoActionEnum(string actionName, float duration) {
         freezeMovement = true;
         playerBodyAnim.SetTrigger(actionName);
-        yield return new WaitForSeconds(durration);
+        yield return new WaitForSeconds(duration);
         freezeMovement = false;
     }
 
