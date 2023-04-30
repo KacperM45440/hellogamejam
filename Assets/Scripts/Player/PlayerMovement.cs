@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
         PlayerReference.Instance.playerMovement = this;
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
-            MovePlayerTo(3f, transform.position + transform.forward * 2f);
+            MovePlayerTo(3f, transform.position + transform.forward * 2.2f);
         }
     }
 
