@@ -2827,17 +2827,17 @@ PrefabInstance:
     - target: {fileID: 8820331364622467337, guid: a2813ed081312c749b4c092ff84e6578,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.34
+      value: 5.285
       objectReference: {fileID: 0}
     - target: {fileID: 8820331364622467337, guid: a2813ed081312c749b4c092ff84e6578,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.72
+      value: 0.759
       objectReference: {fileID: 0}
     - target: {fileID: 8820331364622467337, guid: a2813ed081312c749b4c092ff84e6578,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.27
+      value: -3.193
       objectReference: {fileID: 0}
     - target: {fileID: 8820331364622467337, guid: a2813ed081312c749b4c092ff84e6578,
         type: 3}
@@ -4515,6 +4515,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8286751743832740552, guid: 1eea8e15eee69b447974e3da02cfd1c1,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 99a4bc37208356940b5bebf3a5d59dcc,
+        type: 3}
     - target: {fileID: 9169501605209306226, guid: 1eea8e15eee69b447974e3da02cfd1c1,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
