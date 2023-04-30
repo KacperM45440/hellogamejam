@@ -5829,7 +5829,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 2743
+    m_Bits: 6839
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 8ef63f8144f8761439e7bea3d0f09d4c, type: 2}
   m_TargetDisplay: 0
@@ -11348,7 +11348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VisionConeMaterial: {fileID: 2100000, guid: 68e7216afa173ee42b642e98bf550171, type: 2}
-  VisionRange: 100
+  VisionRange: 20
   VisionAngle: 69
   VisionObstructingLayer:
     serializedVersion: 2
@@ -12029,7 +12029,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1527
+    m_Bits: 5623
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 60b315874a2b4ae49b3fdeb637f82fd9, type: 2}
   m_TargetDisplay: 0
