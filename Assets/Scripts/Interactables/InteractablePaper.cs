@@ -21,6 +21,14 @@ public class InteractablePaper : InteractableObject
     {
         base.Update();
 
+        try
+        {
+            animatorRef = LetterReference.Instance.animatorRef;
+        }
+        catch
+        {
+
+        }
         if (Input.GetMouseButtonDown(0))
         {
             if (!letterOpened)
