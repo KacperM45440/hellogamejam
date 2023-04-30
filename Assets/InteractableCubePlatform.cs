@@ -47,7 +47,7 @@ public class InteractableCubePlatform : InteractableObject
 
             GameObject newCube = Instantiate(cubePrefab, transform);
             newCube.transform.localPosition = cubeSpot;
-            newCube.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);
+            newCube.transform.localScale = new Vector3(1f, 1f, 1f);
             InteractableCubePickup newCubeRef = newCube.GetComponent<InteractableCubePickup>();
             newCubeRef.parentPlatform = gameObject;
             newCubeRef.SpawnedAnimated();

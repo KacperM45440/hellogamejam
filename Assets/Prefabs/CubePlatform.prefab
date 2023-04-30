@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 2104194341466215561}
   - component: {fileID: 4239979426968494147}
   - component: {fileID: 2853824568088707000}
-  - component: {fileID: 2587669199466234294}
-  - component: {fileID: 3971835549771856455}
   - component: {fileID: 6922927838475807157}
   - component: {fileID: 6595499962735205424}
+  - component: {fileID: 5315522127754993809}
+  - component: {fileID: 5639211952660242491}
   m_Layer: 0
   m_Name: CubePlatform
   m_TagString: Interactable
@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 2438578952990900630}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.155, y: -2.725, z: -5.981}
-  m_LocalScale: {x: 0.71, y: 0.71, z: 0.71}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -45,7 +45,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2438578952990900630}
-  m_Mesh: {fileID: -8116138440861595531, guid: 5392434b341d60a4aa1acb428b3fdeec, type: 3}
+  m_Mesh: {fileID: 1149973307703454695, guid: ddfed8747e579154f991f48c1d8b083c, type: 3}
 --- !u!23 &4239979426968494147
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 5392434b341d60a4aa1acb428b3fdeec, type: 3}
+  - {fileID: 4874126678125670354, guid: ddfed8747e579154f991f48c1d8b083c, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -104,32 +104,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &2587669199466234294
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2438578952990900630}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.4419422, y: 5.2658267, z: 1.4243265}
-  m_Center: {x: -0.15551323, y: 2.326719, z: 0.014097512}
---- !u!65 &3971835549771856455
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2438578952990900630}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.4419422, y: 5.2658267, z: 1.4243265}
-  m_Center: {x: -0.15551323, y: 2.326719, z: 0.014097512}
 --- !u!82 &6922927838475807157
 AudioSource:
   m_ObjectHideFlags: 0
@@ -242,11 +216,38 @@ MonoBehaviour:
   canBeInteractedWith: 1
   pickupAudio: {fileID: 8300000, guid: 9daa96a931d7bdb40bfa8be8d06cd131, type: 3}
   interactionCooldown: 1
+  audioSource: {fileID: 0}
   defaultAnimation: 1
+  platformId: 0
   putCube: {fileID: 8300000, guid: 15e84a8aadbced14aafc3d04dfba1834, type: 3}
-  takeCube: {fileID: 8300000, guid: fab29b921f236f140a0b3accda63047e, type: 3}
   noCubeInInventory: {fileID: 8300000, guid: 9daa96a931d7bdb40bfa8be8d06cd131, type: 3}
   cubePrefab: {fileID: 8152584086397868979, guid: a2813ed081312c749b4c092ff84e6578,
     type: 3}
-  cubeSpot: {x: -0.205, y: 4.957, z: 0.058}
+  cubeSpot: {x: 0, y: 0.43, z: 0}
   hasCube: 0
+--- !u!65 &5315522127754993809
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2438578952990900630}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.77708316, y: 0.55640733, z: 0.77200204}
+  m_Center: {x: 0.0013258904, y: 0.23805423, z: -0.0006187558}
+--- !u!65 &5639211952660242491
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2438578952990900630}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.77708316, y: 0.55640733, z: 0.77200204}
+  m_Center: {x: 0.0013258904, y: 0.23805423, z: -0.0006187558}
