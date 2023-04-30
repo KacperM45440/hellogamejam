@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static UnityEngine.GraphicsBuffer;
 
 public class PlayerMovement : MonoBehaviour
@@ -26,7 +27,10 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         PlayerReference.Instance.playerMovement = this;
-        MovePlayerTo(3f, transform.position + transform.forward * 2f);
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            MovePlayerTo(3f, transform.position + transform.forward * 2f);
+        }
     }
 
     void Update()

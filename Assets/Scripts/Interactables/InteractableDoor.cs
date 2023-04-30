@@ -25,6 +25,7 @@ public class InteractableDoor : InteractableObject
         if (!isAxe)
         {
             audioSourceRef.clip = tryOpenClip;
+            audioSourceRef.Play();
             PlayerReference.Instance.playerMovement.DoAction("Open", 1f);
         }
         else {
@@ -34,21 +35,12 @@ public class InteractableDoor : InteractableObject
                 audioSourceRef.clip = axeHitClip;
 
             }
-            else {
-                audioSourceRef.clip = destroyClip;
+            if (hitToDestroyCount >= 1)
+            {
+                StartCoroutine(DropPlank(0.5f, hitToDestroyCount - 1));
             }
-            Transform plank = planks[hitToDestroyCount - 1];
-            Rigidbody rb = plank.gameObject.GetComponent<Rigidbody>();
-            //rb.AddForce(Vector3.right * 10f, ForceMode.Impulse);
-            plank.gameObject.layer = 12;
-            //Destroy(plank.GetChild(0));
-            rb.isKinematic = false;
-            rb.useGravity = true;
-            plank.parent = null;
-
             hitToDestroyCount--;
         }
-        audioSourceRef.Play();
         if (hitToDestroyCount <= 0) {
             DropAxe();
             Destroy(gameObject, 1f);
@@ -70,5 +62,19 @@ public class InteractableDoor : InteractableObject
                 PlayerEquipment.Instance.slots[i].GetComponent<Image>().color = c;
             }
         }
+    }
+
+    IEnumerator DropPlank(float time, int index) { 
+        yield return new WaitForSeconds(time);
+        if (index == 0) {
+            audioSourceRef.clip = destroyClip;
+        }
+        audioSourceRef.Play();
+        Transform plank = planks[index];
+        Rigidbody rb = plank.gameObject.GetComponent<Rigidbody>();
+        plank.gameObject.layer = 12;
+        rb.isKinematic = false;
+        rb.useGravity = true;
+        plank.parent = null;
     }
 }
