@@ -4916,6 +4916,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayFade: {fileID: 118476424}
+  scream: {fileID: 8300000, guid: 9fe4d7fa15ece074990ece5bf2d9b87a, type: 3}
 --- !u!114 &1985556258
 MonoBehaviour:
   m_ObjectHideFlags: 0
