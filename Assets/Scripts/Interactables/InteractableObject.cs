@@ -11,7 +11,8 @@ public class InteractableObject : MonoBehaviour
     [SerializeField] private AudioClip pickupAudio;
     [SerializeField] private float interactionCooldown = 1;
     private AudioSource audioSource;
-    
+    public bool defaultAnimation = true;
+
 
     private void Awake()
     {
@@ -48,7 +49,10 @@ public class InteractableObject : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                playerMovement.DoAction("GetItem", 1.5f);
+                if (defaultAnimation)
+                {
+                    playerMovement.DoAction("GetItem", 1.5f);
+                }
                 audioSource.clip = pickupAudio;
                 audioSource.Play();
                 Interact();
