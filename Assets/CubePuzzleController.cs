@@ -7,11 +7,13 @@ public class CubePuzzleController : MonoBehaviour
 {
     public static CubePuzzleController instance;
     public AudioSource audioSource;
+    public Transform platformsRef;
 
     [HideInInspector] public List<int> enabledPlatforms = new List<int>();
     public List<int> correctPlatforms = new List<int>();
 
     public bool puzzleComplete = false;
+    private bool hasGenerated;
 
     private void Awake()
     {
@@ -19,6 +21,22 @@ public class CubePuzzleController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
+    private void Update()
+    {
+        GenerateOutlines();
+    }
+
+    private void GenerateOutlines()
+    {
+        if (OutlineGenerator.Instance.name.Equals("Player") && !hasGenerated)
+        {
+            hasGenerated = true;
+            for (int i=0; i < platformsRef.childCount - 1; i++)
+            {
+                OutlineGenerator.Instance.GenerateOutline(platformsRef.GetChild(i).gameObject, false);
+            }
+        }
+    }
     private void PuzzleCompleted()
     {
         Debug.Log("good job");
