@@ -18,5 +18,7 @@ public class PlayerReference : MonoBehaviour
         {
             _instance = this;
         }
+
+        Application.targetFrameRate = 60;
     }
 }

@@ -421,6 +421,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 61269640}
+  - component: {fileID: 61269641}
   m_Layer: 6
   m_Name: START
   m_TagString: START
@@ -443,6 +444,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &61269641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61269639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a94d072a831b39f4890952f75e6c1bf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuRef: {fileID: 0}
+  movementRef: {fileID: 0}
+  boolLV1: 1
+  entranceRef: {fileID: 1601138337}
 --- !u!1001 &124842491
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6152,6 +6169,66 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 289581876219188634, guid: 1eea8e15eee69b447974e3da02cfd1c1,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 289581876219188634, guid: 1eea8e15eee69b447974e3da02cfd1c1,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 289581876219188634, guid: 1eea8e15eee69b447974e3da02cfd1c1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 289581876219188634, guid: 1eea8e15eee69b447974e3da02cfd1c1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 289581876381285967, guid: 1eea8e15eee69b447974e3da02cfd1c1,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 289581876381285967, guid: 1eea8e15eee69b447974e3da02cfd1c1,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 289581876381285967, guid: 1eea8e15eee69b447974e3da02cfd1c1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 289581876381285967, guid: 1eea8e15eee69b447974e3da02cfd1c1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 289581877463732536, guid: 1eea8e15eee69b447974e3da02cfd1c1,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 289581877463732536, guid: 1eea8e15eee69b447974e3da02cfd1c1,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 289581877463732536, guid: 1eea8e15eee69b447974e3da02cfd1c1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 289581877463732536, guid: 1eea8e15eee69b447974e3da02cfd1c1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 289581877579290488, guid: 1eea8e15eee69b447974e3da02cfd1c1,
         type: 3}
       propertyPath: m_Name
@@ -6175,7 +6252,7 @@ PrefabInstance:
     - target: {fileID: 289581877579290491, guid: 1eea8e15eee69b447974e3da02cfd1c1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -14
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 289581877579290491, guid: 1eea8e15eee69b447974e3da02cfd1c1,
         type: 3}
@@ -20293,7 +20370,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh236504
+  m_Name: pb_Mesh559704
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -21605,7 +21682,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1601138338
 Transform:
   m_ObjectHideFlags: 0
