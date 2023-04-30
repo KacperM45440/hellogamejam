@@ -6318,6 +6318,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1841243204623367131, guid: 1eea8e15eee69b447974e3da02cfd1c1,
+        type: 3}
+      propertyPath: m_margin.x
+      value: -14.170227
+      objectReference: {fileID: 0}
+    - target: {fileID: 1841243204623367131, guid: 1eea8e15eee69b447974e3da02cfd1c1,
+        type: 3}
+      propertyPath: m_margin.z
+      value: -21.698395
+      objectReference: {fileID: 0}
+    - target: {fileID: 5952854831690993881, guid: 1eea8e15eee69b447974e3da02cfd1c1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1eea8e15eee69b447974e3da02cfd1c1, type: 3}
 --- !u!114 &1059691448 stripped
@@ -20399,7 +20414,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh346004
+  m_Name: pb_Mesh579278
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
