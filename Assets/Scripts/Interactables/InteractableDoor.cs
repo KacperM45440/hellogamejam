@@ -39,7 +39,7 @@ public class InteractableDoor : InteractableObject
             }
             Transform plank = planks[hitToDestroyCount - 1];
             Rigidbody rb = plank.gameObject.GetComponent<Rigidbody>();
-            rb.AddForce(Vector3.right * 10f, ForceMode.Impulse);
+            //rb.AddForce(Vector3.right * 10f, ForceMode.Impulse);
             plank.gameObject.layer = 12;
             //Destroy(plank.GetChild(0));
             rb.isKinematic = false;

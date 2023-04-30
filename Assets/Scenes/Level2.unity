@@ -235,7 +235,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a34f5db4676f4244fb689fb86017eb2d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.057
+      value: -0.062998936
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a34f5db4676f4244fb689fb86017eb2d,
         type: 3}
@@ -792,7 +792,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a34f5db4676f4244fb689fb86017eb2d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.09
+      value: -0.03
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a34f5db4676f4244fb689fb86017eb2d,
         type: 3}
@@ -36804,11 +36804,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 289581876761912349, guid: 1eea8e15eee69b447974e3da02cfd1c1,
-        type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 6839
-      objectReference: {fileID: 0}
     - target: {fileID: 289581877463732536, guid: 1eea8e15eee69b447974e3da02cfd1c1,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -36833,11 +36828,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Animated Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 289581877579290488, guid: 1eea8e15eee69b447974e3da02cfd1c1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 289581877579290491, guid: 1eea8e15eee69b447974e3da02cfd1c1,
         type: 3}
@@ -36893,16 +36883,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8286751744086852950, guid: 1eea8e15eee69b447974e3da02cfd1c1,
-        type: 3}
-      propertyPath: VisionRange
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 9169501605209306226, guid: 1eea8e15eee69b447974e3da02cfd1c1,
-        type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 5623
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1eea8e15eee69b447974e3da02cfd1c1, type: 3}
@@ -44139,7 +44119,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a34f5db4676f4244fb689fb86017eb2d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.048
+      value: -0.07199893
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a34f5db4676f4244fb689fb86017eb2d,
         type: 3}
