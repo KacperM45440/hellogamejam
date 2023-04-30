@@ -42,7 +42,7 @@ public class PlayerEquipment : MonoBehaviour
 
     public bool isItemExist(string itemName) {
         foreach (string name in heldObjectNames) {
-            if (name.Equals(heldObjectNames)) return true;
+            if (name.Equals(itemName)) return true;
         }
         return false;
     }
