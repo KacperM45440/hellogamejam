@@ -18,12 +18,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform gameCursor;
     [SerializeField] private GameObject visiblePlayer;
     [SerializeField] private GameObject skeletonPlayer;
+    [HideInInspector] public ModelTakePhoto modelTakePhoto;
         
 
     void Awake()
     {
         controller = GetComponent<CharacterController>();
         DontDestroyOnLoad(transform.parent.gameObject);
+        modelTakePhoto = GetComponent<ModelTakePhoto>();
     }
 
     void Start()
@@ -31,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
         PlayerReference.Instance.playerMovement = this;
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
+            modelTakePhoto.enabled = false;
             MovePlayerTo(3f, transform.position + transform.forward * 2.2f);
         }
     }
@@ -134,5 +137,6 @@ public class PlayerMovement : MonoBehaviour
             yield return null;
         }
         freezeMovement = false;
+        modelTakePhoto.enabled = true;
     }
 }
