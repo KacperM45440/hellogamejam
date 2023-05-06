@@ -11212,7 +11212,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -4585101601365923442, guid: 1ec15a8e9bce6e54a93ffba02272c445,
     type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 9f29dea8e969c804e89b4964c8b6c56f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -11311,6 +11311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1071116908}
+  windSound: {fileID: 0}
   platformsRef: {fileID: 722541802}
   enabledPlatforms: 
   correctPlatforms: 09000000060000000500000002000000

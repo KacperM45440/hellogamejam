@@ -4730,6 +4730,7 @@ MonoBehaviour:
   gameCursor: {fileID: 356206314}
   visiblePlayer: {fileID: 289581876808994369}
   skeletonPlayer: {fileID: 498050262906845218}
+  modelTakePhoto: {fileID: 0}
 --- !u!143 &289581876583012542
 CharacterController:
   m_ObjectHideFlags: 0
@@ -12947,17 +12948,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8945873398030257286}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.002881406, w: 0.9999958}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4118193988041094724}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.33}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 55, y: 478}
+  m_AnchoredPosition: {x: 45, y: 418}
   m_SizeDelta: {x: 1006.2, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6782275975220550313
@@ -12996,10 +12997,10 @@ MonoBehaviour:
     see the floor lighting up as the noises pass. Could this really be the thing
     we came for?\r\n\r\nWe better get some rest before fighting with the door again.
     This desk might not be the best place for sleeping, but it will have to do for
-    now.\r\n\t\t\t\t\t\n\t\t\t\t       Kleofas and "
+    now.\r\n\t\t\t\t\t\n\t\t\t\t       \t\t\t\tKleofas and "
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 06291fb608faebb43a194a654935fecd, type: 2}
-  m_sharedMaterial: {fileID: 9137977430035999610, guid: 06291fb608faebb43a194a654935fecd,
+  m_fontAsset: {fileID: 11400000, guid: 6ffa742a37be6114987d6011f28b7417, type: 2}
+  m_sharedMaterial: {fileID: -6546429256612041594, guid: 6ffa742a37be6114987d6011f28b7417,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -13024,13 +13025,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 45
+  m_fontSizeBase: 45
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -13038,7 +13039,7 @@ MonoBehaviour:
   m_wordSpacing: 0
   m_lineSpacing: -6.73
   m_lineSpacingMax: 0
-  m_paragraphSpacing: -10.66
+  m_paragraphSpacing: -15
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
