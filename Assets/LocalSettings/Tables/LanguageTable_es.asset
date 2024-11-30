@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: LanguageTable_es
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: 0291645261f01a247b9273a55310125d, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 1095394709504
+    m_Localized: Opciones
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1799739985920
+    m_Localized: Salir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4003322449920
+    m_Localized: Jugar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11159325167616
+    m_Localized: Idioma
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13225141522432
+    m_Localized: "Atr\xE1s"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14261939916800
+    m_Localized: "Cr\xE9ditos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14716891877376
+    m_Localized: "Configuraci\xF3n de volumen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15014842650624
+    m_Localized: "M\xFAsica"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16422946000896
+    m_Localized: "\xBFEst\xE1s seguro de que quieres salir?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16940095295488
+    m_Localized: "Atr\xE1s"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17270354792448
+    m_Localized: Salir
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
