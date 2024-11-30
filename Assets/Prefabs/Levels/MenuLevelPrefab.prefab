@@ -146,6 +146,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a01e6491a16ed5744ac1fd992582adb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fonts:
+  - {fileID: 11400000, guid: 06291fb608faebb43a194a654935fecd, type: 2}
+  - {fileID: 11400000, guid: f0e78ce6f8f2c18478df788ee1af8d4b, type: 2}
+  - {fileID: 11400000, guid: 992d0dc4136209249bb25cc062527080, type: 2}
+  - {fileID: 11400000, guid: 06291fb608faebb43a194a654935fecd, type: 2}
+  - {fileID: 11400000, guid: 709d7be3677f3e946b5e0d683c355da0, type: 2}
+  texts:
+  - {fileID: 5486052109643764081}
+  - {fileID: 5486052108562694130}
+  - {fileID: 5486052110159567047}
+  - {fileID: 5126791122504079767}
+  - {fileID: 5486052110266866621}
+  - {fileID: 5486052110266866621}
+  - {fileID: 5486052109416801656}
+  - {fileID: 5486052108553847084}
+  - {fileID: 5486052108958502499}
+  - {fileID: 5486052110050567731}
+  - {fileID: 5486052110212228686}
+  - {fileID: 5486052108750520329}
 --- !u!222 &4947838333934693744
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3796,7 +3815,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5486052109109218520}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.00000023842}
   m_LocalScale: {x: 1.7032712, y: 1.7032712, z: 1.7032712}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3805,8 +3824,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -90, y: 109}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -90, y: -81.518}
+  m_SizeDelta: {x: 200, y: 273.71}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5486052109109218525
 CanvasRenderer:
@@ -3836,11 +3855,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Michal Grzegorzek \nKiaszewicz\nKacper Markiewicz\nDawid Szczepaniak\nKamila
-    Spychala"
+  m_text: "Micha\u0142 Grzeg\xF3rzek \nKiaszewicz\nKacper Markiewicz\nDawid Szczepaniak\nKamila
+    Spycha\u0142a"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bffae7b315efc48498eeffcc074ace84, type: 2}
-  m_sharedMaterial: {fileID: 1510026417548479893, guid: bffae7b315efc48498eeffcc074ace84,
+  m_fontAsset: {fileID: 11400000, guid: 992d0dc4136209249bb25cc062527080, type: 2}
+  m_sharedMaterial: {fileID: -3462124462077937583, guid: 992d0dc4136209249bb25cc062527080,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3865,8 +3884,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 31.11
+  m_fontSizeBase: 31.11
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3875,9 +3894,9 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: -7.63
-  m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_characterSpacing: -9.2
+  m_wordSpacing: 31.92
+  m_lineSpacing: 37.39
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0

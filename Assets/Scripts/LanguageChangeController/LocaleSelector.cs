@@ -1,10 +1,15 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
 
 public class LocaleSelector : MonoBehaviour
 {
     private bool _active = false;
+
+    [SerializeField] private TMP_FontAsset[] fonts; 
+
+    [SerializeField] private TextMeshProUGUI[] texts;
 
     private void Start()
     {
@@ -17,6 +22,11 @@ public class LocaleSelector : MonoBehaviour
         if (_active)
         {
             return;
+        }
+
+        for (int i = 0; i < texts.Length; i++)
+        {
+            texts[i].font = fonts[localeID];
         }
 
         StartCoroutine(SetLocale(localeID));
