@@ -17,8 +17,8 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 9c19b8960345ff94db773deb2a0e80e3
   m_SerializeEntries:
-  - m_GUID: bd2af8743babc2e418e6907ff305d0fd
-    m_Address: StringTable_es
+  - m_GUID: ad162169af38376419e6a76831cc64ea
+    m_Address: LanguageTable_es
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-es

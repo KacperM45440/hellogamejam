@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5be51871efa6c3e4eae1703925c8f5ac, type: 3}
-  m_Name: StringTable
+  m_Name: LanguageTable
   m_EditorClassIdentifier: 
-  m_SharedTableData: {fileID: 11400000, guid: 7296b1c01aca6784595db9e2280d9bdf, type: 2}
+  m_SharedTableData: {fileID: 11400000, guid: 0291645261f01a247b9273a55310125d, type: 2}
   m_Tables:
-  - {fileID: 11400000, guid: 08b4e14fdd64e004ea075c80f3f15685, type: 2}
-  - {fileID: 11400000, guid: 41d642fe9240cfe4d956d43df9f09a49, type: 2}
-  - {fileID: 11400000, guid: 2abcd50f7b455d941851f1d55e5d8caa, type: 2}
-  - {fileID: 11400000, guid: bd2af8743babc2e418e6907ff305d0fd, type: 2}
-  - {fileID: 11400000, guid: 43e52e373cbfe73499b520d9b93e77bc, type: 2}
+  - {fileID: 11400000, guid: be728d4067aeb944597d586717b62644, type: 2}
+  - {fileID: 11400000, guid: bd6b2b07046466b4b94ccc6a81061cb9, type: 2}
+  - {fileID: 11400000, guid: 12c56a3f3fbf5c44abb4069f6046b82b, type: 2}
+  - {fileID: 11400000, guid: ad162169af38376419e6a76831cc64ea, type: 2}
+  - {fileID: 11400000, guid: 8beb7cc806b517f40b417194e9fffc0c, type: 2}
   m_Extensions: []
   m_Group: String Table
   references:
