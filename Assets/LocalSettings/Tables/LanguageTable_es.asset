@@ -62,6 +62,41 @@ MonoBehaviour:
     m_Localized: Salir
     m_Metadata:
       m_Items: []
+  - m_Id: 376049745022976
+    m_Localized: "\rCurr\xEDculum"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 376045080956928
+    m_Localized: "Volver al men\xFA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 381316872294400
+    m_Localized: "El orden es la m\xE1s alta de las virtudes; un pilar de la sociedad"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 387971513077760
+    m_Localized: ' Abuelo Kleofas, 1867  '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 388464461238272
+    m_Localized: "Querido hermano,\n\nLamento saber que nuestro abuelo ha fallecido.
+      S\xE9 que hab\xE9is sido muy cercanos y este debe ser un momento dif\xEDcil
+      para vosotros; por favor, aceptad mi m\xE1s sentido p\xE9same.\nSin embargo,
+      tambi\xE9n me ha llamado la atenci\xF3n que has heredado la maleta de nuestro
+      abuelo, de cuando todav\xEDa era un cazador de aventuras, completa con todo
+      el equipo.\n\nD\xE9jame tranquilizarte: todas las historias sobre grandes viajes,
+      tesoros y descubrimientos fueron s\xF3lo eso. Cuentos. Por favor, NO piense
+      en esto como una oportunidad para ponerse en su lugar y posiblemente arriesgar
+      su propia vida por lo que sea que pueda encontrar.\nSiempre ser\xE1s bienvenido
+      a nuestra casa y podr\xE1s visitarnos cuando cambies de opini\xF3n. Espero
+      que veas que este no es el camino correcto para ti.\n                                   
+      Atentamente,"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 388572896579584
+    m_Localized: "El \xFAltimo viaje del abuelo a Caracai, 1869"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -62,6 +62,40 @@ MonoBehaviour:
     m_Localized: exit
     m_Metadata:
       m_Items: []
+  - m_Id: 376049745022976
+    m_Localized: Resum
+    m_Metadata:
+      m_Items: []
+  - m_Id: 376045080956928
+    m_Localized: Back to menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 381316872294400
+    m_Localized: Order is the highest of virtues; a pillar of society
+    m_Metadata:
+      m_Items: []
+  - m_Id: 387971513077760
+    m_Localized: Grandpa Kleofas, 1867
+    m_Metadata:
+      m_Items: []
+  - m_Id: 388464461238272
+    m_Localized: "Dear brother,\n\nI'm sorry to hear that our grandfather has passed
+      away. I know you've been very close and this must be a tough time for you -
+      please accept my sincere condolences.\nHowever, it has also come to my attention
+      that you have inherited our grandfather's suitcase, back from the times when
+      he was still an adventure hunter, complete with all of the equipment.\n\nLet
+      me reassure you - all of the tales about great journeys, treasure and discovery
+      were just that. Tales. Please, DO NOT think of this as an opportunity to step
+      into his shoes and possibly risk your own life over whatever it is that you
+      can find.\nYou're always welcome in our home, and you're free to visit whenever
+      you change your mind. I hope you'll see this isn't the right path for you.\n                                   
+      Yours truly,"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 388572896579584
+    m_Localized: Grandpa's last trip to Caracai, 1869
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

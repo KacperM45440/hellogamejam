@@ -62,6 +62,43 @@ MonoBehaviour:
     m_Localized: "Wyj\u015Bcie"
     m_Metadata:
       m_Items: []
+  - m_Id: 376045080956928
+    m_Localized: "Wr\xF3\u0107 do Menu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 376049745022976
+    m_Localized: "Wzn\xF3w"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 381316872294400
+    m_Localized: "Porz\u0105dek jest najwy\u017Csz\u0105 z cn\xF3t; filar spo\u0142ecze\u0144stwa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 387971513077760
+    m_Localized: Dziadek Kleofas, 1867
+    m_Metadata:
+      m_Items: []
+  - m_Id: 388464461238272
+    m_Localized: "Drogi bracie,\n\nPrzykro mi s\u0142ysze\u0107, \u017Ce nasz dziadek
+      zmar\u0142. Wiem, \u017Ce byli\u015Bcie ze sob\u0105 bardzo blisko i to musi
+      by\u0107 dla Was trudny czas \u2013 prosz\u0119 przyj\u0105\u0107 moje szczere
+      kondolencje.\nJednak\u017Ce dowiedzia\u0142am si\u0119 r\xF3wnie\u017C, \u017Ce
+      odziedziczy\u0142e\u015B walizk\u0119 po naszym dziadku z czas\xF3w, gdy by\u0142
+      on jeszcze \u0142owc\u0105 przyg\xF3d, wraz z ca\u0142ym wyposa\u017Ceniem.\n\nZapewniam
+      Ci\u0119 \u2013 wszystkie opowie\u015Bci o wielkich podr\xF3\u017Cach, skarbach
+      i odkryciach w\u0142a\u015Bnie takie by\u0142y. Opowie\u015Bci. Prosz\u0119,
+      NIE my\u015Bl o tym jako o okazji, aby wej\u015B\u0107 w jego buty i prawdopodobnie
+      zaryzykowa\u0107 w\u0142asne \u017Cycie dla tego, co mo\u017Cesz znale\u017A\u0107.\nZawsze
+      jeste\u015B mile widziany w naszym domu i mo\u017Cesz go odwiedzi\u0107, gdy
+      tylko zmienisz zdanie. Mam nadziej\u0119, \u017Ce zobaczysz, \u017Ce to nie
+      jest w\u0142a\u015Bciwa droga dla ciebie.\n                                   
+      Tw\xF3j naprawd\u0119,"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 388572896579584
+    m_Localized: "Ostatnia podr\xF3\u017C dziadka do Caracai, 1869 "
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

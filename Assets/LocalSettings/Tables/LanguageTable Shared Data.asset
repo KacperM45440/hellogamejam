@@ -63,6 +63,34 @@ MonoBehaviour:
     m_Key: Button.exit2
     m_Metadata:
       m_Items: []
+  - m_Id: 376045080956928
+    m_Key: Button.BackToMenu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 376049745022976
+    m_Key: Button.Resum
+    m_Metadata:
+      m_Items: []
+  - m_Id: 381316872294400
+    m_Key: Tip.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 387971513077760
+    m_Key: Grandpa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 388464461238272
+    m_Key: 'Letter
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 388572896579584
+    m_Key: 'Dino
+
+'
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
