@@ -1,19 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraSystem : MonoBehaviour
 {
-    [SerializeField] private Transform target;
-    [SerializeField] private float speed;
-
-    void Start()
+    [SerializeField] private Transform cameraTarget;
+    [SerializeField] private float cameraSpeed;
+    
+    private void Update()
     {
-        
-    }
-
-    void Update()
-    {
-        transform.position = Vector3.Lerp(transform.position, target.position, speed * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, cameraTarget.position, cameraSpeed * Time.deltaTime);
     }
 }

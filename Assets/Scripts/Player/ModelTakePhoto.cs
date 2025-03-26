@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ModelTakePhoto : MonoBehaviour
 {
@@ -49,14 +47,14 @@ public class ModelTakePhoto : MonoBehaviour
         StartCoroutine(FadeScreen());
     }
 
-    IEnumerator FadeScreen()
+    private IEnumerator FadeScreen()
     {
         audioSource.clip = takePhotoClip;
         audioSource.pitch = Random.Range(0.96f, 1.05f);
         audioSource.Play();
         yield return new WaitForSeconds(0.5f);
 
-        playerMovement.freezeMovement = true;
+        playerMovement.FreezeMovement();
         Color c = m.color;
         spotLight.intensity = 20;
 
@@ -68,7 +66,7 @@ public class ModelTakePhoto : MonoBehaviour
             yield return new WaitForSeconds(0.02f);
         }
 
-        playerMovement.freezeMovement = false;
+        playerMovement.EnableMovement();
         spotLight.intensity = 0f;
     }
 }

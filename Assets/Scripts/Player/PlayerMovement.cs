@@ -1,36 +1,32 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static UnityEngine.GraphicsBuffer;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float angleToWorld = -90f;
     [SerializeField] private float speed = 3f;
     [SerializeField] private float rotationSpeed = 5f;
-    public CharacterController controller;
-    public Vector3 movement = Vector3.zero;
-
-    [SerializeField] public Animator playerBodyAnim;
-    [HideInInspector] public bool freezeMovement = false;
+    
+    [SerializeField] private CharacterController characterControllerRef;
+    [SerializeField] private Animator playerBodyAnim;
     [SerializeField] private Transform gameCursor;
     [SerializeField] private GameObject visiblePlayer;
     [SerializeField] private GameObject skeletonPlayer;
-    [HideInInspector] public ModelTakePhoto modelTakePhoto;
-        
 
-    void Awake()
+    [Range(0, 1)] private int movementEnabled;
+    private ModelTakePhoto modelTakePhoto;
+    private Vector3 movement = Vector3.zero;
+
+    //Should be deleted after we deal with proper level/scene loading
+    private void Awake()
     {
-        controller = GetComponent<CharacterController>();
         DontDestroyOnLoad(transform.parent.gameObject);
-        modelTakePhoto = GetComponent<ModelTakePhoto>();
     }
 
-    void Start()
+    //Should be deleted after cave level stops being the first level in the game
+    private void Start()
     {
-        PlayerReference.Instance.playerMovement = this;
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             modelTakePhoto.enabled = false;
@@ -38,105 +34,108 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void Update()
+    //Should be moved to the New Input System whenever, for the sake of multi-platform
+    private void Update()
     {
-        if (!freezeMovement)
-        {
-            Movement();
-        }
-        else
-        {
-            movement = Vector3.zero;
-        }
+        Movement();
         AnimationSystem();
         GravitySystem();
         GameCursorSystem();
     }
 
-    void Movement() {
-
+    private void Movement() 
+    {
         movement.x = Input.GetAxis("Horizontal");
         movement.z = Input.GetAxis("Vertical");
-        Vector3 direction = Quaternion.AngleAxis(angleToWorld, Vector3.up) * Vector3.ClampMagnitude(movement, 1f);
-       
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        
+        Vector3 direction = Quaternion.AngleAxis(angleToWorld, Vector3.up) * Vector3.ClampMagnitude(movement, 1f) * movementEnabled;
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //probably expensive, is there a better way?
         Quaternion rotation = Quaternion.LookRotation(new Vector3(mousePosition.x, transform.position.y, mousePosition.z) - transform.position, Vector3.up);
         transform.rotation = Quaternion.Lerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
-        controller.Move(speed * Time.deltaTime * direction);
-
+        
+        characterControllerRef.Move(speed * Time.deltaTime * direction);
     }
 
-    void AnimationSystem() {
-        if (freezeMovement) { return; }
-        Vector3 direction = Quaternion.AngleAxis(transform.localEulerAngles.y, Vector3.up) * Vector3.ClampMagnitude(Vector3.Scale(movement, new Vector3(-1, 1f, 1f)), 2f) * controller.velocity.normalized.magnitude;
+    private void AnimationSystem() 
+    {
+        if (IsMovementEnabled()) 
+        { 
+            return; 
+        }
+
+        Vector3 direction = Quaternion.AngleAxis(transform.localEulerAngles.y, Vector3.up) * Vector3.ClampMagnitude(Vector3.Scale(movement, new Vector3(-1, 1f, 1f)), 2f) * characterControllerRef.velocity.normalized.magnitude;
         playerBodyAnim.SetFloat("Z", Mathf.Lerp(playerBodyAnim.GetFloat("Z"), direction.z, Time.deltaTime * 10f));
         playerBodyAnim.SetFloat("X", Mathf.Lerp(playerBodyAnim.GetFloat("X"), direction.x, Time.deltaTime * 10f));
     }
 
-    void GameCursorSystem() {
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    private void GameCursorSystem() 
+    {
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //probably expensive, is there a better way?
         gameCursor.forward = (new Vector3(mousePosition.x, transform.position.y, mousePosition.z) - transform.position).normalized;
         gameCursor.position = new Vector3(mousePosition.x, transform.position.y + 8f, mousePosition.z);
     }
 
-    void GravitySystem()
+    private void GravitySystem()
     {
-        if (controller.isGrounded)
+        if (characterControllerRef.isGrounded)
         {
             movement.y = -0.1f;
         }
-        else {
+        else 
+        {
             movement.y += Physics.gravity.y * Time.deltaTime;
         }
     }
 
-    public void DoAction(string actionName, float durration) 
+    public bool IsMovementEnabled()
+    {
+        return movementEnabled == 1;
+    }    
+
+    public void EnableMovement()
+    {
+        movementEnabled = 1;
+    }
+
+    public void FreezeMovement()
+    {
+        movementEnabled = 0;
+    }
+
+    public void DoAction(string actionName, float durration)
     {
         StartCoroutine(DoActionEnum(actionName, durration));
     }
 
-    private IEnumerator DoActionEnum(string actionName, float duration) {
-        freezeMovement = true;
-        playerBodyAnim.SetTrigger(actionName);
-        yield return new WaitForSeconds(duration);
-        freezeMovement = false;
-    }
-
-    public void StandUp()
+    public void MovePlayerTo(float duration, Vector3 targetPosition)
     {
-        StartCoroutine(StandUpEnum());
-    }
-    IEnumerator StandUpEnum()
-    {
-        freezeMovement = true;
-        playerBodyAnim.Play("Up");
-        yield return new WaitForSeconds(2f);
-        freezeMovement = false;
-    }
-
-    public void TurnToSkeleton()
-    {
-        freezeMovement = true;
-        visiblePlayer.SetActive(false);
-        skeletonPlayer.SetActive(true); //zagraj dŸwiêk pierdolniêcia
-    }
-
-    public void MovePlayerTo(float duration, Vector3 targetPosition) {
         StartCoroutine(MovePlayerToEnum(duration, targetPosition));
     }
 
-    IEnumerator MovePlayerToEnum(float duration, Vector3 targetPosition) {
-        freezeMovement = true;
+    private IEnumerator DoActionEnum(string actionName, float duration)
+    {
+        FreezeMovement();
+        playerBodyAnim.SetTrigger(actionName);
+        yield return new WaitForSeconds(duration);
+        EnableMovement();
+    }
+
+    private IEnumerator MovePlayerToEnum(float duration, Vector3 targetPosition) 
+    {
+        FreezeMovement();
         float elapsedTime = 0f;
         Vector3 direction = targetPosition - transform.position;
-        while (elapsedTime < duration) {
-            controller.Move(speed * (Time.deltaTime / duration * direction));
+        
+        while (elapsedTime < duration) 
+        {
+            characterControllerRef.Move(speed * (Time.deltaTime / duration * direction));
             playerBodyAnim.SetFloat("Z", Mathf.Lerp(playerBodyAnim.GetFloat("Z"), direction.z, Time.deltaTime * 10f));
             playerBodyAnim.SetFloat("X", Mathf.Lerp(playerBodyAnim.GetFloat("X"), direction.x, Time.deltaTime * 10f));
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-        freezeMovement = false;
+
+        EnableMovement();
         modelTakePhoto.enabled = true;
     }
 }
