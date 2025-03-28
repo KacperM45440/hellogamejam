@@ -1,16 +1,16 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractableCubePickup : InteractablePickup
 {
     public GameObject parentPlatform;
     [SerializeField] private Animator animatorRef;
+    [SerializeField] private CubePuzzleController puzzleControllerRef;
     private bool canBePickedUp = false;
 
     public void Start()
     {
-        globalPickupAudioSource = CubePuzzleController.instance.audioSource;
+        globalPickupAudioSource = puzzleControllerRef.audioSource;
         if (parentPlatform == null)
         {
             animatorRef.speed = 0;
@@ -25,7 +25,7 @@ public class InteractableCubePickup : InteractablePickup
 
     public override void Interact()
     {
-        if (CubePuzzleController.instance.puzzleComplete || !canBePickedUp)
+        if (puzzleControllerRef.puzzleComplete || !canBePickedUp)
         {
             return;
         }

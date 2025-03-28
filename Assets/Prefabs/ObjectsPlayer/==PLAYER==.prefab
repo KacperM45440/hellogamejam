@@ -4579,7 +4579,6 @@ GameObject:
   - component: {fileID: 641959458}
   - component: {fileID: 1380811980}
   - component: {fileID: 1816410503}
-  - component: {fileID: 1985556258}
   - component: {fileID: 6314020603612586711}
   - component: {fileID: 454613059}
   m_Layer: 6
@@ -4623,14 +4622,10 @@ MonoBehaviour:
   angleToWorld: -90
   speed: 5
   rotationSpeed: 10
-  controller: {fileID: 0}
-  movement: {x: 0, y: 0, z: 0}
+  characterControllerRef: {fileID: 0}
   playerBodyAnim: {fileID: 289581876808994368}
-  freezeMovement: 0
   gameCursor: {fileID: 356206314}
   visiblePlayer: {fileID: 289581876808994369}
-  skeletonPlayer: {fileID: 498050262906845218}
-  modelTakePhoto: {fileID: 0}
 --- !u!143 &289581876583012542
 CharacterController:
   m_ObjectHideFlags: 0
@@ -4661,11 +4656,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c583ffb4d60808845a6658f28a08cee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubeToFade: {fileID: 8286751744086852949}
-  handlerRef: {fileID: 289581876761912344}
-  spotLight: {fileID: 231240870}
+  playerReferencesRef: {fileID: 0}
+  photoManagerRef: {fileID: 0}
+  mirrorFadeCone: {fileID: 0}
+  mirrorAudioSource: {fileID: 0}
+  takePhotoSFX: {fileID: 0}
+  mirrorSpotlight: {fileID: 0}
   useSpotLight: 1
-  takePhotoClip: {fileID: 8300000, guid: 0c4e3bd795ec10b4082a6c8a611eba54, type: 3}
   canTakePhoto: 1
 --- !u!95 &289581876583012543
 Animator:
@@ -4820,21 +4817,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3b16e5ef6d84734398529abd39ed624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerReferencesRef: {fileID: 0}
   displayFade: {fileID: 118476424}
   scream: {fileID: 8300000, guid: 9fe4d7fa15ece074990ece5bf2d9b87a, type: 3}
---- !u!114 &1985556258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 289581876583012539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdf4eee79c2ff6e478d6c94b16f81ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerMovement: {fileID: 0}
 --- !u!114 &6314020603612586711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11460,9 +11445,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementRef: {fileID: 289581876583012513}
   photoRef: {fileID: 289581876583012541}
-  overlayRef: {fileID: 5952854831690993881}
+  pauseOverlay: {fileID: 0}
   gameMask: {fileID: 8286751744573581274}
   mirrorMask: {fileID: 289581876027708531}
+  menuSceneName: Menu
 --- !u!1 &7769396259932896912
 GameObject:
   m_ObjectHideFlags: 0

@@ -51,7 +51,7 @@ public class InteractableObject : MonoBehaviour
             {
                 if (defaultAnimation)
                 {
-                    playerMovement.DoAction("GetItem", 1.5f);
+                    playerMovement.StopAndPlayAnimation("GetItem", 1.5f);
                 }
                 audioSource.clip = pickupAudio;
                 audioSource.Play();

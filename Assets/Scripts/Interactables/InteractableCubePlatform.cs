@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +6,8 @@ public class InteractableCubePlatform : InteractableObject
 {
     public int platformId;
 
+    [SerializeField] private CubePuzzleController puzzleControllerRef;
+    [SerializeField] private PlayerReferences playerReferencesRef;
     private AudioSource audioSourceRef;
     [SerializeField] private AudioClip putCube;
     //[SerializeField] private AudioClip takeCube;
@@ -19,12 +20,12 @@ public class InteractableCubePlatform : InteractableObject
     private bool startsWithCube = false;
     private bool canBeInteracted = true;
 
-    void Start()
+    private void Start()
     {
         audioSourceRef = GetComponent<AudioSource>();
         if (hasCube)
         {
-            CubePuzzleController.instance.PlatformTurnOn(platformId);
+            puzzleControllerRef.PlatformTurnOn(platformId);
             startsWithCube = true;
         }
     }
@@ -42,7 +43,7 @@ public class InteractableCubePlatform : InteractableObject
         if(isCubeInInventory && !hasCube)
         {
             audioSourceRef.clip = putCube;
-            PlayerReference.Instance.playerMovement.DoAction("GetItem", 1.5f);
+            playerReferencesRef.GetPlayerMovement().StopAndPlayAnimation("GetItem", 1.5f);
             DropCube();
 
             GameObject newCube = Instantiate(cubePrefab, transform);
@@ -53,7 +54,7 @@ public class InteractableCubePlatform : InteractableObject
             newCubeRef.SpawnedAnimated();
             hasCube = true;
             //TUTAJ POWINNO RÓWNIE¯ NADAWAÆ KOSTCE NATYCHMIASTOWO OUTLINE
-            CubePuzzleController.instance.PlatformTurnOn(platformId);
+            puzzleControllerRef.PlatformTurnOn(platformId);
         }
         audioSourceRef.Play();
         StartCoroutine(WaitUntilInteractable());
@@ -70,7 +71,7 @@ public class InteractableCubePlatform : InteractableObject
     {
         hasCube = false;
         canBeInteractedWith = true;
-        CubePuzzleController.instance.PlatformTurnOff(platformId);
+        puzzleControllerRef.PlatformTurnOff(platformId);
     }
 
     void DropCube()

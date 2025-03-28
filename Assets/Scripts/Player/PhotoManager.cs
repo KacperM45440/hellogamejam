@@ -3,13 +3,14 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PhotoMirrorHandler : MonoBehaviour
+// This class defines *how* a photo is taken
+// TODO: Move all cog logic to TakePhoto.cs
+public class PhotoManager : MonoBehaviour
 {
     [SerializeField] private Image mirrorImage;
-    [SerializeField] private ModelTakePhoto modelRef;
+    [SerializeField] private TakePhoto modelRef;
     [SerializeField] private CameraObjectsDetection detectionRef;
     [SerializeField] private GhostScript ghostRef;
-    private static PhotoMirrorHandler instance;
     private Camera cameraRef;
     private string photosFolderPath = "Photos/";
     private string[] filePaths;
@@ -22,7 +23,6 @@ public class PhotoMirrorHandler : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
         cameraRef = gameObject.GetComponent<Camera>();
         photosFolderPath = Application.streamingAssetsPath + "/Photos/";
         mirrorImage.gameObject.SetActive(false);

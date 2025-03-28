@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class CubePuzzleController : MonoBehaviour
 {
-    public static CubePuzzleController instance;
+    [SerializeField] private PlayerReferences playerReferencesRef;
+    [SerializeField] private PauseScript pauseRef;
     public AudioSource audioSource;
     public AudioClip windSound;
     public Transform platformsRef;
@@ -21,7 +22,6 @@ public class CubePuzzleController : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
         audioSource = GetComponent<AudioSource>();
         gateTargetPos = gate.localPosition;
     }
@@ -55,9 +55,9 @@ public class CubePuzzleController : MonoBehaviour
         //StartCoroutine(shakeRef.Shake(2f, 1.5f));
     }
 
-    public void EndGame() {
-        PlayerReference.Instance.playerMovement.TurnToSkeleton();
-        PlayerReference.Instance.playerMovement.enabled = false;
+    public void EndGame() 
+    {
+        playerReferencesRef.GetPlayerMovement().DisableMovement();
         StartCoroutine(BackToMenu());
     }
 
@@ -104,12 +104,12 @@ public class CubePuzzleController : MonoBehaviour
     public IEnumerator Completed()
     {
         yield return new WaitForSeconds(0.5f);
-        StartCoroutine(PauseScript.Instance.FadeScreens());
+        pauseRef.ReturnToMenu();
     }
 
     public IEnumerator BackToMenu()
     {
         yield return new WaitForSeconds(1.5f);
-        StartCoroutine(PauseScript.Instance.FadeScreens());
+        pauseRef.ReturnToMenu();
     }
 }

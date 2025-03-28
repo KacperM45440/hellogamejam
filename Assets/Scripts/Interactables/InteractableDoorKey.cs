@@ -1,10 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class InteractableDoorKey : InteractableObject
 {
+    [SerializeField] private PlayerReferences playerReferencesRef;
     private AudioSource audioSourceRef;
     [SerializeField] private AudioClip tryOpenClip;
     [SerializeField] private AudioClip openClip;
@@ -14,18 +14,19 @@ public class InteractableDoorKey : InteractableObject
         audioSourceRef = GetComponent<AudioSource>();
     }
 
-    public override void Interact() {
+    public override void Interact() 
+    {
         bool isKey = PlayerEquipment.Instance.isItemExist("Key");
 
         if (!isKey)
         {
             audioSourceRef.clip = tryOpenClip;
             audioSourceRef.Play();
-            PlayerReference.Instance.playerMovement.DoAction("Open", 1f);
+            playerReferencesRef.GetPlayerMovement().StopAndPlayAnimation("Open", 1f);
         }
         else
         {
-            PlayerReference.Instance.playerMovement.DoAction("GetItem", 1f);
+            playerReferencesRef.GetPlayerMovement().StopAndPlayAnimation("GetItem", 1f);
             audioSourceRef.clip = openClip;
             DropKey();
             //transform.position = new Vector3(-4.423f, 1.646f, 2.555f);

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class InteractableDoor : InteractableObject
 {
+    [SerializeField] private PlayerReferences playerReferencesRef;
     private AudioSource audioSourceRef;
     [SerializeField] private AudioClip tryOpenClip;
     [SerializeField] private AudioClip axeHitClip;
@@ -26,10 +27,11 @@ public class InteractableDoor : InteractableObject
         {
             audioSourceRef.clip = tryOpenClip;
             audioSourceRef.Play();
-            PlayerReference.Instance.playerMovement.DoAction("Open", 1f);
+            playerReferencesRef.GetPlayerMovement().StopAndPlayAnimation("Open", 1f);
         }
-        else {
-            PlayerReference.Instance.playerMovement.DoAction("Axe", 1f);
+        else 
+        {
+            playerReferencesRef.GetPlayerMovement().StopAndPlayAnimation("Axe", 1f);
             if (hitToDestroyCount > 1)
             {
                 audioSourceRef.clip = axeHitClip;

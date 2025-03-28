@@ -5,6 +5,8 @@ using UnityEngine.UI;
 public class AudioManager : MonoBehaviour
 {
     //Move entire class to DontDestroyOnLoad(), and add music handling on top of settings?
+    //Remove audio source from top of player prefab when appropriate
+    //Initialize manager in menu scene, make it a singleton
 
     [SerializeField] private AudioSource[] audioList;
     [SerializeField] private AudioMixer mixerRef;

@@ -12,10 +12,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Animator playerBodyAnim;
     [SerializeField] private Transform gameCursor;
     [SerializeField] private GameObject visiblePlayer;
-    [SerializeField] private GameObject skeletonPlayer;
 
     [Range(0, 1)] private int movementEnabled;
-    private ModelTakePhoto modelTakePhoto;
+    private TakePhoto modelTakePhoto;
     private Vector3 movement = Vector3.zero;
 
     //Should be deleted after we deal with proper level/scene loading
@@ -58,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void AnimationSystem() 
     {
-        if (IsMovementEnabled()) 
+        if (!IsMovementEnabled()) 
         { 
             return; 
         }
@@ -97,32 +96,32 @@ public class PlayerMovement : MonoBehaviour
         movementEnabled = 1;
     }
 
-    public void FreezeMovement()
+    public void DisableMovement()
     {
         movementEnabled = 0;
     }
 
-    public void DoAction(string actionName, float durration)
+    public void StopAndPlayAnimation(string animationName, float animationDuration)
     {
-        StartCoroutine(DoActionEnum(actionName, durration));
+        StartCoroutine(StopAndPlayAnimationEnum(animationName, animationDuration));
     }
 
-    public void MovePlayerTo(float duration, Vector3 targetPosition)
+    public void MovePlayerTo(float moveDuration, Vector3 targetPosition)
     {
-        StartCoroutine(MovePlayerToEnum(duration, targetPosition));
+        StartCoroutine(MovePlayerToEnum(moveDuration, targetPosition));
     }
 
-    private IEnumerator DoActionEnum(string actionName, float duration)
+    private IEnumerator StopAndPlayAnimationEnum(string animationName, float animationDuration)
     {
-        FreezeMovement();
-        playerBodyAnim.SetTrigger(actionName);
-        yield return new WaitForSeconds(duration);
+        DisableMovement();
+        playerBodyAnim.SetTrigger(animationName);
+        yield return new WaitForSeconds(animationDuration); // Would be better to use "new WaitUntil(() -> x)" here instead of guessing how long the animation is going to take
         EnableMovement();
     }
 
     private IEnumerator MovePlayerToEnum(float duration, Vector3 targetPosition) 
     {
-        FreezeMovement();
+        DisableMovement();
         float elapsedTime = 0f;
         Vector3 direction = targetPosition - transform.position;
         

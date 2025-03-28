@@ -1,10 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class OutlineKeeper : MonoBehaviour
 {
+    [SerializeField] private PlayerReferences playerReferenceRef;
     private Outline outlineRef;
 
     private void Start()
@@ -18,7 +16,7 @@ public class OutlineKeeper : MonoBehaviour
     }
     private void TrackDistance()
     {
-        float currentDistance = Mathf.Abs(Vector3.Distance(PlayerReference.Instance.transform.position, transform.position));
+        float currentDistance = Mathf.Abs(Vector3.Distance(playerReferenceRef.GetPlayerTransform().position, transform.position));
         float distanceInverted = (1 / currentDistance) * 25;
         float distanceSmoothed = Mathf.Round(distanceInverted * 10.0f) * 0.1f;
 
