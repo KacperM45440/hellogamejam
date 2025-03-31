@@ -1,35 +1,55 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractableObject : MonoBehaviour
 {
-    public string interactableName;
-    public bool canBeInteractedWith = true;
-    private bool playerInRange = false;
-    private PlayerMovement playerMovement;
-    public AudioClip pickupAudio;
-    [SerializeField] private float interactionCooldown = 1;
-    public AudioSource audioSource;
-    public bool defaultAnimation = true;
+    public PlayerReferences PlayerReferencesRef { get; private set; }
+    public string InteractableName { get; private set; }
 
+    [HideInInspector] public PlayerMovement PlayerMovement { get; private set; }
+    [HideInInspector] public PlayerEquipment PlayerEquipmentRef { get; private set; }
 
-    private void Awake()
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip pickupAudio;
+    [SerializeField] private float interactionCooldownTime = 1;
+    [SerializeField] private bool canBeInteractedWith = true;
+    [SerializeField] private bool playerInRange = false;
+    [SerializeField] private bool defaultAnimation = true;
+    
+    private void Start()
     {
-        playerMovement = FindAnyObjectByType<PlayerMovement>();
-        audioSource = GetComponent<AudioSource>();
+        InitializeReferences();
+    }
+    public void Update()
+    {
+        InteractionLogic();
     }
 
     public virtual void Interact()
     {
-        Debug.Log("i was interacted with");
+        //Leave empty; enforce implementation on child class
+    }
+
+    public void EnableInteraction()
+    {
+        canBeInteractedWith = true;
+    }
+
+    public void DisableInteraction()
+    {
+        canBeInteractedWith = false;
+    }
+    private void InitializeReferences()
+    {
+        PlayerEquipmentRef = PlayerReferencesRef.GetPlayerEquipment();
+        PlayerMovement = PlayerReferencesRef.GetPlayerMovement();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.CompareTag("InteractZone") && canBeInteractedWith)
         {
-            //Debug.Log("found sth interactable");
             playerInRange = true;
         }
     }
@@ -38,37 +58,39 @@ public class InteractableObject : MonoBehaviour
     {
         if (collision.CompareTag("InteractZone"))
         {
-            //Debug.Log("left Interactable Range");
             playerInRange = false;
         }
     }
 
-    public void Update()
+    private void InteractionLogic()
     {
-        if (canBeInteractedWith && playerInRange)
+        if (!canBeInteractedWith || !playerInRange)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (defaultAnimation)
             {
-                if (defaultAnimation)
-                {
-                    playerMovement.StopAndPlayAnimation("GetItem", 1.5f);
-                }
-                audioSource.clip = pickupAudio;
-                audioSource.Play();
-                Interact();
-                canBeInteractedWith = false;
-                if (interactionCooldown > 0)
-                {
-                    StartCoroutine(Cooldown());
-                }
-                //Debug.Log("I interacted with " + interactableName);
+                PlayerMovement.StopAndPlayAnimation("GetItem", 1.5f);
+            }
+            
+            audioSource.clip = pickupAudio;
+            audioSource.Play();
+            Interact();
+            DisableInteraction();
+           
+            if (interactionCooldownTime > 0)
+            {
+                StartCoroutine(InteractionCooldown());
             }
         }
     }
 
-    IEnumerator Cooldown()
+    private IEnumerator InteractionCooldown()
     {
-        yield return new WaitForSeconds(interactionCooldown);
-        canBeInteractedWith = true;
+        yield return new WaitForSeconds(interactionCooldownTime);
+        EnableInteraction();
     }
 }

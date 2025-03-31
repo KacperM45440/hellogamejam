@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private CharacterController characterControllerRef;
     [SerializeField] private Animator playerBodyAnim;
     [SerializeField] private Transform gameCursor;
-    [SerializeField] private GameObject visiblePlayer;
+    //[SerializeField] private GameObject playerBodyGO;
 
     [Range(0, 1)] private int movementEnabled;
     private TakePhoto modelTakePhoto;

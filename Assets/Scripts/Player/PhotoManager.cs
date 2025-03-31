@@ -119,6 +119,6 @@ public class PhotoManager : MonoBehaviour
             mirrorImage.color = c;
             yield return new WaitForSeconds(.05f);
         }
-        modelRef.canTakePhoto = true;
+        modelRef.EnablePhotoCapture();
     }
 }

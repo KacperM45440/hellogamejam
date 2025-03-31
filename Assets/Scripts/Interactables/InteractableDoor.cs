@@ -1,12 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class InteractableDoor : InteractableObject
 {
     [SerializeField] private PlayerReferences playerReferencesRef;
-    private AudioSource audioSourceRef;
+    [SerializeField] private PlayerEquipment playerEquipmentRef;
+    [SerializeField] private AudioSource audioSourceRef;
     [SerializeField] private AudioClip tryOpenClip;
     [SerializeField] private AudioClip axeHitClip;
     [SerializeField] private AudioClip destroyClip;
@@ -15,13 +14,14 @@ public class InteractableDoor : InteractableObject
 
     private int hitToDestroyCount = 3;
 
-    void Start()
+    private void Start()
     {
         audioSourceRef = GetComponent<AudioSource>();
     }
 
-    public override void Interact() {
-        bool isAxe = PlayerEquipment.Instance.isItemExist("Hoeaxe");
+    public override void Interact() 
+    {
+        bool isAxe = playerEquipmentRef.DoesItemExist("Hoeaxe");
 
         if (!isAxe)
         {
@@ -29,6 +29,7 @@ public class InteractableDoor : InteractableObject
             audioSourceRef.Play();
             playerReferencesRef.GetPlayerMovement().StopAndPlayAnimation("Open", 1f);
         }
+
         else 
         {
             playerReferencesRef.GetPlayerMovement().StopAndPlayAnimation("Axe", 1f);
@@ -43,30 +44,21 @@ public class InteractableDoor : InteractableObject
             }
             hitToDestroyCount--;
         }
-        if (hitToDestroyCount <= 0) {
+
+        if (hitToDestroyCount <= 0) 
+        {
             DropAxe();
             Destroy(gameObject, 1.8f);
         }
     }
 
-    void DropAxe()
+    private void DropAxe()
     {
-        for (int i = 0; i < 3; i++)
-        {
-            if (PlayerEquipment.Instance.heldObjectNames[i].Equals("Hoeaxe"))
-            {
-                PlayerEquipment.Instance.heldObjectNames[i] = "";
-                PlayerEquipment.Instance.heldObjectSprites[i] = null;
-                PlayerEquipment.Instance.slots[i].GetComponent<Image>().sprite = null;
-
-                Color c = PlayerEquipment.Instance.slots[i].GetComponent<Image>().color;
-                c.a = 0;
-                PlayerEquipment.Instance.slots[i].GetComponent<Image>().color = c;
-            }
-        }
+        playerEquipmentRef.DropItem("Hoeaxe");
     }
 
-    IEnumerator DropPlank(float time, int index) { 
+    private IEnumerator DropPlank(float time, int index) 
+    { 
         yield return new WaitForSeconds(time);
         if (index == 0) {
             audioSourceRef.clip = destroyClip;

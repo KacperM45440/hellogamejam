@@ -11,12 +11,12 @@ public class TakePhoto : MonoBehaviour
     [SerializeField] private AudioClip takePhotoSFX;
     [SerializeField] private Light mirrorSpotlight;
     [SerializeField] private bool useSpotLight = false;
-    
+    [SerializeField] private bool canTakePhoto = true;
+
     private PlayerMovement playerMovement;
     private Animator playerAnimator;
     private Material m;
     
-    public bool canTakePhoto = true;
     private void Start()
     {
         InitializeReferences();
@@ -48,14 +48,25 @@ public class TakePhoto : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space)) //Should be moved to New Input System
         {
-            canTakePhoto = false;
+            DisablePhotoCapture();
             playerMovement.StopAndPlayAnimation("TakePhoto", 1.5f); //Which one...
             ScreenFade();
             playerAnimator.SetTrigger("TakePhoto"); //...is the animation call being unused here?
         }
     }
+
+    public void EnablePhotoCapture()
+    {
+        canTakePhoto = true;
+    }
+
+    public void DisablePhotoCapture()
+    {
+        canTakePhoto = false;
+    }
+
     public void ScreenFade()
     {
         StartCoroutine(FadeScreen());

@@ -3,14 +3,14 @@ using UnityEngine;
 
 public class InteractableCubePickup : InteractablePickup
 {
-    public GameObject parentPlatform;
-    [SerializeField] private Animator animatorRef;
     [SerializeField] private CubePuzzleController puzzleControllerRef;
+    [SerializeField] private Animator animatorRef; //puzzleAnimator? cubeAnimator?
+    [SerializeField] private GameObject parentPlatform;
     private bool canBePickedUp = false;
 
     public void Start()
     {
-        globalPickupAudioSource = puzzleControllerRef.audioSource;
+        //globalPickupAudioSource = puzzleControllerRef.audioSource;
         if (parentPlatform == null)
         {
             animatorRef.speed = 0;
@@ -21,6 +21,11 @@ public class InteractableCubePickup : InteractablePickup
     public void SpawnedAnimated()
     {
         animatorRef.speed = 1;
+    }
+
+    public void SetParentPlatform(GameObject givenGameobject)
+    {
+        parentPlatform = givenGameobject;
     }
 
     public override void Interact()

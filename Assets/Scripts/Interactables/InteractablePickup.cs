@@ -1,41 +1,40 @@
-using System;
 using System.Linq;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractablePickup : InteractableObject
 {
-    public AudioSource globalPickupAudioSource;
-    public Sprite pickupSprite;
+    //Inspect level 4; this should either be a part of parent class or *un-quick-fixed* 
+    //Also, InteractableCubePickup, line 13
+    public AudioSource globalPickupAudioSource { get; private set; } 
+    [SerializeField] private Sprite pickupSprite;
     private int maxInventorySlots = 3;
 
     public override void Interact()
     {
-        if (PlayerEquipment.Instance.heldObjectNames.Count.Equals(maxInventorySlots) && PlayerEquipment.Instance.heldObjectNames.All(name => !name.Equals("") && PlayerEquipment.Instance.heldObjectNames.All(name => !name.Equals(null))))
+        if (InventoryIsFull())
         {
             return;
         }
 
-        int emptySlotIndex = PlayerEquipment.Instance.heldObjectNames.FindIndex(name => name.Equals(""));
-
-        //Debug.Log(emptySlotIndex);
-
+        int emptySlotIndex = PlayerEquipmentRef.GetHeldObjects().FindIndex(name => name.Equals(""));
         if (emptySlotIndex != -1)
         {
-            PlayerEquipment.Instance.heldObjectNames[emptySlotIndex] = interactableName;
-            PlayerEquipment.Instance.heldObjectSprites[emptySlotIndex] = pickupSprite;
+            PlayerEquipmentRef.SetHeldObjectData(emptySlotIndex, InteractableName, pickupSprite);
         }
         else
         {
-            PlayerEquipment.Instance.heldObjectNames.Add(interactableName);
-            PlayerEquipment.Instance.heldObjectSprites.Add(pickupSprite);
+            PlayerEquipmentRef.AddObject(InteractableName, pickupSprite);
         }
 
-        globalPickupAudioSource.PlayOneShot(pickupAudio);
+        //Fix this with proper class hierarchy and/or assignments in inspector
+        //globalPickupAudioSource.PlayOneShot(pickupAudio);
+        PlayerEquipmentRef.ShowItems(emptySlotIndex);
+        gameObject.SetActive(false);
+    }
 
-        PlayerEquipment.Instance.ShowItems(emptySlotIndex);
-        Destroy(gameObject);
+    private bool InventoryIsFull()
+    {
+        return PlayerEquipmentRef.GetHeldObjects().Count.Equals(maxInventorySlots) && PlayerEquipmentRef.GetHeldObjects().All(name => !name.Equals("") && PlayerEquipmentRef.GetHeldObjects().All(name => !name.Equals(null)));
     }
 }
 

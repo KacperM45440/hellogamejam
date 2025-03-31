@@ -4622,7 +4622,7 @@ MonoBehaviour:
   angleToWorld: -90
   speed: 5
   rotationSpeed: 10
-  characterControllerRef: {fileID: 0}
+  characterControllerRef: {fileID: 289581876583012542}
   playerBodyAnim: {fileID: 289581876808994368}
   gameCursor: {fileID: 356206314}
   visiblePlayer: {fileID: 289581876808994369}
@@ -4656,13 +4656,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c583ffb4d60808845a6658f28a08cee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerReferencesRef: {fileID: 0}
-  photoManagerRef: {fileID: 0}
-  mirrorFadeCone: {fileID: 0}
-  mirrorAudioSource: {fileID: 0}
-  takePhotoSFX: {fileID: 0}
-  mirrorSpotlight: {fileID: 0}
-  useSpotLight: 1
+  playerReferencesRef: {fileID: 1841791594156731265}
+  photoManagerRef: {fileID: 289581876761912344}
+  mirrorFadeCone: {fileID: 8286751744086852949}
+  mirrorAudioSource: {fileID: 882962739431788996}
+  takePhotoSFX: {fileID: 8300000, guid: 0c4e3bd795ec10b4082a6c8a611eba54, type: 3}
+  mirrorSpotlight: {fileID: 231240870}
+  useSpotLight: 0
   canTakePhoto: 1
 --- !u!95 &289581876583012543
 Animator:
@@ -5783,7 +5783,7 @@ MonoBehaviour:
   mirrorImage: {fileID: 289581876027708531}
   modelRef: {fileID: 289581876583012541}
   detectionRef: {fileID: 289581876761912345}
-  ghostRef: {fileID: 0}
+  ghostRef: {fileID: 955260212}
   cogs: {fileID: 8286751744202265860}
 --- !u!114 &289581876761912345
 MonoBehaviour:
@@ -8863,6 +8863,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 289581877579290491}
+  - component: {fileID: 1841791594156731265}
   - component: {fileID: 5921461346313914899}
   m_Layer: 0
   m_Name: ==PLAYER==
@@ -8889,6 +8890,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!114 &1841791594156731265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289581877579290488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8500721b1f5514943b2be4cf534c6dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementRef: {fileID: 289581876583012513}
+  playerAnimator: {fileID: 289581876808994368}
+  playerBodyTransform: {fileID: 289581876808994371}
 --- !u!82 &5921461346313914899
 AudioSource:
   m_ObjectHideFlags: 0

@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractableMap : InteractableObject
 {
-    public Animator animatorRef;
+    [SerializeField] private Animator animatorRef;
     private bool mapOpened = false;
+
     public override void Interact()
     {
         if (mapOpened)
@@ -29,6 +28,7 @@ public class InteractableMap : InteractableObject
         {
 
         }
+
         if (Input.GetMouseButtonDown(0))
         {
             if (!mapOpened)

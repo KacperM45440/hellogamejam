@@ -16,7 +16,7 @@ public class InteractableDoorKey : InteractableObject
 
     public override void Interact() 
     {
-        bool isKey = PlayerEquipment.Instance.isItemExist("Key");
+        bool isKey = PlayerEquipmentRef.DoesItemExist("Key");
 
         if (!isKey)
         {
@@ -41,20 +41,8 @@ public class InteractableDoorKey : InteractableObject
         transform.gameObject.SetActive(false);
     }
 
-    void DropKey()
+    private void DropKey()
     {
-        for (int i = 0; i < 3; i++)
-        {
-            if (PlayerEquipment.Instance.heldObjectNames[i].Equals("Key"))
-            {
-                PlayerEquipment.Instance.heldObjectNames[i] = "";
-                PlayerEquipment.Instance.heldObjectSprites[i] = null;
-                PlayerEquipment.Instance.slots[i].GetComponent<Image>().sprite = null;
-
-                Color c = PlayerEquipment.Instance.slots[i].GetComponent<Image>().color;
-                c.a = 0;
-                PlayerEquipment.Instance.slots[i].GetComponent<Image>().color = c;
-            }
-        }
+        PlayerEquipmentRef.DropItem("Key");
     }
 }

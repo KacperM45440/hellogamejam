@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using Newtonsoft.Json.Bson;
 using UnityEngine;
 
 public class PlayerInteractCollider : MonoBehaviour
@@ -8,29 +7,42 @@ public class PlayerInteractCollider : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.CompareTag("Interactable"))
-        {
-            Debug.Log("found sth interactable");
-            interactableObject = collision.gameObject.GetComponent<InteractableObject>();
-        }
+        AssignObject(collision);
     }
 
     private void OnTriggerExit(Collider collision)
     {
-        if(interactableObject.gameObject == collision.gameObject)
+        ClearObject(collision);
+    }
+
+    private void Update()
+    {
+        InteractInRange(); //Should be moved to New Input System
+    }
+
+    private void AssignObject(Collider collision)
+    {
+        if (collision.CompareTag("Interactable"))
+        {
+            interactableObject = collision.gameObject.GetComponent<InteractableObject>();
+        }
+    }
+
+    private void ClearObject(Collider collision)
+    {
+        if (interactableObject.gameObject == collision.gameObject)
         {
             interactableObject = null;
         }
     }
 
-    private void Update()
+    private void InteractInRange()
     {
         if (interactableObject != null)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
                 interactableObject.Interact();
-                Debug.Log("I interacted with " + interactableObject.interactableName);
             }
         }
     }
