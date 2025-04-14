@@ -16,25 +16,25 @@ public class InteractablePickup : InteractableObject
             return;
         }
 
-        int emptySlotIndex = PlayerEquipmentRef.GetHeldObjects().FindIndex(name => name.Equals(""));
+        int emptySlotIndex = GetPlayerEquipment().GetHeldObjects().FindIndex(name => name.Equals(""));
         if (emptySlotIndex != -1)
         {
-            PlayerEquipmentRef.SetHeldObjectData(emptySlotIndex, InteractableName, pickupSprite);
+            GetPlayerEquipment().SetHeldObjectData(emptySlotIndex, InteractableName, pickupSprite);
         }
         else
         {
-            PlayerEquipmentRef.AddObject(InteractableName, pickupSprite);
+            GetPlayerEquipment().AddObject(InteractableName, pickupSprite);
         }
 
         //Fix this with proper class hierarchy and/or assignments in inspector
         //globalPickupAudioSource.PlayOneShot(pickupAudio);
-        PlayerEquipmentRef.ShowItems(emptySlotIndex);
+        GetPlayerEquipment().ShowItems(emptySlotIndex);
         gameObject.SetActive(false);
     }
 
     private bool InventoryIsFull()
     {
-        return PlayerEquipmentRef.GetHeldObjects().Count.Equals(maxInventorySlots) && PlayerEquipmentRef.GetHeldObjects().All(name => !name.Equals("") && PlayerEquipmentRef.GetHeldObjects().All(name => !name.Equals(null)));
+        return GetPlayerEquipment().GetHeldObjects().Count.Equals(maxInventorySlots) && GetPlayerEquipment().GetHeldObjects().All(name => !name.Equals("") && GetPlayerEquipment().GetHeldObjects().All(name => !name.Equals(null)));
     }
 }
 

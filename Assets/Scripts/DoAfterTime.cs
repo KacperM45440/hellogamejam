@@ -1,19 +1,18 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class DoAfterTime : MonoBehaviour
 {
-    [SerializeField] private float time;
-    [SerializeField] private UnityEvent afterEvent;
-    void Start()
+    [SerializeField] private float secondsToWait;
+    [SerializeField] private UnityEvent stuffToDo;
+    private void Start()
     {
         StartCoroutine(DoAfterEvent());
     }
-    IEnumerator DoAfterEvent()
+    private IEnumerator DoAfterEvent()
     {
-        yield return new WaitForSeconds(time);
-        afterEvent.Invoke();
+        yield return new WaitForSeconds(secondsToWait);
+        stuffToDo.Invoke();
     }
 }

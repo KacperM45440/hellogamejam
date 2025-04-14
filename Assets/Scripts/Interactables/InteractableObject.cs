@@ -6,16 +6,16 @@ public class InteractableObject : MonoBehaviour
     public PlayerReferences PlayerReferencesRef { get; private set; }
     public string InteractableName { get; private set; }
 
-    [HideInInspector] public PlayerMovement PlayerMovement { get; private set; }
-    [HideInInspector] public PlayerEquipment PlayerEquipmentRef { get; private set; }
-
-    [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip pickupAudio;
     [SerializeField] private float interactionCooldownTime = 1;
     [SerializeField] private bool canBeInteractedWith = true;
-    [SerializeField] private bool playerInRange = false;
     [SerializeField] private bool defaultAnimation = true;
-    
+
+    private PlayerMovement playerMovementRef;
+    private PlayerEquipment playerEquipmentRef;
+    private AudioSource interactableAudioSource;
+    private bool playerInRange = false;
+
     private void Start()
     {
         InitializeReferences();
@@ -23,6 +23,12 @@ public class InteractableObject : MonoBehaviour
     public void Update()
     {
         InteractionLogic();
+    }
+    private void InitializeReferences()
+    {
+        playerEquipmentRef = PlayerReferencesRef.GetPlayerEquipment();
+        playerMovementRef = PlayerReferencesRef.GetPlayerMovement();
+        interactableAudioSource = GetComponent<AudioSource>();
     }
 
     public virtual void Interact()
@@ -39,11 +45,20 @@ public class InteractableObject : MonoBehaviour
     {
         canBeInteractedWith = false;
     }
-    private void InitializeReferences()
+
+    public void PlaySound()
     {
-        PlayerEquipmentRef = PlayerReferencesRef.GetPlayerEquipment();
-        PlayerMovement = PlayerReferencesRef.GetPlayerMovement();
-        audioSource = GetComponent<AudioSource>();
+        interactableAudioSource.Play();
+    }
+
+    public PlayerEquipment GetPlayerEquipment()
+    {
+        return playerEquipmentRef;
+    }
+
+    public PlayerMovement GetPlayerMovement()
+    {
+        return playerMovementRef;
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -73,11 +88,12 @@ public class InteractableObject : MonoBehaviour
         {
             if (defaultAnimation)
             {
-                PlayerMovement.StopAndPlayAnimation("GetItem", 1.5f);
+                playerMovementRef.StopAndPlayAnimation("GetItem", 1.5f);
             }
             
-            audioSource.clip = pickupAudio;
-            audioSource.Play();
+            interactableAudioSource.clip = pickupAudio;
+            
+            PlaySound();
             Interact();
             DisableInteraction();
            

@@ -13,7 +13,7 @@ public class LevelLoader : MonoBehaviour
     private Transform cameraSystem;
     private CharacterController controller;
     private AudioSource audioSource;
-    void Awake()
+    private void Awake()
     {
         controller = GetComponent<CharacterController>();
         playerMovement = playerReferencesRef.GetPlayerMovement();
@@ -21,7 +21,7 @@ public class LevelLoader : MonoBehaviour
         cameraSystem = GameObject.FindGameObjectWithTag("CameraSystem").transform;
     }
 
-    void Start()
+    private void Start()
     {
         /*controller.enabled = false;
         Transform start = GameObject.FindGameObjectWithTag("START").transform;
@@ -39,7 +39,7 @@ public class LevelLoader : MonoBehaviour
         }
     }
     
-    IEnumerator LoadLevel(Vector3 newPos, UnityEvent e) {
+    private IEnumerator LoadLevel(Vector3 newPos, UnityEvent e) {
 
         playerMovement.DisableMovement();
         Color color = displayFade.color;

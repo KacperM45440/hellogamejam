@@ -10,12 +10,12 @@ public class InteractableDestination : InteractableObject
     {
         for (int i = 0; i < maxInventorySlots; i++)
         {
-            if (PlayerEquipmentRef.GetHeldObjects()[i].Equals(requiredItemName))
+            if (GetPlayerEquipment().GetHeldObjects()[i].Equals(requiredItemName))
             {
-                Color newColor = PlayerEquipmentRef.GetItemSlots()[i].GetComponent<Image>().color;
+                Color newColor = GetPlayerEquipment().GetItemSlots()[i].GetComponent<Image>().color;
                 newColor.a = 0;
-                PlayerEquipmentRef.SetHeldObjectData(i, "", null);
-                PlayerEquipmentRef.SetItemSlotImage(i, null, newColor);
+                GetPlayerEquipment().SetHeldObjectData(i, "", null);
+                GetPlayerEquipment().SetItemSlotImage(i, null, newColor);
             }
         }
     }

@@ -1,32 +1,40 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class InteractableDoorKey : InteractableObject
 {
-    [SerializeField] private PlayerReferences playerReferencesRef;
-    private AudioSource audioSourceRef;
     [SerializeField] private AudioClip tryOpenClip;
     [SerializeField] private AudioClip openClip;
 
-    void Start()
+    private PlayerEquipment playerEquipmentRef;
+    private PlayerMovement playerMovementRef;
+    private AudioSource audioSourceRef;
+
+    private void Start()
     {
+        InitializeReferences();
+    }
+
+    private void InitializeReferences()
+    {
+        playerEquipmentRef = PlayerReferencesRef.GetPlayerEquipment();
+        playerMovementRef = PlayerReferencesRef.GetPlayerMovement();
         audioSourceRef = GetComponent<AudioSource>();
     }
 
     public override void Interact() 
     {
-        bool isKey = PlayerEquipmentRef.DoesItemExist("Key");
+        bool isKey = playerEquipmentRef.DoesItemExist("Key");
 
         if (!isKey)
         {
             audioSourceRef.clip = tryOpenClip;
             audioSourceRef.Play();
-            playerReferencesRef.GetPlayerMovement().StopAndPlayAnimation("Open", 1f);
+            playerMovementRef.StopAndPlayAnimation("Open", 1f);
         }
         else
         {
-            playerReferencesRef.GetPlayerMovement().StopAndPlayAnimation("GetItem", 1f);
+            playerMovementRef.StopAndPlayAnimation("GetItem", 1f);
             audioSourceRef.clip = openClip;
             DropKey();
             //transform.position = new Vector3(-4.423f, 1.646f, 2.555f);
@@ -43,6 +51,6 @@ public class InteractableDoorKey : InteractableObject
 
     private void DropKey()
     {
-        PlayerEquipmentRef.DropItem("Key");
+        playerEquipmentRef.DropItem("Key");
     }
 }
