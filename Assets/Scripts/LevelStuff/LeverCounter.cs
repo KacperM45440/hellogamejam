@@ -1,60 +1,65 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CameraShake))]
 public class LeverCounter : MonoBehaviour
 {
-    public static LeverCounter instance;
-    public List<InteractableLever> levers = new List<InteractableLever>();
-
-    [SerializeField] private CameraShake shakeRef;
     [SerializeField] private GameObject gateOpen;
     [SerializeField] private GameObject gateClosed;
-    [SerializeField] private List<int> correctSequence = new List<int>();
+    [SerializeField] private List<InteractableLever> levers = new();
+    [SerializeField] private List<int> correctSequence = new();
 
-    private int currentNumber = 0;
+    private CameraShake cameraShakeRef;
+    private int currentLever = 0;
 
-    private void Awake()
+    private void Start()
     {
-        instance = this;
+        InitializeReferences();
+    }
+
+    private void InitializeReferences()
+    {
+        cameraShakeRef = GetComponent<CameraShake>();
     }
 
     public void PullLever(int leverNumber)
     {
-        if(currentNumber > correctSequence.Count)
+        if(currentLever > correctSequence.Count)
         {
             return;
         }
-        currentNumber++;
-        if(leverNumber == correctSequence[currentNumber - 1])
+        
+        currentLever++;
+
+        if (IsNextLever(leverNumber))
         {
-            if(currentNumber >= correctSequence.Count)
-            {
-                CorrectCombination();
-            }
+            CorrectCombination();
         }
         else
         {
-            currentNumber = 0;
+            currentLever = 0;
             IncorrectCombination();
         }
     }
 
-    private void CorrectCombination()
+    private void CorrectCombination()// This should be rewritten to a variable UnityEvent for the purpose of lever script reusability
     {
-        Debug.Log("you did a good job!");
-        StartCoroutine(shakeRef.Shake(2f, 1.5f));
+        StartCoroutine(cameraShakeRef.Shake(2f, 1.5f)); 
         gateOpen.SetActive(true);
         gateClosed.SetActive(false);
         gateOpen.GetComponent<AudioSource>().Play();
     }
 
-    public void IncorrectCombination()
+    private void IncorrectCombination()
     {
-        Debug.Log("you fucked up!");
-        foreach(InteractableLever l in levers)
+        foreach(InteractableLever lever in levers)
         {
-            l.ResetItself();
+            lever.ResetItself();
         }
+    }
+
+    private bool IsNextLever(int leverNumber)
+    {
+        return leverNumber == correctSequence[currentLever - 1] && currentLever >= correctSequence.Count;
     }
 }

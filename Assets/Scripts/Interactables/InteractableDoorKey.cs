@@ -43,7 +43,7 @@ public class InteractableDoorKey : InteractableObject
         }
     }
 
-    IEnumerator Wait()
+    private IEnumerator Wait()
     {
         yield return new WaitForSeconds(0.5f);
         transform.gameObject.SetActive(false);

@@ -1,11 +1,10 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraObjectsDetection : MonoBehaviour
 {
-
+    [SerializeField] private PlayerReferences playerReferencesRef;
     public float viewRadius;
     [Range(0, 360)]
     public float viewAngle;
@@ -49,7 +48,7 @@ public class CameraObjectsDetection : MonoBehaviour
                         break;
                     }
 
-                    OutlineGenerator.Instance.GenerateOutline(target.gameObject, true);
+                    playerReferencesRef.GetOutlineGenerator().GenerateOutline(target.gameObject, true);
                 }
             }
         }

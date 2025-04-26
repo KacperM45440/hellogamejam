@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class InteractableObject : MonoBehaviour
 {
-    public PlayerReferences PlayerReferencesRef { get; private set; }
-    public string InteractableName { get; private set; }
-
+    public PlayerReferences PlayerReferencesRef;
+    
+    [SerializeField] private string interactableName;
     [SerializeField] private AudioClip pickupAudio;
     [SerializeField] private float interactionCooldownTime = 1;
     [SerializeField] private bool canBeInteractedWith = true;
@@ -31,9 +31,14 @@ public class InteractableObject : MonoBehaviour
         interactableAudioSource = GetComponent<AudioSource>();
     }
 
+    public string GetInteractableName()
+    {
+        return interactableName;
+    }
+
     public virtual void Interact()
     {
-        //Leave empty; enforce implementation on child class
+        // Leave empty; enforce implementation on child class
     }
 
     public void EnableInteraction()
@@ -49,16 +54,6 @@ public class InteractableObject : MonoBehaviour
     public void PlaySound()
     {
         interactableAudioSource.Play();
-    }
-
-    public PlayerEquipment GetPlayerEquipment()
-    {
-        return playerEquipmentRef;
-    }
-
-    public PlayerMovement GetPlayerMovement()
-    {
-        return playerMovementRef;
     }
 
     private void OnTriggerEnter(Collider collision)

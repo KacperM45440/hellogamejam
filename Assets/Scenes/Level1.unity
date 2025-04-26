@@ -246,11 +246,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc15402029b5534890b862c347b9bfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerReferencesRef: {fileID: 0}
+  interactableName: 
   pickupAudio: {fileID: 8300000, guid: 80b31befe7ecf41079c487ce93b99ef5, type: 3}
   interactionCooldownTime: 1
   canBeInteractedWith: 1
   defaultAnimation: 1
-  animatorRef: {fileID: 0}
+  leverCounterRef: {fileID: 1618386124}
   leverID: 0
 --- !u!65 &59578818
 BoxCollider:
@@ -2270,11 +2272,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc15402029b5534890b862c347b9bfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerReferencesRef: {fileID: 0}
+  interactableName: 
   pickupAudio: {fileID: 8300000, guid: 80b31befe7ecf41079c487ce93b99ef5, type: 3}
   interactionCooldownTime: 1
   canBeInteractedWith: 1
   defaultAnimation: 1
-  animatorRef: {fileID: 0}
+  leverCounterRef: {fileID: 1618386124}
   leverID: 0
 --- !u!65 &364744730
 BoxCollider:
@@ -3372,11 +3376,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc15402029b5534890b862c347b9bfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerReferencesRef: {fileID: 0}
+  interactableName: 
   pickupAudio: {fileID: 8300000, guid: 80b31befe7ecf41079c487ce93b99ef5, type: 3}
   interactionCooldownTime: 1
   canBeInteractedWith: 1
   defaultAnimation: 1
-  animatorRef: {fileID: 0}
+  leverCounterRef: {fileID: 1618386124}
   leverID: 0
 --- !u!65 &596415066
 BoxCollider:
@@ -23544,14 +23550,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7edde28918436cb449d46bf605b529af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gateOpen: {fileID: 1626853994}
+  gateClosed: {fileID: 1791454948}
   levers:
   - {fileID: 364744729}
   - {fileID: 2111504209}
   - {fileID: 59578817}
   - {fileID: 596415065}
-  shakeRef: {fileID: 1618386126}
-  gateOpen: {fileID: 1626853994}
-  gateClosed: {fileID: 1791454948}
   correctSequence: 01000000020000000300000004000000
 --- !u!4 &1618386125
 Transform:
@@ -26717,11 +26722,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc15402029b5534890b862c347b9bfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerReferencesRef: {fileID: 0}
+  interactableName: 
   pickupAudio: {fileID: 8300000, guid: 80b31befe7ecf41079c487ce93b99ef5, type: 3}
   interactionCooldownTime: 1
   canBeInteractedWith: 1
   defaultAnimation: 1
-  animatorRef: {fileID: 0}
+  leverCounterRef: {fileID: 1618386124}
   leverID: 0
 --- !u!65 &2111504210
 BoxCollider:
@@ -34147,6 +34154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60a8a77d6f5516b4fab36f17614da4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerReferencesRef: {fileID: 0}
   viewRadius: 10
   viewAngle: 41
   targetMask:
@@ -35244,6 +35252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementRef: {fileID: 289581875796017942}
   equipmentRef: {fileID: 426384789}
+  generatorRef: {fileID: 6314020603128641888}
   playerAnimator: {fileID: 289581877734331895}
   playerBodyTransform: {fileID: 289581877734331892}
 --- !u!4 &1853215232974420603
@@ -36941,7 +36950,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transparentMat: {fileID: 2100000, guid: eac259c14e871f34fafae3a35e1bd220, type: 2}
   objectFound: {fileID: 8300000, guid: f92e851efb55a6f4198e2eae09e0eba7, type: 3}
-  audioRef: {fileID: 607208436}
 --- !u!114 &6364445085643095520
 MonoBehaviour:
   m_ObjectHideFlags: 0

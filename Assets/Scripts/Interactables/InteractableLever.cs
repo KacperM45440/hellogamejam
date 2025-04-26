@@ -1,13 +1,27 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(CameraShake))]
 public class InteractableLever : InteractableObject
 {
-    [SerializeField] private Animator animatorRef;
+    [SerializeField] private LeverCounter leverCounterRef;
     [SerializeField] private int leverID;
+    private OutlineGenerator outlineGeneratorRef;
+    private Animator animatorRef;
     private bool animationIsPlaying = false;
     private bool turnedOn = false;
-    
+
+    private void Start()
+    {
+        InitializeReferences();
+    }
+
+    private void InitializeReferences()
+    {
+        animatorRef = GetComponent<Animator>();
+        outlineGeneratorRef = PlayerReferencesRef.GetOutlineGenerator();
+    }
+
     public override void Interact()// powinien byæ nieinteractable dopóki trwa animacja, chyba ¿e wywo³ane przez "ResetItself()", wtedy ma czekaæ a¿ animacja siê skoñczy i od razu interaktowaæ znowu
     {
         if (!animationIsPlaying)
@@ -20,20 +34,21 @@ public class InteractableLever : InteractableObject
             {
                 animatorRef.SetTrigger("Move");
             }
+            
             animationIsPlaying = true;
-            LeverCounter.instance.PullLever(leverID);
+            leverCounterRef.PullLever(leverID);
         }
 
-        OutlineGenerator.Instance.GenerateOutline(transform.GetChild(0).transform.gameObject, false);
-        OutlineGenerator.Instance.GenerateOutline(transform.GetChild(1).transform.gameObject, false);
+        outlineGeneratorRef.GenerateOutline(transform.GetChild(0).transform.gameObject, false);
+        outlineGeneratorRef.GenerateOutline(transform.GetChild(1).transform.gameObject, false);
     }
 
-    public void AnimationFinish()
-    {
-        animationIsPlaying = false;
-        turnedOn = !animatorRef.GetBool("TurnedOn");
-        animatorRef.SetBool("TurnedOn", turnedOn);
-    }
+    //public void AnimationFinish()
+    //{
+    //    animationIsPlaying = false;
+    //    turnedOn = !animatorRef.GetBool("TurnedOn");
+    //    animatorRef.SetBool("TurnedOn", turnedOn);
+    //}
 
     public void ResetItself()
     {
@@ -44,14 +59,16 @@ public class InteractableLever : InteractableObject
     {
         yield return new WaitWhile(() => animationIsPlaying);
 
-        if (turnedOn)
+        if (!turnedOn)
         {
-            yield return new WaitForSeconds(Random.Range(0.0f, 0.2f));
-            animationIsPlaying = true;
-            turnedOn = false;
-            animatorRef.SetTrigger("Move");
-            yield return new WaitForSeconds(1.5f);
-            PlaySound();
+            yield break;
         }
+
+        yield return new WaitForSeconds(Random.Range(0.0f, 0.2f));
+        animationIsPlaying = true;
+        turnedOn = false;
+        animatorRef.SetTrigger("Move");
+        yield return new WaitForSeconds(1.5f);
+        PlaySound();
     }
 }
