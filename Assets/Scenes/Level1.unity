@@ -420,6 +420,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.6049516, y: 1, z: 3.5431561}
   m_Center: {x: 0.007971687, y: 0.000021415652, z: 1.2715727}
+--- !u!114 &59578824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59578816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e83ae6ac7b66d84e82067e957d7aa13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraRef: {fileID: 0}
 --- !u!114 &100426398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2433,6 +2446,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &364744735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364744728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e83ae6ac7b66d84e82067e957d7aa13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraRef: {fileID: 0}
 --- !u!114 &366228755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3537,6 +3563,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &596415071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596415064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e83ae6ac7b66d84e82067e957d7aa13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraRef: {fileID: 0}
 --- !u!64 &601714563
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -21376,7 +21415,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh29318
+  m_Name: pb_Mesh29390
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -26883,6 +26922,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &2111504215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111504208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e83ae6ac7b66d84e82067e957d7aa13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraRef: {fileID: 0}
 --- !u!4 &2134076366 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6ccac70ece527b342b26b38a5914db64,
@@ -27641,6 +27693,7 @@ MonoBehaviour:
   mirrorAudioSource: {fileID: 882962738841995891}
   takePhotoSFX: {fileID: 8300000, guid: 0c4e3bd795ec10b4082a6c8a611eba54, type: 3}
   mirrorSpotlight: {fileID: 853667601}
+  cogsRef: {fileID: 0}
   useSpotLight: 0
   canTakePhoto: 1
 --- !u!1 &289581875796017932
@@ -34154,7 +34207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60a8a77d6f5516b4fab36f17614da4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerReferencesRef: {fileID: 0}
+  playerReferencesRef: {fileID: 1841791594410979382}
   viewRadius: 10
   viewAngle: 41
   targetMask:
@@ -34180,7 +34233,6 @@ MonoBehaviour:
   modelRef: {fileID: 289581875796017930}
   detectionRef: {fileID: 289581877786935214}
   ghostRef: {fileID: 131696259}
-  cogs: {fileID: 8286751743953325747}
 --- !u!1 &289581877801061172
 GameObject:
   m_ObjectHideFlags: 0
@@ -38713,6 +38765,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8286751743953325747}
+  - component: {fileID: 8286751743953325749}
   m_Layer: 0
   m_Name: Cogs
   m_TagString: Untagged
@@ -38720,6 +38773,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8286751743953325749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8286751743953325748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53eea477845193843baefa77d21b9c0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &8286751743990603526
 CanvasRenderer:
   m_ObjectHideFlags: 0

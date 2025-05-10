@@ -1,7 +1,8 @@
 using System.Collections;
 using UnityEngine;
 
-//This class defines *what* happens when a photo is taken
+// This class defines *what* happens when a photo is taken
+// Also see PhotoManager.cs
 public class TakePhoto : MonoBehaviour
 {
     [SerializeField] private PlayerReferences playerReferencesRef;
@@ -10,12 +11,13 @@ public class TakePhoto : MonoBehaviour
     [SerializeField] private AudioSource mirrorAudioSource;
     [SerializeField] private AudioClip takePhotoSFX;
     [SerializeField] private Light mirrorSpotlight;
+    [SerializeField] private CogsScript cogsRef;
     [SerializeField] private bool useSpotLight = false;
     [SerializeField] private bool canTakePhoto = true;
 
     private PlayerMovement playerMovement;
     private Animator playerAnimator;
-    private Material m;
+    private Material coneMaterial;
     
     private void Start()
     {
@@ -30,7 +32,7 @@ public class TakePhoto : MonoBehaviour
     {
         playerAnimator = playerReferencesRef.GetPlayerAnimator();
         playerMovement = playerReferencesRef.GetPlayerMovement();
-        m = mirrorFadeCone.GetComponent<MeshRenderer>().material;
+        coneMaterial = mirrorFadeCone.GetComponent<MeshRenderer>().material;
         mirrorSpotlight.gameObject.SetActive(useSpotLight);
         mirrorSpotlight.intensity = 0f;
     }
@@ -38,9 +40,11 @@ public class TakePhoto : MonoBehaviour
     //Both Photo() and PhotoLogic() need better method names
     public void Photo()
     {
-        photoManagerRef.TakeScreenshot(340, 216);
+        cogsRef.SpinCogs();
+        photoManagerRef.TakeScreenshot();
     }
 
+    //Should be moved to New Input System
     private void PhotoLogic()
     {
         if (!canTakePhoto)
@@ -48,7 +52,7 @@ public class TakePhoto : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space)) //Should be moved to New Input System
+        if (Input.GetKeyDown(KeyCode.Space)) 
         {
             DisablePhotoCapture();
             playerMovement.StopAndPlayAnimation("TakePhoto", 1.5f); //Which one...
@@ -80,14 +84,14 @@ public class TakePhoto : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         playerMovement.DisableMovement();
-        Color c = m.color;
+        Color c = coneMaterial.color;
         mirrorSpotlight.intensity = 20;
 
         for (float alpha = 100f; alpha >= 0f; alpha -= 5f)
         {
             c.a = alpha / 100;
             mirrorSpotlight.intensity = alpha / 100;
-            m.color = c;
+            coneMaterial.color = c;
             yield return new WaitForSeconds(0.02f);
         }
 
