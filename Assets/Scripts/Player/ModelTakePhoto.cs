@@ -41,7 +41,7 @@ public class ModelTakePhoto : MonoBehaviour
     }
     public void TakePhoto()
     {
-        handlerRef.TakeScreenshot(340, 216);
+        handlerRef.TakeScreenshot(960, 540);
     }
     public void ScreenFade()
     {
