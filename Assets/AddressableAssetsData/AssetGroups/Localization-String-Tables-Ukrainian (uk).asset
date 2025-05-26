@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: Localization-String-Tables-Ukrainian (uk)
   m_EditorClassIdentifier: 
   m_GroupName: Localization-String-Tables-Ukrainian (uk)
-  m_Data:
-    m_SerializedData: []
   m_GUID: af0752a4e5a571341b14487f8906e191
   m_SerializeEntries:
   - m_GUID: 8beb7cc806b517f40b417194e9fffc0c
@@ -23,6 +21,7 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-uk
     - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 18ec254883407c14ab949f1259a6b50a, type: 2}
   m_SchemaSet:

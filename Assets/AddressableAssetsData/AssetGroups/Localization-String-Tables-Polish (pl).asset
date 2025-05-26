@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: Localization-String-Tables-Polish (pl)
   m_EditorClassIdentifier: 
   m_GroupName: Localization-String-Tables-Polish (pl)
-  m_Data:
-    m_SerializedData: []
   m_GUID: 68017bb560553ee43b494b66520366a6
   m_SerializeEntries:
   - m_GUID: 12c56a3f3fbf5c44abb4069f6046b82b
@@ -23,6 +21,7 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-pl
     - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 18ec254883407c14ab949f1259a6b50a, type: 2}
   m_SchemaSet:
