@@ -11,10 +11,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private CharacterController characterControllerRef;
     [SerializeField] private Animator playerBodyAnim;
     [SerializeField] private Transform gameCursor;
+    [SerializeField] private TakePhoto takePhotoRef;
     //[SerializeField] private GameObject playerBodyGO;
 
     [Range(0, 1)] private int movementEnabled;
-    private TakePhoto modelTakePhoto;
     private Vector3 movement = Vector3.zero;
 
     //Should be deleted after we deal with proper level/scene loading
@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
-            modelTakePhoto.enabled = false;
+            takePhotoRef.enabled = false;
             MovePlayerTo(3f, transform.position + transform.forward * 2.2f);
         }
     }
@@ -135,6 +135,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         EnableMovement();
-        modelTakePhoto.enabled = true;
+        takePhotoRef.enabled = true;
     }
 }

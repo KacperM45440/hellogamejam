@@ -8,12 +8,13 @@ public class PhotoVisionCone : MonoBehaviour
     [SerializeField] private float visionAngle;
     [SerializeField] private LayerMask visionObstructingLayer;
     [SerializeField] private int visionConeResolution = 120;
-    private Mesh visionConeMesh = new();
+    private Mesh visionConeMesh;
     private MeshFilter meshFilter;
 
     private void Start()
     {
-        transform.AddComponent<MeshRenderer>().material = visionConeMaterial;
+        visionConeMesh = new();
+        GetComponent<MeshRenderer>().material = visionConeMaterial;
         meshFilter = transform.AddComponent<MeshFilter>();
         visionAngle *= Mathf.Deg2Rad;
     }

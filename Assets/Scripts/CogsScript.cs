@@ -22,6 +22,7 @@ public class CogsScript : MonoBehaviour
 
     private void InitializeReferences()
     {
+        cogsAnimators = new();
         foreach (Transform cog in transform)
         {
             cogsAnimators.Add(cog.gameObject.GetComponent<Animator>());
