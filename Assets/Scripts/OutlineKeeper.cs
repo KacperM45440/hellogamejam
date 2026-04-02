@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class OutlineKeeper : MonoBehaviour
 {
-    [SerializeField] private PlayerReferences playerReferenceRef;
+    private PlayerReferences playerReferences;
     private Outline outlineRef;
 
     private void Start()
@@ -14,9 +14,15 @@ public class OutlineKeeper : MonoBehaviour
         TrackDistance();
         //Rotate();
     }
+
+    public void SetReferences(PlayerReferences references)
+    {
+        playerReferences = references;
+    }
+
     private void TrackDistance()
     {
-        float currentDistance = Mathf.Abs(Vector3.Distance(playerReferenceRef.GetPlayerTransform().position, transform.position));
+        float currentDistance = Mathf.Abs(Vector3.Distance(playerReferences.GetPlayerTransform().position, transform.position));
         float distanceInverted = (1 / currentDistance) * 25;
         float distanceSmoothed = Mathf.Round(distanceInverted * 10.0f) * 0.1f;
 

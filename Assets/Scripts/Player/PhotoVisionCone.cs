@@ -4,7 +4,7 @@ using UnityEngine;
 public class PhotoVisionCone : MonoBehaviour
 {
     [SerializeField] private Material visionConeMaterial;
-    [SerializeField] private float visionRange;
+    [SerializeField] private float visionRange; // what were the default values here?
     [SerializeField] private float visionAngle;
     [SerializeField] private LayerMask visionObstructingLayer;
     [SerializeField] private int visionConeResolution = 120;

@@ -3,6 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class OutlineGenerator : MonoBehaviour
 {
+    [SerializeField] private PlayerReferences playerReferenceRef;
     [SerializeField] private Material transparentMat;
     [SerializeField] private AudioClip objectFound;
     private AudioSource audioRef;
@@ -44,7 +45,8 @@ public class OutlineGenerator : MonoBehaviour
 
         Outline cloneScript = clone.AddComponent<Outline>();
         cloneScript.OutlineColor = Color.white;
-        clone.AddComponent<OutlineKeeper>();
+        OutlineKeeper cloneKeeper = clone.AddComponent<OutlineKeeper>();
+        cloneKeeper.SetReferences(playerReferenceRef);
 
         if (isAudible)
         {

@@ -35547,7 +35547,6 @@ GameObject:
   - component: {fileID: 882962738841995895}
   - component: {fileID: 131696259}
   - component: {fileID: 882962738841995891}
-  - component: {fileID: 882962738841995896}
   m_Layer: 6
   m_Name: MirrorCamera
   m_TagString: PlayerMirrorCamera
@@ -36151,25 +36150,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 289581877786935200}
   m_Enabled: 1
---- !u!114 &882962738841995896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 289581877786935200}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9a04e468b06be2489167b94a5119640, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  visionConeMaterial: {fileID: 2100000, guid: 68e7216afa173ee42b642e98bf550171, type: 2}
-  visionRange: 0
-  visionAngle: 0
-  visionObstructingLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  visionConeResolution: 120
 --- !u!114 &897511504706447957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38625,6 +38605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fdbc53f3030e054ead158bea890a36d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerReferenceRef: {fileID: 1841791594410979382}
   transparentMat: {fileID: 2100000, guid: eac259c14e871f34fafae3a35e1bd220, type: 2}
   objectFound: {fileID: 8300000, guid: f92e851efb55a6f4198e2eae09e0eba7, type: 3}
 --- !u!114 &6364445085643095520
@@ -40589,6 +40570,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8286751744068476640}
+  - component: {fileID: 8286751744068476644}
   - component: {fileID: 8286751744068476643}
   m_Layer: 6
   m_Name: MirrorCone
@@ -40619,8 +40601,7 @@ MeshRenderer:
   m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 68e7216afa173ee42b642e98bf550171, type: 2}
+  m_Materials: []
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -40642,6 +40623,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8286751744068476644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8286751744068476642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9a04e468b06be2489167b94a5119640, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visionConeMaterial: {fileID: 2100000, guid: 68e7216afa173ee42b642e98bf550171, type: 2}
+  visionRange: 8
+  visionAngle: 20
+  visionObstructingLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  visionConeResolution: 120
 --- !u!224 &8286751744350112096
 RectTransform:
   m_ObjectHideFlags: 0

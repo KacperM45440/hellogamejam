@@ -18,7 +18,7 @@ public class TakePhoto : MonoBehaviour
     private PlayerMovement playerMovement;
     private Animator playerAnimator;
     private Material coneMaterial;
-    
+
     private void Start()
     {
         InitializeReferences();
@@ -36,7 +36,7 @@ public class TakePhoto : MonoBehaviour
         mirrorSpotlight.gameObject.SetActive(useSpotLight);
         mirrorSpotlight.intensity = 0f;
     }
-    
+
     //Both Photo() and PhotoLogic() need better method names
     public void Photo()
     {
@@ -52,12 +52,11 @@ public class TakePhoto : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space)) 
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             DisablePhotoCapture();
-            playerMovement.StopAndPlayAnimation("TakePhoto", 1.5f); //Which one...
+            playerMovement.StopAndPlayAnimation("TakePhoto", 1.5f);
             ScreenFade();
-            playerAnimator.SetTrigger("TakePhoto"); //...is the animation call being unused here?
         }
     }
 
@@ -74,6 +73,13 @@ public class TakePhoto : MonoBehaviour
     public void ScreenFade()
     {
         StartCoroutine(FadeScreen());
+        StartCoroutine(PhotoRoutine());
+    }
+
+    private IEnumerator PhotoRoutine()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Photo();
     }
 
     private IEnumerator FadeScreen()
