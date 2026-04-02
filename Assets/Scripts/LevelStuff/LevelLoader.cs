@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -7,26 +6,22 @@ using UnityEngine.UI;
 
 public class LevelLoader : MonoBehaviour
 {
-    private PlayerMovement playerMovement;
+    [SerializeField] private PlayerReferences playerReferencesRef;
     [SerializeField] private Image displayFade;
     [SerializeField] private AudioClip scream;
+    private PlayerMovement playerMovement;
     private Transform cameraSystem;
     private CharacterController controller;
     private AudioSource audioSource;
-    void Awake()
+    private void Awake()
     {
         controller = GetComponent<CharacterController>();
-        playerMovement = GetComponent<PlayerMovement>();
+        playerMovement = playerReferencesRef.GetPlayerMovement();
         audioSource = GetComponent<AudioSource>();
         cameraSystem = GameObject.FindGameObjectWithTag("CameraSystem").transform;
     }
 
-    void Update()
-    {
-        
-    }
-
-    void Start()
+    private void Start()
     {
         /*controller.enabled = false;
         Transform start = GameObject.FindGameObjectWithTag("START").transform;
@@ -44,9 +39,9 @@ public class LevelLoader : MonoBehaviour
         }
     }
     
-    IEnumerator LoadLevel(Vector3 newPos, UnityEvent e) {
+    private IEnumerator LoadLevel(Vector3 newPos, UnityEvent e) {
 
-        playerMovement.freezeMovement = true;
+        playerMovement.DisableMovement();
         Color color = displayFade.color;
         color.a = 0f;
         float elapsedTime = 0f;
@@ -72,7 +67,7 @@ public class LevelLoader : MonoBehaviour
         transform.position = newPos;
         controller.enabled = true;
         cameraSystem.position = transform.position;
-        playerMovement.freezeMovement = false;
+        playerMovement.EnableMovement();
         e.Invoke();
         
         while (elapsedTime < duration)

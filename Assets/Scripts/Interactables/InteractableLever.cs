@@ -1,27 +1,30 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CameraShake))]
 public class InteractableLever : InteractableObject
 {
-    public int myLeverId;
-
-    [HideInInspector] public bool turnedOn = false;
-
-    private AudioSource audioRef;
+    [SerializeField] private LeverCounter leverCounterRef;
+    [SerializeField] private int leverID;
+    private OutlineGenerator outlineGeneratorRef;
     private Animator animatorRef;
-    private bool animationPlaying = false;
+    private bool animationIsPlaying = false;
+    private bool turnedOn = false;
 
     private void Start()
     {
+        InitializeReferences();
+    }
+
+    private void InitializeReferences()
+    {
         animatorRef = GetComponent<Animator>();
-        audioRef = GetComponent<AudioSource>();
+        outlineGeneratorRef = PlayerReferencesRef.GetOutlineGenerator();
     }
 
     public override void Interact()// powinien byæ nieinteractable dopóki trwa animacja, chyba ¿e wywo³ane przez "ResetItself()", wtedy ma czekaæ a¿ animacja siê skoñczy i od razu interaktowaæ znowu
     {
-        Debug.Log("is On: " + turnedOn + " is playing: " + animationPlaying);
-        if (!animationPlaying)
+        if (!animationIsPlaying)
         {
             if (turnedOn)
             {
@@ -31,39 +34,41 @@ public class InteractableLever : InteractableObject
             {
                 animatorRef.SetTrigger("Move");
             }
-            animationPlaying = true;
-            LeverCounter.instance.PullLever(myLeverId);
+            
+            animationIsPlaying = true;
+            leverCounterRef.PullLever(leverID);
         }
 
-        OutlineGenerator.Instance.GenerateOutline(transform.GetChild(0).transform.gameObject, false);
-        OutlineGenerator.Instance.GenerateOutline(transform.GetChild(1).transform.gameObject, false);
+        outlineGeneratorRef.GenerateOutline(transform.GetChild(0).transform.gameObject, false);
+        outlineGeneratorRef.GenerateOutline(transform.GetChild(1).transform.gameObject, false);
     }
 
-    public void AnimationFinish()
-    {
-        animationPlaying = false;
-        turnedOn = !animatorRef.GetBool("TurnedOn");
-        animatorRef.SetBool("TurnedOn", turnedOn);
-    }
+    //public void AnimationFinish()
+    //{
+    //    animationIsPlaying = false;
+    //    turnedOn = !animatorRef.GetBool("TurnedOn");
+    //    animatorRef.SetBool("TurnedOn", turnedOn);
+    //}
 
     public void ResetItself()
     {
         StartCoroutine(WaitAndReset());
     }
 
-    IEnumerator WaitAndReset()
+    private IEnumerator WaitAndReset()
     {
-        yield return new WaitWhile(() => animationPlaying);
+        yield return new WaitWhile(() => animationIsPlaying);
 
-        Debug.Log("my id " + myLeverId + "am turned " + turnedOn);
-        if (turnedOn)
+        if (!turnedOn)
         {
-            yield return new WaitForSeconds(Random.Range(0.0f, 0.2f));
-            animationPlaying = true;
-            turnedOn = false;
-            animatorRef.SetTrigger("Move");
-            yield return new WaitForSeconds(1.5f);
-            audioRef.Play();
+            yield break;
         }
+
+        yield return new WaitForSeconds(Random.Range(0.0f, 0.2f));
+        animationIsPlaying = true;
+        turnedOn = false;
+        animatorRef.SetTrigger("Move");
+        yield return new WaitForSeconds(1.5f);
+        PlaySound();
     }
 }

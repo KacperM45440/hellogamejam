@@ -16,7 +16,7 @@ public class MenuScript : MonoBehaviour
 
     private void Awake()
     {
-        RemovePlayerFromGame();
+        //RemovePlayerFromGame();
     }
 
     void Update()
@@ -24,19 +24,20 @@ public class MenuScript : MonoBehaviour
         ShowCursor();
     }
 
-    private void RemovePlayerFromGame()
-    {
-        if (PlayerReference.Instance != null)
-        {
-            Destroy(PlayerReference.Instance.transform.parent.gameObject);
-            caseAnimatorRef.SetTrigger("MenuAnimClose");
-        }
-        else
-        {
-            //If menu scene is the first scene loaded (game launch), ignore error
-            Debug.LogError("Menu - Player instance not found.");
-        }
-    }
+    //Problably no longer needed if we're going to remove player from DontDestroyOnLoad()
+    //private void RemovePlayerFromGame()
+    //{
+    //    if (PlayerReference.Instance != null)
+    //    {
+    //        Destroy(PlayerReference.Instance.transform.parent.gameObject);
+    //        caseAnimatorRef.SetTrigger("MenuAnimClose");
+    //    }
+    //    else
+    //    {
+    //        //If menu scene is the first scene loaded (game launch), ignore error
+    //        Debug.LogError("Menu - Player instance not found.");
+    //    }
+    //}
 
     private void ShowCursor()
     {

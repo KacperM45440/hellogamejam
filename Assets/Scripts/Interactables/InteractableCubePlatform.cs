@@ -1,30 +1,39 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class InteractableCubePlatform : InteractableObject
 {
-    public int platformId;
-
-    private AudioSource audioSourceRef;
-    [SerializeField] private AudioClip putCube;
-    //[SerializeField] private AudioClip takeCube;
-    [SerializeField] private AudioClip noCubeInInventory;
+    [SerializeField] private CubePuzzleController puzzleControllerRef;
+    [SerializeField] private PlayerReferences playerReferencesRef;
+    [SerializeField] private AudioSource platformAudioSource;
+    [SerializeField] private AudioClip placeCubeSFX;
+    [SerializeField] private AudioClip missingCubeSFX;
     [SerializeField] private GameObject cubePrefab;
-
     [SerializeField] private Vector3 cubeSpot;
 
+    private PlayerEquipment playerEquipmentRef;
+
+    public int platformId;
     public bool hasCube = false;
     private bool startsWithCube = false;
     private bool canBeInteracted = true;
 
-    void Start()
+    private void Start()
     {
-        audioSourceRef = GetComponent<AudioSource>();
+        InitializeReferences();
+        InitializePlatforms();
+    }
+
+    private void InitializeReferences()
+    {
+        playerEquipmentRef = playerReferencesRef.GetPlayerEquipment();
+    }
+
+    private void InitializePlatforms()
+    {
         if (hasCube)
         {
-            CubePuzzleController.instance.PlatformTurnOn(platformId);
+            puzzleControllerRef.PlatformTurnOn(platformId);
             startsWithCube = true;
         }
     }
@@ -36,58 +45,46 @@ public class InteractableCubePlatform : InteractableObject
             startsWithCube = false;
             return;
         }
-        bool isCubeInInventory = PlayerEquipment.Instance.isItemExist("Cube");
+        bool isCubeInInventory = playerEquipmentRef.DoesItemExist("Cube");
         
-        //powinno mieæ obwódkê tylko jak nie ma na tym skrzynki
-        if(isCubeInInventory && !hasCube)
+        //Should only outline when a cube is not placed
+        if (isCubeInInventory && !hasCube)
         {
-            audioSourceRef.clip = putCube;
-            PlayerReference.Instance.playerMovement.DoAction("GetItem", 1.5f);
+            platformAudioSource.clip = placeCubeSFX;
+            playerReferencesRef.GetPlayerMovement().StopAndPlayAnimation("GetItem", 1.5f);
             DropCube();
 
             GameObject newCube = Instantiate(cubePrefab, transform);
             newCube.transform.localPosition = cubeSpot;
             newCube.transform.localScale = new Vector3(1f, 1f, 1f);
             InteractableCubePickup newCubeRef = newCube.GetComponent<InteractableCubePickup>();
-            newCubeRef.parentPlatform = gameObject;
+            newCubeRef.SetParentPlatform(gameObject);
             newCubeRef.SpawnedAnimated();
             hasCube = true;
-            //TUTAJ POWINNO RÓWNIE¯ NADAWAÆ KOSTCE NATYCHMIASTOWO OUTLINE
-            CubePuzzleController.instance.PlatformTurnOn(platformId);
+            //Should outline here too
+            puzzleControllerRef.PlatformTurnOn(platformId);
         }
-        audioSourceRef.Play();
-        StartCoroutine(WaitUntilInteractable());
-    }
 
-    IEnumerator WaitUntilInteractable()
-    {
-        canBeInteracted = false;
-        yield return new WaitForSeconds(1.5f);
-        canBeInteracted = true;
+        platformAudioSource.Play();
+        StartCoroutine(WaitUntilInteractable());
     }
 
     public void PickedUpCube()
     {
         hasCube = false;
-        canBeInteractedWith = true;
-        CubePuzzleController.instance.PlatformTurnOff(platformId);
+        EnableInteraction();
+        puzzleControllerRef.PlatformTurnOff(platformId);
     }
 
-    void DropCube()
+    private void DropCube()
     {
-        for (int i = 0; i < 3; i++)
-        {
-            if (PlayerEquipment.Instance.heldObjectNames[i].Equals("Cube"))
-            {
-                PlayerEquipment.Instance.heldObjectNames[i] = "";
-                PlayerEquipment.Instance.heldObjectSprites[i] = null;
-                PlayerEquipment.Instance.slots[i].GetComponent<Image>().sprite = null;
+        playerEquipmentRef.DropItem("Cube");
+    }
 
-                Color c = PlayerEquipment.Instance.slots[i].GetComponent<Image>().color;
-                c.a = 0;
-                PlayerEquipment.Instance.slots[i].GetComponent<Image>().color = c;
-                break;
-            }
-        }
+    private IEnumerator WaitUntilInteractable()
+    {
+        canBeInteracted = false;
+        yield return new WaitForSeconds(1.5f);
+        canBeInteracted = true;
     }
 }

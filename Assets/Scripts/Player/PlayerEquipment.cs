@@ -1,35 +1,42 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerEquipment : MonoBehaviour
 {
-    private static PlayerEquipment _instance;
-    public static PlayerEquipment Instance { get { return _instance; } }
-    public List<string> heldObjectNames;
-    public List<Sprite> heldObjectSprites;
-    public GameObject slot0;
-    public GameObject slot1;
-    public GameObject slot2;
-
-    public List<GameObject> slots = new();
-    private void Awake()
+    private List<string> heldObjectNames;
+    private List<Sprite> heldObjectSprites;
+    private GameObject slot0, slot1, slot2;
+    private List<GameObject> slots = new();
+    
+    private void Start()
     {
-        if (_instance != null && _instance != this)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            _instance = this;
-        }
+        CreateItemSlots();
+    }
 
+    private void CreateItemSlots()
+    {
         slots.Add(slot0);
         slots.Add(slot1);
         slots.Add(slot2);
     }
+
+    public List<string> GetHeldObjects()
+    {
+        return heldObjectNames;
+    }
+
+    public void SetHeldObjectData(int slotIndex, string givenName, Sprite givenSprite)
+    {
+        heldObjectNames[slotIndex] = givenName;
+        heldObjectSprites[slotIndex] = givenSprite;
+    }
+
+    public void AddObject(string givenName, Sprite givenSprite)
+    {
+        heldObjectNames.Add(givenName);
+        heldObjectSprites.Add(givenSprite);
+    }    
 
     public void ShowItems(int slotIndex)
     {
@@ -40,10 +47,42 @@ public class PlayerEquipment : MonoBehaviour
         slots[slotIndex].GetComponent<Image>().color = c;
     }
 
-    public bool isItemExist(string itemName) {
-        foreach (string name in heldObjectNames) {
-            if (name.Equals(itemName)) return true;
+    public List<GameObject> GetItemSlots()
+    {
+        return slots;
+    }
+
+    public void SetItemSlotImage(int index, Sprite newImage, Color newColor)
+    {
+        slots[index].GetComponent<Image>().sprite = newImage;
+        slots[index].GetComponent<Image>().color = newColor;
+    }
+
+    public bool DoesItemExist(string itemName) 
+    {
+        foreach (string name in heldObjectNames) 
+        {
+            if (name.Equals(itemName))
+            {
+                return true;
+            }
         }
+
         return false;
+    }
+
+    public void DropItem(string itemName)
+    {
+        for (int i = 0; i < slots.Count; i++)
+        {
+            if (GetHeldObjects()[i].Equals(itemName))
+            {
+                Color newColor = GetItemSlots()[i].GetComponent<Image>().color;
+                newColor.a = 0;
+                SetHeldObjectData(i, "", null);
+                SetItemSlotImage(i, null, newColor);
+                break;
+            }
+        }
     }
 }    

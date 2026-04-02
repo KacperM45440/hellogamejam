@@ -1,68 +1,68 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PauseScript : MonoBehaviour
 {
-    private static PauseScript _instance;
-    public static PauseScript Instance { get { return _instance; } }
     [SerializeField] private PlayerMovement movementRef;
-    [SerializeField] private ModelTakePhoto photoRef;
-    public GameObject overlayRef;
-    public RawImage gameMask;
-    public Image mirrorMask;
+    [SerializeField] private TakePhoto photoRef;
+    [SerializeField] private GameObject pauseOverlay;
+    [SerializeField] private RawImage gameMask;
+    [SerializeField] private Image mirrorMask;
+    [SerializeField] private string menuSceneName = "Menu";
     private bool isPaused;
 
-    private void Awake()
+    //Should be moved to the New Input System whenever, for the sake of multi-platform
+    private void Update()
     {
-        if (_instance != null && _instance != this)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            _instance = this;
-        }
+        CheckEscapeKey();
     }
-    // Update is called once per frame
-    void Update()
-    {
 
+    private void CheckEscapeKey()
+    {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (isPaused)
+            if (IsGamePaused())
             {
-                Resume();
+                ResumeGame();
                 return;
             }
 
-            isPaused = true;
-            movementRef.freezeMovement = true;
-            photoRef.enabled = false;
-            overlayRef.SetActive(true);
+            PauseGame();
         }
     }
 
-    public void ReturnToMenu()
+    public bool IsGamePaused()
     {
-        //czysto technicznie loadscene nie powinien byc przypiety do FadeScreens, ale i tak nic innego tego nie uzyje
-        StartCoroutine(FadeScreens());
+        return isPaused == true;
     }
 
-    public void Resume()
+    private void PauseGame()
+    {
+        isPaused = true;
+        movementRef.DisableMovement();
+        photoRef.enabled = false;
+        pauseOverlay.SetActive(true);
+    }
+
+    private void ResumeGame()
     {
         isPaused = false;
-        overlayRef.SetActive(false);
-        movementRef.freezeMovement = false;
+        pauseOverlay.SetActive(false);
+        movementRef.EnableMovement();
         photoRef.enabled = true;
         Cursor.visible = false;
     }
 
-    public IEnumerator FadeScreens()
+    public void ReturnToMenu()
     {
-        overlayRef.SetActive(false);
+        StartCoroutine(FadeScreens());
+    }
+
+    private IEnumerator FadeScreens()
+    {
+        pauseOverlay.SetActive(false);
 
         Color c1 = gameMask.color;
         Color c2 = mirrorMask.color;
@@ -76,6 +76,6 @@ public class PauseScript : MonoBehaviour
         }
 
         isPaused = false;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(menuSceneName); //Move this line away someplace else for sake of FadeScreens() reusability?
     }
 }

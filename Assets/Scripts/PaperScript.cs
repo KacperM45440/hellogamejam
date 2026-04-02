@@ -1,15 +1,15 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PaperScript : MonoBehaviour
 {
+    [SerializeField] AudioSource paperSource;
+    [SerializeField] AudioClip paperSound;
     private Animator animatorRef;
     private int childCount;
     private bool clickable = false;
-    [SerializeField] AudioSource paperSource;
-    [SerializeField] AudioClip paperSound;
+
     private void Start()
     {
         if (!transform.name.Equals("PaperHugeParent"))
