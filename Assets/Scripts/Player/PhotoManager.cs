@@ -11,7 +11,7 @@ public class PhotoManager : MonoBehaviour
     [SerializeField] private TakePhoto modelRef;
     [SerializeField] private CameraObjectsDetection detectionRef;
     [SerializeField] private GhostScript ghostRef;
-    [SerializeField] private Vector2 photoResolution = new(340, 216);
+    [SerializeField] private Vector2 photoResolution = new(960, 540);
     
     private Camera cameraRef;
     private string photosFolderPath = "Photos/";
